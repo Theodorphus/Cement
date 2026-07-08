@@ -21,6 +21,22 @@ export const metadata: Metadata = {
     locale: "sv_SE",
     siteName: "Öckerö Cementgjuteri AB",
     url: SITE_URL,
+    images: [
+      {
+        url: "/assets/Hero4.png",
+        width: 1536,
+        height: 1024,
+        alt: "Öckerö Cementgjuteri — byggvaruhandel i Göteborgs skärgård",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title:
+      "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
+    description:
+      "Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar främst i Göteborgs Skärgård och Torslanda.",
+    images: ["/assets/Hero4.png"],
   },
 };
 
