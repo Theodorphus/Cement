@@ -1,0 +1,299 @@
+:root {
+  /* Design tokens (från handoff) */
+  --bg: #F6F3EC;
+  --paper: #FFFFFF;
+  --ink: #202B2E;
+  --muted: #5F6E72;
+  --deep: #24404C;
+  --footer: #1B3039;
+  --accent: #2E6E7E;
+  --sand: #E8E1D2;
+  --ljus: #FDFBF6;
+  --kant: rgba(32, 43, 46, 0.08);
+  --gron: #3E6E52;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--deep);
+  text-decoration: underline;
+}
+
+::selection {
+  background: var(--sand);
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-serif), serif;
+  font-weight: 400;
+}
+
+/* ── Animationer ── */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes heroZoom {
+  from {
+    transform: scale(1.09);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+@keyframes heroText {
+  from {
+    opacity: 0;
+    transform: translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Sidorna monteras med en mjuk fadeUp */
+.page-mount {
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ── Scroll-reveal ──
+   Prototypen använder animation-timeline: view(). Vi använder IntersectionObserver
+   (Reveal-komponenten) för bredare stöd: startläge dolt, .is-visible triggar reveal. */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+}
+
+.reveal.is-visible {
+  animation: reveal 0.7s ease both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal,
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+  .page-mount {
+    animation: none;
+  }
+}
+
+/* Om JS är avstängt: visa allt innehåll */
+.no-js .reveal {
+  opacity: 1;
+  transform: none;
+}
+
+/* ── Layout-hjälpare ── */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-left: 28px;
+  padding-right: 28px;
+}
+
+/* ── Kort-hover (matchar prototypens style-hover) ── */
+.card {
+  background: var(--paper);
+  border: 1px solid var(--kant);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 34px rgba(24, 40, 46, 0.12);
+}
+
+.card-img {
+  height: 170px;
+  display: grid;
+  place-items: center;
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.6s ease;
+}
+
+.card:hover .card-img {
+  transform: scale(1.045);
+}
+
+/* Knappar */
+.btn {
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+  display: inline-block;
+  transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.btn:hover {
+  text-decoration: none;
+}
+
+.btn-light {
+  background: var(--ljus);
+  color: var(--deep);
+}
+
+.btn-light:hover {
+  background: var(--sand);
+  color: var(--deep);
+  transform: translateY(-2px);
+}
+
+.btn-deep {
+  background: var(--deep);
+  color: var(--ljus);
+}
+
+.btn-deep:hover {
+  background: var(--accent);
+  color: var(--ljus);
+  transform: translateY(-2px);
+}
+
+.btn-outline:hover {
+  background: var(--paper);
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+/* Nav-hover (matchar prototypens style-hover); aktiv länk behåller sin stil */
+.nav-link:hover {
+  color: var(--deep) !important;
+  background: rgba(36, 64, 76, 0.07);
+  text-decoration: none;
+}
+
+/* Footer-länkar som ljusnar vid hover */
+.footer-link {
+  cursor: pointer;
+  color: rgba(253, 251, 246, 0.75);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: var(--ljus);
+  text-decoration: none;
+}
+
+/* Leverantörsnamn i strip: grå → deep vid hover */
+.lev-strip {
+  font-family: var(--font-serif), serif;
+  font-size: 20px;
+  color: #8a968f;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.lev-strip:hover {
+  color: var(--deep);
+  text-decoration: none;
+}
+
+/* Leverantörskort */
+.lev-card:hover {
+  box-shadow: 0 12px 28px rgba(24, 40, 46, 0.1);
+}
+
+/* Underkategori-kort (kategorisidan) */
+.sub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(24, 40, 46, 0.1);
+  text-decoration: none;
+}
+
+/* Enkla text-länk-knappar */
+.link-arrow {
+  cursor: pointer;
+  color: var(--accent);
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.link-arrow:hover {
+  color: var(--deep);
+  text-decoration: none;
+}
+
+/* Responsivt: låt grid-kolumner rada om på små skärmar */
+@media (max-width: 860px) {
+  .grid-2 {
+    grid-template-columns: 1fr !important;
+  }
+  .grid-3 {
+    grid-template-columns: 1fr !important;
+  }
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 560px) {
+  .footer-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Kontaktformulärets panel ska inte fastna sticky på mobil */
+@media (max-width: 860px) {
+  .contact-form-panel {
+    position: static !important;
+  }
+}
+
+/* Nedskala stora rubriker på mobil så de inte spiller över */
+@media (max-width: 640px) {
+  h1 {
+    font-size: 40px !important;
+  }
+  h2 {
+    font-size: 32px !important;
+  }
+}
