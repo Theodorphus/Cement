@@ -47,15 +47,15 @@ export default function Home() {
           }}
         />
         <div
-          className="container"
+          className="container hero-inner"
           style={{
             position: "relative",
-            padding: "120px 28px 72px",
             width: "100%",
             boxSizing: "border-box",
           }}
         >
           <div
+            className="hero-eyebrow"
             style={{
               fontSize: 12,
               letterSpacing: "0.22em",
@@ -99,6 +99,7 @@ export default function Home() {
             erbjuder vi byggmaterial, maskinuthyrning, ved och färdig betong.
           </p>
           <div
+            className="hero-cta"
             style={{
               display: "flex",
               gap: 14,

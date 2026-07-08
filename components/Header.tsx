@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 import { NAV_ITEMS } from "@/lib/data";
 
 function isActive(pathname: string, href: string, matchPrefix?: string[]): boolean {
@@ -12,6 +13,20 @@ function isActive(pathname: string, href: string, matchPrefix?: string[]): boole
 
 export default function Header() {
   const pathname = usePathname();
+  const [open, setOpen] = useState(false);
+
+  // Stäng menyn vid sidbyte.
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
+
+  // Lås scroll när mobilmenyn är öppen.
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [open]);
 
   return (
     <header
@@ -26,19 +41,19 @@ export default function Header() {
       }}
     >
       <div
-        className="container"
+        className="container header-inner"
         style={{
           padding: "12px 28px",
           display: "flex",
           alignItems: "center",
           justifyContent: "space-between",
           minHeight: 52,
-          gap: 24,
-          flexWrap: "wrap",
+          gap: 16,
         }}
       >
         <Link
           href="/"
+          className="brand"
           style={{
             cursor: "pointer",
             display: "flex",
@@ -46,6 +61,7 @@ export default function Header() {
             gap: 13,
             flex: "none",
             textDecoration: "none",
+            minWidth: 0,
           }}
         >
           <div
@@ -65,8 +81,9 @@ export default function Header() {
           >
             Ö
           </div>
-          <div>
+          <div style={{ minWidth: 0 }}>
             <div
+              className="brand-name"
               style={{
                 fontFamily: "var(--font-serif), serif",
                 fontSize: 21,
@@ -78,6 +95,7 @@ export default function Header() {
               Öckerö Cementgjuteri
             </div>
             <div
+              className="brand-tag"
               style={{
                 fontSize: 10.5,
                 letterSpacing: "0.14em",
@@ -91,7 +109,8 @@ export default function Header() {
           </div>
         </Link>
 
-        <nav style={{ display: "flex", gap: 4, alignItems: "center", flexWrap: "wrap" }}>
+        {/* Desktop-nav */}
+        <nav className="nav-desktop" style={{ display: "flex", gap: 4, alignItems: "center" }}>
           {NAV_ITEMS.map((nv) => {
             const active = isActive(pathname, nv.href, nv.matchPrefix);
             return (
@@ -111,6 +130,38 @@ export default function Header() {
                   whiteSpace: "nowrap",
                   textDecoration: "none",
                 }}
+              >
+                {nv.label}
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Hamburgerknapp (endast mobil) */}
+        <button
+          type="button"
+          className="nav-toggle"
+          aria-label={open ? "Stäng meny" : "Öppna meny"}
+          aria-expanded={open}
+          onClick={() => setOpen((v) => !v)}
+        >
+          <span className={`nav-toggle-bar${open ? " is-open-1" : ""}`} />
+          <span className={`nav-toggle-bar${open ? " is-open-2" : ""}`} />
+          <span className={`nav-toggle-bar${open ? " is-open-3" : ""}`} />
+        </button>
+      </div>
+
+      {/* Mobilmeny (fälls ut under headern) */}
+      <div className={`nav-mobile${open ? " is-open" : ""}`}>
+        <nav>
+          {NAV_ITEMS.map((nv) => {
+            const active = isActive(pathname, nv.href, nv.matchPrefix);
+            return (
+              <Link
+                key={nv.href}
+                href={nv.href}
+                className="nav-mobile-link"
+                data-active={active ? "true" : undefined}
               >
                 {nv.label}
               </Link>

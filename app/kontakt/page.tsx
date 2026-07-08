@@ -79,6 +79,7 @@ export default function KontaktPage() {
               {KONTAKTER.map((pers) => (
                 <div
                   key={pers.name}
+                  className="kontakt-rad"
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -88,12 +89,15 @@ export default function KontaktPage() {
                     paddingBottom: 14,
                   }}
                 >
-                  <div>
+                  <div style={{ minWidth: 0 }}>
                     <div style={{ fontWeight: 600, fontSize: 15.5 }}>
                       {pers.name}
                     </div>
                     {pers.email && (
-                      <a href={`mailto:${pers.email}`} style={{ fontSize: 13.5 }}>
+                      <a
+                        href={`mailto:${pers.email}`}
+                        style={{ fontSize: 13.5, wordBreak: "break-word" }}
+                      >
                         {pers.email}
                       </a>
                     )}
@@ -104,6 +108,7 @@ export default function KontaktPage() {
                       fontWeight: 600,
                       fontSize: 14.5,
                       whiteSpace: "nowrap",
+                      flex: "none",
                     }}
                   >
                     {pers.phone}
