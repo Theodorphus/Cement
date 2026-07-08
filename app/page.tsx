@@ -2,6 +2,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CategoryCard from "@/components/CategoryCard";
 import HeroVideo from "@/components/HeroVideo";
+import Wave from "@/components/Wave";
 import { KATEGORIER, LEVERANTORER } from "@/lib/data";
 
 const EJDER_IMG = "/assets/Ejder.jpg";
@@ -23,7 +24,7 @@ export default function Home() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/Hero2.png')",
+            backgroundImage: "url('/assets/Hero3.png')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             animation: "heroZoom 16s ease-out both",
@@ -186,53 +187,60 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ── 01 — Sortiment ── */}
-      <Reveal
-        style={{ maxWidth: 1200, margin: "0 auto", padding: "90px 28px 30px" }}
-      >
-        <div
-          style={{
-            display: "flex",
-            alignItems: "baseline",
-            justifyContent: "space-between",
-            gap: 20,
-            marginBottom: 34,
-            flexWrap: "wrap",
-          }}
-        >
-          <div>
-            <div style={sectionEyebrow}>01 — Produkter</div>
-            <h2 style={{ fontSize: 46, margin: 0 }}>Vårt sortiment</h2>
-          </div>
-          <Link href="/produkter" className="link-arrow" style={{ fontSize: 15 }}>
-            Alla produkter →
-          </Link>
+      {/* ── 01 — Sortiment (sandband för rytm) ── */}
+      <div style={{ marginTop: 70 }}>
+        <Wave fill="rgba(232,225,210,0.5)" />
+        <div className="band-sand" style={{ paddingBottom: 8 }}>
+          <Reveal
+            style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 30px" }}
+          >
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                justifyContent: "space-between",
+                gap: 20,
+                marginBottom: 34,
+                flexWrap: "wrap",
+              }}
+            >
+              <div>
+                <div style={sectionEyebrow}>01 — Produkter</div>
+                <h2 style={{ fontSize: 46, margin: 0 }}>Vårt sortiment</h2>
+              </div>
+              <Link href="/produkter" className="link-arrow" style={{ fontSize: 15 }}>
+                Alla produkter →
+              </Link>
+            </div>
+            <div
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
+                gap: 20,
+              }}
+            >
+              {KATEGORIER.map((kat) => (
+                <CategoryCard
+                  key={kat.slug}
+                  href={`/produkter/${kat.slug}`}
+                  name={kat.name}
+                  desc={kat.desc}
+                  img={kat.img}
+                />
+              ))}
+            </div>
+          </Reveal>
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
-            gap: 20,
-          }}
-        >
-          {KATEGORIER.map((kat) => (
-            <CategoryCard
-              key={kat.slug}
-              href={`/produkter/${kat.slug}`}
-              name={kat.name}
-              desc={kat.desc}
-              img={kat.img}
-            />
-          ))}
-        </div>
-      </Reveal>
+        <Wave fill="rgba(232,225,210,0.5)" flip />
+      </div>
 
       {/* ── 02 — Uthyrning-band ── */}
       <Reveal style={{ maxWidth: 1200, margin: "0 auto", padding: "50px 28px" }}>
         <div
           className="grid-2"
           style={{
-            background: "var(--deep)",
+            background:
+              "linear-gradient(135deg, #24404C 0%, #1F4A56 55%, #2E6E7E 130%)",
             borderRadius: 16,
             padding: "52px 56px",
             display: "flex",
@@ -240,6 +248,7 @@ export default function Home() {
             justifyContent: "space-between",
             gap: 36,
             flexWrap: "wrap",
+            boxShadow: "0 20px 46px rgba(24,40,46,0.18)",
           }}
         >
           <div style={{ maxWidth: "58ch" }}>
@@ -403,51 +412,64 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ── Leverantörsstrip ── */}
-      <Reveal
+      {/* ── Leverantörsstrip (djupblått band, förankrar sidfoten) ── */}
+      <div
         style={{
-          borderTop: "1px solid var(--kant)",
-          background: "var(--paper)",
+          marginTop: 40,
+          marginBottom: -1,
+          background: "#1B3039",
         }}
       >
+        <Wave fill="#22404B" />
         <div
-          className="container"
           style={{
-            padding: "44px 28px",
-            display: "flex",
-            alignItems: "center",
-            gap: 16,
-            flexWrap: "wrap",
-            justifyContent: "space-between",
+            background:
+              "linear-gradient(180deg, #22404B 0%, #1B3039 100%)",
           }}
         >
           <div
+            className="container"
             style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "var(--muted)",
-              flex: "none",
-            }}
-          >
-            Våra leverantörer
-          </div>
-          <div
-            style={{
+              padding: "48px 28px 60px",
               display: "flex",
-              gap: 30,
-              flexWrap: "wrap",
               alignItems: "center",
+              gap: 16,
+              flexWrap: "wrap",
+              justifyContent: "space-between",
             }}
           >
-            {LEVERANTORER.map((lev) => (
-              <Link key={lev.name} href="/vara-leverantorer" className="lev-strip">
-                {lev.name}
-              </Link>
-            ))}
+            <div
+              style={{
+                fontSize: 11,
+                letterSpacing: "0.14em",
+                textTransform: "uppercase",
+                color: "rgba(253,251,246,0.55)",
+                flex: "none",
+              }}
+            >
+              Våra leverantörer
+            </div>
+            <div
+              style={{
+                display: "flex",
+                gap: 30,
+                flexWrap: "wrap",
+                alignItems: "center",
+              }}
+            >
+              {LEVERANTORER.map((lev) => (
+                <Link
+                  key={lev.name}
+                  href="/vara-leverantorer"
+                  className="lev-strip lev-strip-dark"
+                >
+                  {lev.name}
+                </Link>
+              ))}
+            </div>
           </div>
         </div>
-      </Reveal>
+      </div>
     </div>
   );
 }

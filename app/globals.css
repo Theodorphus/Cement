@@ -21,10 +21,30 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
   color: var(--ink);
   font-family: var(--font-sans), system-ui, sans-serif;
   -webkit-font-smoothing: antialiased;
+}
+
+/* Havskänsla i bakgrunden: varm sand upptill som mjukt tonar mot ett svalt
+   havsdis nedåt. Fixerad så den ligger stilla när man scrollar. */
+/* Havskänsla: varm sand upptill som tonar mot svalt havsdis nedåt.
+   Gradienten ligger på main (som är content-hög, se layout) så den täcker
+   exakt innehållet. Body är footer-färgad så ev. tom yta under footern på
+   höga skärmar läser mörkt, aldrig som en ljus glipa. */
+body {
+  background-color: var(--footer);
+}
+
+main {
+  background-color: var(--bg);
+  background-image: linear-gradient(
+    180deg,
+    #f6f3ec 0%,
+    #f1efe8 34%,
+    #e9edea 68%,
+    #e2ebeb 100%
+  );
 }
 
 a {
@@ -134,18 +154,60 @@ h3 {
   padding-right: 28px;
 }
 
+/* ── Sektionsband för rytm/djup ── */
+.band-sand {
+  background: linear-gradient(180deg, rgba(232, 225, 210, 0.55), rgba(232, 225, 210, 0.28));
+}
+
+.band-mist {
+  background: linear-gradient(180deg, rgba(226, 235, 235, 0.6), rgba(226, 235, 235, 0.25));
+}
+
+/* Vågform som mjuk övergång mellan sektioner (SVG-mask via bakgrund) */
+.wave {
+  display: block;
+  width: 100%;
+  height: 48px;
+  line-height: 0;
+}
+
+.wave svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 /* ── Kort-hover (matchar prototypens style-hover) ── */
 .card {
+  position: relative;
   background: var(--paper);
   border: 1px solid var(--kant);
   border-radius: 12px;
   overflow: hidden;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .card:hover {
   transform: translateY(-4px);
   box-shadow: 0 16px 34px rgba(24, 40, 46, 0.12);
+  border-color: rgba(46, 110, 126, 0.35);
+}
+
+/* Tunn havsaccent som tänds längst upp på kortet vid hover */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--deep));
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.card:hover::after {
+  opacity: 1;
 }
 
 .card-img {
@@ -234,6 +296,15 @@ h3 {
 .lev-strip:hover {
   color: var(--deep);
   text-decoration: none;
+}
+
+/* Leverantörsnamn på mörkt band */
+.lev-strip-dark {
+  color: rgba(253, 251, 246, 0.72);
+}
+
+.lev-strip-dark:hover {
+  color: var(--ljus);
 }
 
 /* Leverantörskort */

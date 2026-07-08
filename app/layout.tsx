@@ -42,7 +42,9 @@ export default function RootLayout({
         >
           <TopBanner />
           <Header />
-          <main style={{ flex: 1 }}>{children}</main>
+          {/* Ingen flex:1 här — main är innehållshög så footern följer direkt
+              utan ljus glipa. Body (footer-färgad) fyller ev. rest på höga skärmar. */}
+          <main>{children}</main>
           <Footer />
         </div>
       </body>
