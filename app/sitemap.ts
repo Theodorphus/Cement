@@ -1,12 +1,13 @@
 import type { MetadataRoute } from "next";
-import { KATEGORIER, SUBKATEGORIER } from "@/lib/data";
+import { KATEGORIER } from "@/lib/data";
+import { UNDERSIDOR, UTHYRNING_SIDOR, LEVERANTOR_SIDOR } from "@/lib/innehall";
 
 const BASE = "https://ockerocement.se";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const staticPaths = [
+  const statiska = [
     "",
     "/produkter",
     "/uthyrning",
@@ -16,19 +17,21 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/miljo/miljodiplom",
     "/aktuellt",
     "/kontakt",
+    "/integritetspolicy",
   ];
 
-  const kategoriPaths = KATEGORIER.map((k) => `/produkter/${k.slug}`);
+  const kategorier = KATEGORIER.map((k) => `/produkter/${k.slug}`);
+  const produkter = UNDERSIDOR.map((u) => `/produkter/${u.kategori}/${u.slug}`);
+  const maskiner = UTHYRNING_SIDOR.map((s) => `/uthyrning/${s.slug}`);
+  const leverantorer = LEVERANTOR_SIDOR.map((s) => `/vara-leverantorer/${s.slug}`);
 
-  // Produktsidor finns endast under Markbeläggning i denna version.
-  const produktPaths = SUBKATEGORIER.map(
-    (s) => `/produkter/markbelaggning/${s.slug}`
-  );
+  const alla = [...statiska, ...kategorier, ...produkter, ...maskiner, ...leverantorer];
 
-  return [...staticPaths, ...kategoriPaths, ...produktPaths].map((path) => ({
+  return alla.map((path) => ({
     url: `${BASE}${path}`,
     lastModified: now,
     changeFrequency: path === "" ? "weekly" : "monthly",
-    priority: path === "" ? 1 : path.startsWith("/produkter") ? 0.8 : 0.6,
+    priority:
+      path === "" ? 1 : path.startsWith("/produkter") ? 0.8 : path === "/integritetspolicy" ? 0.3 : 0.6,
   }));
 }

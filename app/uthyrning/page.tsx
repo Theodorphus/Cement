@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { UTHYRNING, PLACEHOLDER_STRIPES } from "@/lib/data";
 
@@ -39,7 +40,12 @@ export default function UthyrningPage() {
         }}
       >
         {UTHYRNING.map((mask) => (
-          <div key={mask.name} className="card">
+          <Link
+            key={mask.name}
+            href={`/uthyrning/${mask.slug}`}
+            className="card"
+            style={{ textDecoration: "none", color: "inherit", display: "block" }}
+          >
             <div
               className="card-img"
               style={{
@@ -77,14 +83,13 @@ export default function UthyrningPage() {
               >
                 {mask.desc}
               </div>
-              <a
-                href="tel:031966066"
+              <span
                 style={{ color: "var(--accent)", fontWeight: 600, fontSize: 14 }}
               >
-                Ring för bokning →
-              </a>
+                Läs mer →
+              </span>
             </div>
-          </div>
+          </Link>
         ))}
       </div>
     </div>

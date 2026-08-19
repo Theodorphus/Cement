@@ -162,13 +162,9 @@ export default function Footer() {
         >
           <span>© 2026 Öckerö Cementgjuteri AB</span>
           <span>
-            <a href="#" style={{ color: "rgba(253,251,246,0.7)" }}>
-              Cookies
-            </a>{" "}
-            ·{" "}
-            <a href="#" style={{ color: "rgba(253,251,246,0.7)" }}>
-              Hantera cookieinställningar
-            </a>
+            <Link href="/integritetspolicy" style={{ color: "rgba(253,251,246,0.7)" }}>
+              Integritetspolicy
+            </Link>
           </span>
         </div>
       </div>

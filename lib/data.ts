@@ -5,7 +5,7 @@
 
 export const FORETAG = {
   namn: "Öckerö Cementgjuteri AB",
-  adressRad1: "Industriområde S Långesand 7",
+  adressRad1: "Långesand 7",
   adressRad2: "475 31 Öckerö",
   telefon: "031-96 60 66",
   telefonHref: "tel:031966066",
@@ -165,6 +165,7 @@ export function getSubkategori(slug: string): Subkategori | undefined {
 }
 
 export type Maskin = {
+  slug: string;
   name: string;
   desc: string;
   img: string | null;
@@ -172,21 +173,25 @@ export type Maskin = {
 
 export const UTHYRNING: Maskin[] = [
   {
+    slug: "kombihammare-kapmaskin",
     name: "Kombihammare/Kapmaskin",
     desc: "För rivning, bilning och kapning.",
     img: "/assets/KombihammareKapmaskin.png",
   },
   {
+    slug: "betongslip-dammsugare",
     name: "Betongslip/Dammsugare",
     desc: "Slipa betonggolv dammfritt.",
     img: "/assets/BetongslipDammsugare.png",
   },
   {
+    slug: "jordfras",
     name: "Jordfräs",
     desc: "Förbered rabatter och gräsmatta.",
     img: "/assets/Jordfr%C3%A4s.png",
   },
   {
+    slug: "ovrigt",
     name: "Övrigt",
     desc: "Fler maskiner och tillbehör — ring oss.",
     img: null,
@@ -194,18 +199,19 @@ export const UTHYRNING: Maskin[] = [
 ];
 
 export type Leverantor = {
+  slug: string;
   name: string;
   desc: string;
 };
 
 export const LEVERANTORER: Leverantor[] = [
-  { name: "S:T Eriks", desc: "Marksten, plattor och murar." },
-  { name: "Benders", desc: "Tak- och marksten." },
-  { name: "Weber", desc: "Bruk, puts och golvavjämning." },
-  { name: "Jackon", desc: "Isolering och grundelement." },
-  { name: "BE-Group", desc: "Armering och stål." },
-  { name: "Wienerberger", desc: "Tegel och mursten." },
-  { name: "Vedums Gräs", desc: "Färdig gräsmatta på rulle." },
+  { slug: "st-eriks", name: "S:T Eriks", desc: "Marksten, plattor och murar." },
+  { slug: "benders", name: "Benders", desc: "Tak- och marksten." },
+  { slug: "weber", name: "Weber", desc: "Bruk, puts och golvavjämning." },
+  { slug: "jackon", name: "Jackon", desc: "Isolering och grundelement." },
+  { slug: "be-group", name: "BE-Group", desc: "Armering och stål." },
+  { slug: "wienerberger", name: "Wienerberger", desc: "Tegel och mursten." },
+  { slug: "vedums-gras", name: "Vedums Gräs", desc: "Färdig gräsmatta på rulle." },
 ];
 
 export type Kontakt = {

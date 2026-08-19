@@ -9,6 +9,7 @@ import {
   MARKBELAGGNING_HERO,
   PLACEHOLDER_STRIPES,
 } from "@/lib/data";
+import { undersidorFor } from "@/lib/innehall";
 
 export function generateStaticParams() {
   return KATEGORIER.map((k) => ({ kategori: k.slug }));
@@ -37,11 +38,21 @@ export default async function KategoriPage({
   const kat = getKategori(kategori);
   if (!kat) notFound();
 
-  // Markbeläggning har underkategorier i prototypen; övriga kategorier visar
-  // en kort presentation + samma sand-callout.
-  const harSubkategorier = kat.slug === "markbelaggning";
+  // Alla kategorier utom Byggmaterial har undersidor migrerade från den gamla
+  // sajten. Beskrivningen på korten tas från de handskrivna texterna där de
+  // finns, annars från undersidans eget innehåll.
+  const undersidor = undersidorFor(kat.slug);
   const heroImg =
     kat.slug === "markbelaggning" ? MARKBELAGGNING_HERO : kat.img ?? null;
+
+  const kortText = (slug: string, namn: string) => {
+    const handskriven = SUBKATEGORIER.find((s) => s.slug === slug)?.desc;
+    if (handskriven) return handskriven;
+    const sida = undersidor.find((u) => u.slug === slug);
+    const namngivna = sida?.produkter.map((p) => p.namn).filter(Boolean) ?? [];
+    if (namngivna.length) return namngivna.slice(0, 3).join(", ");
+    return namn;
+  };
 
   return (
     <div className="page-mount">
@@ -85,7 +96,7 @@ export default async function KategoriPage({
       <section
         style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 28px 90px" }}
       >
-        {harSubkategorier ? (
+        {undersidor.length > 0 ? (
           <div
             style={{
               display: "grid",
@@ -93,7 +104,7 @@ export default async function KategoriPage({
               gap: 18,
             }}
           >
-            {SUBKATEGORIER.map((sub) => (
+            {undersidor.map((sub) => (
               <Link
                 key={sub.slug}
                 href={`/produkter/${kat.slug}/${sub.slug}`}
@@ -114,10 +125,10 @@ export default async function KategoriPage({
               >
                 <div>
                   <div style={{ fontWeight: 600, fontSize: 16.5, marginBottom: 3 }}>
-                    {sub.name}
+                    {sub.namn}
                   </div>
                   <div style={{ fontSize: 13.5, color: "var(--muted)" }}>
-                    {sub.desc}
+                    {kortText(sub.slug, sub.namn)}
                   </div>
                 </div>
                 <div style={{ color: "var(--accent)", fontSize: 18, flex: "none" }}>

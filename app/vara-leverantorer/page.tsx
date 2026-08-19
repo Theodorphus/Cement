@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 import { LEVERANTORER } from "@/lib/data";
 
@@ -30,10 +31,13 @@ export default function LeverantorerPage() {
         }}
       >
         {LEVERANTORER.map((lev) => (
-          <div
+          <Link
             key={lev.name}
+            href={`/vara-leverantorer/${lev.slug}`}
             className="lev-card"
             style={{
+              textDecoration: "none",
+              color: "inherit",
               background: "var(--paper)",
               border: "1px solid var(--kant)",
               borderRadius: 12,
@@ -53,7 +57,10 @@ export default function LeverantorerPage() {
             <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>
               {lev.desc}
             </div>
-          </div>
+            <div style={{ color: "var(--accent)", fontSize: 14, fontWeight: 600, marginTop: 12 }}>
+              Läs mer →
+            </div>
+          </Link>
         ))}
       </div>
     </div>
