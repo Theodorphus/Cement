@@ -72,6 +72,21 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".html")).sort()
     }
   }
 
+  // Utgående länkar till leverantörer m.fl. Anchor-texten är ofta tom när
+  // länken ligger runt en bild — då används bildens title i stället.
+  const lankar = new Map();
+  const are = /<a[^>]*href="(https?:\/\/[^"]+)"[^>]*>(.*?)<\/a>/g;
+  while ((m = are.exec(body))) {
+    const href = m[1];
+    if (/ockerocement\.se|yourvismawebsite\.com|facebook\.com/i.test(href)) continue;
+    const inner = m[2];
+    const text =
+      clean(inner) ||
+      dec((inner.match(/title="([^"]*)"/) || [, ""])[1]).trim() ||
+      href.replace(/^https?:\/\/(www\.)?/, "").replace(/\/$/, "");
+    if (!lankar.has(href)) lankar.set(href, text);
+  }
+
   found.sort((a, b) => a.at - b.at);
 
   // Sidans egen H1 upprepar titeln — den sätts av mallen istället.
@@ -90,13 +105,19 @@ for (const file of fs.readdirSync(dir).filter((f) => f.endsWith(".html")).sort()
     }
   }
 
-  pages.push({ url, title, blocks: merged });
+  pages.push({
+    url,
+    title,
+    blocks: merged,
+    lankar: [...lankar.entries()].map(([url, text]) => ({ url, text })),
+  });
 }
 
 fs.writeFileSync(path.join(dir, "..", "sidor.json"), JSON.stringify(pages, null, 2));
 
 const tot = pages.reduce((a, p) => a + p.blocks.length, 0);
 console.log("Sidor:", pages.length, " Block:", tot);
+console.log("  utgående länkar:", pages.reduce((a, p) => a + p.lankar.length, 0));
 console.log(
   "  rubriker:", pages.reduce((a, p) => a + p.blocks.filter((b) => b.typ === "rubrik").length, 0),
   " bilder:", pages.reduce((a, p) => a + p.blocks.filter((b) => b.typ === "bild").length, 0),

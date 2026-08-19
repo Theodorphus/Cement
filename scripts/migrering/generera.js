@@ -7,8 +7,9 @@
  */
 const fs = require("fs"), path = require("path");
 
-const SP = __dirname;
 const REPO = process.argv[2];
+// Katalog med sidor.json och cdn/ från speglingen (blocks.js skriver dit).
+const SP = process.argv[3] || __dirname;
 const sidor = require(path.join(SP, "sidor.json"));
 
 const KATEGORI = {
@@ -35,6 +36,52 @@ const SLUG = {
   kombihammarekapmaskin: "kombihammare-kapmaskin",
   betongslipdammsugare: "betongslip-dammsugare",
 };
+
+/**
+ * Länkhälsa. Gamla sajten hade 18 döda utgående länkar — mest Weibulls, som
+ * lagt om hela sin produktstruktur. En död djuplänk ersätts av domänens
+ * startsida om den lever, annars tas länken bort helt. Statusfilerna skapas
+ * av testlankar.sh och läses härifrån så resultatet blir reproducerbart.
+ */
+const DOD = new Set(["000", "404", "410"]);
+
+function lasStatus(fil) {
+  const p = fs.existsSync(path.join(SP, fil)) ? path.join(SP, fil) : path.join(__dirname, fil);
+  if (!fs.existsSync(p)) return new Map();
+  const karta = new Map();
+  for (const rad of fs.readFileSync(p, "utf8").split("\n")) {
+    const [kod, provad, original] = rad.split("\t");
+    if (original) karta.set(original.trim(), { kod: kod.trim(), url: provad.trim() });
+  }
+  return karta;
+}
+
+const lankStatus = lasStatus("lankstatus.txt");
+const domanStatus = lasStatus("domanstatus.txt");
+
+/**
+ * Jackon har köpts upp av BEWI. jackon.se saknar https och redirectar dit,
+ * så länken pekas direkt på destinationen. Om leverantörslistan ska byta
+ * namn till BEWI är en fråga för kunden.
+ */
+const OMDIRIGERADE = {
+  "jackon.se": "https://bewi.com/insulation?lang=sv",
+};
+
+/** Returnerar en fungerande url, eller null om inget svarar. */
+function levandeLank(url) {
+  const doman = url.replace(/^https?:\/\/(www\.)?([^/]+).*$/, "$2");
+  if (OMDIRIGERADE[doman]) return OMDIRIGERADE[doman];
+
+  const s = lankStatus.get(url);
+  if (s && !DOD.has(s.kod)) return s.url;
+
+  const rot = url.replace(/^(https?:\/\/[^/]+).*$/, "$1");
+  const r = domanStatus.get(rot);
+  if (r && !DOD.has(r.kod)) return r.url;
+
+  return null;
+}
 
 const slugify = (s) => s.toLowerCase()
   .replace(/[åä]/g, "a").replace(/ö/g, "o").replace(/é/g, "e")
@@ -90,9 +137,22 @@ function tillProdukter(blocks) {
   }
   if (cur) produkter.push(cur);
 
+  // Visma upprepar ofta samma bild flera gånger i samma block (karusell).
+  for (const p of produkter) {
+    const sedda = new Set();
+    p.bilder = p.bilder.filter((b) => {
+      if (!b.fil || sedda.has(b.fil)) return false;
+      sedda.add(b.fil);
+      return true;
+    });
+  }
+
   // Ren bildsida: gör varje bild till en egen post så innehållet syns.
   if (produkter.length === 0 && allaBilder.length) {
+    const sedda = new Set();
     for (const bild of allaBilder) {
+      if (sedda.has(bild.fil)) continue;
+      sedda.add(bild.fil);
       produkter.push({ namn: "", texter: [], bilder: [bild] });
     }
   }
@@ -101,6 +161,16 @@ function tillProdukter(blocks) {
 }
 
 // ── Bygg posterna ────────────────────────────────────────────────────
+function rensaLankar(lankar) {
+  const kvar = new Map();
+  for (const l of lankar || []) {
+    const url = levandeLank(l.url);
+    if (!url || kvar.has(url)) continue;
+    kvar.set(url, { url, text: l.text });
+  }
+  return [...kvar.values()];
+}
+
 const undersidor = [];
 const uthyrning = [];
 const leverantorer = [];
@@ -114,17 +184,17 @@ for (const p of sidor) {
     if (!kat) continue;
     const slug = SLUG[del[2]] || del[2];
     const { intro, produkter } = tillProdukter(p.blocks);
-    undersidor.push({ kategori: kat, slug, namn: p.title, intro, produkter });
+    undersidor.push({ kategori: kat, slug, namn: p.title, intro, produkter, lankar: rensaLankar(p.lankar) });
   } else if (del[0] === "uthyrning" && del.length === 2) {
     const slug = SLUG[del[1]] || del[1];
     const { intro, produkter } = tillProdukter(p.blocks);
-    uthyrning.push({ slug, namn: p.title, intro, produkter });
+    uthyrning.push({ slug, namn: p.title, intro, produkter, lankar: rensaLankar(p.lankar) });
   } else if (del[0] === "vara-leverantorer" && del.length === 2) {
     const { intro, produkter } = tillProdukter(p.blocks);
-    leverantorer.push({ slug: del[1], namn: p.title, intro, produkter });
+    leverantorer.push({ slug: del[1], namn: p.title, intro, produkter, lankar: rensaLankar(p.lankar) });
   } else if (p.url === "/aktuellt/gdpr---for-din-trygghet") {
     const { intro, produkter } = tillProdukter(p.blocks);
-    integritet = { namn: p.title, intro, produkter };
+    integritet = { namn: p.title, intro, produkter, lankar: rensaLankar(p.lankar) };
   }
 }
 
@@ -153,12 +223,19 @@ export type Produkt = {
   bilder: Bild[];
 };
 
+/** Utgående länk till leverantör e.d., hämtad från den gamla sidan. */
+export type Lank = {
+  url: string;
+  text: string;
+};
+
 export type Undersida = {
   kategori: string;
   slug: string;
   namn: string;
   intro: string[];
   produkter: Produkt[];
+  lankar: Lank[];
 };
 
 export type Sida = Omit<Undersida, "kategori" | "slug"> & { slug: string };

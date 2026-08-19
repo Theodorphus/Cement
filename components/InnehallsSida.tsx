@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Breadcrumb, { type Crumb } from "@/components/Breadcrumb";
-import type { Produkt } from "@/lib/innehall";
+import type { Produkt, Lank } from "@/lib/innehall";
 
 /**
  * Renderar en migrerad innehållssida: intro följt av produktkorten som
@@ -14,6 +14,7 @@ export default function InnehallsSida({
   titel,
   intro = [],
   produkter,
+  lankar = [],
   cta = true,
 }: {
   crumbs: Crumb[];
@@ -21,6 +22,7 @@ export default function InnehallsSida({
   titel: string;
   intro?: string[];
   produkter: Produkt[];
+  lankar?: Lank[];
   cta?: boolean;
 }) {
   const harBilder = produkter.some((p) => p.bilder.some((b) => b.fil));
@@ -81,6 +83,57 @@ export default function InnehallsSida({
             <ProduktKort key={i} produkt={p} />
           ))}
         </div>
+      )}
+
+      {lankar.length > 0 && (
+        <section style={{ marginTop: 40 }}>
+          <h2
+            style={{
+              fontSize: 11,
+              letterSpacing: "0.14em",
+              textTransform: "uppercase",
+              color: "var(--muted)",
+              fontFamily: "var(--font-sans), sans-serif",
+              fontWeight: 600,
+              margin: "0 0 14px",
+            }}
+          >
+            Läs mer hos tillverkaren
+          </h2>
+          <ul
+            style={{
+              listStyle: "none",
+              margin: 0,
+              padding: 0,
+              display: "flex",
+              flexWrap: "wrap",
+              gap: 10,
+            }}
+          >
+            {lankar.map((l) => (
+              <li key={l.url}>
+                <a
+                  href={l.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "inline-block",
+                    background: "var(--paper)",
+                    border: "1px solid var(--kant)",
+                    borderRadius: 999,
+                    padding: "9px 16px",
+                    fontSize: 14,
+                    color: "var(--accent)",
+                    textDecoration: "none",
+                    fontWeight: 600,
+                  }}
+                >
+                  {l.text} ↗
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       {cta && (

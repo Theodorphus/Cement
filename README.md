@@ -38,12 +38,13 @@ app/
   api/kontakt/route.ts                    tar emot formuläret (Resend om konfigurerat)
   sitemap.ts, robots.ts                   SEO
 components/                               Header, Footer, TopBanner, CategoryCard, Reveal, HeroVideo,
-                                          Breadcrumb, ContactForm, SimplePage, InnehallsSida
+                                          Breadcrumb, ContactForm, SimplePage, InnehallsSida,
+                                          StruktureradData (schema.org LocalBusiness)
 lib/
   data.ts                                 företagsuppgifter, kategorier, nav
   innehall.ts                             GENERERAD — allt migrerat sidinnehåll
   fonts.ts                                next/font
-public/assets/                            bilder + video från handoffen
+public/assets/                            bilder + video (tunga PNG:er konverterade till WebP)
 public/assets/produkter/                  182 bilder migrerade från gamla sajtens mediabibliotek
 next.config.ts                            37 permanenta redirects från gamla URL:er
 ```
@@ -51,8 +52,9 @@ next.config.ts                            37 permanenta redirects från gamla UR
 ## Innehållsmigrering
 
 Hela den gamla sajten (61 indexerade URL:er) speglades och innehållet plockades ut
-ordagrant till `lib/innehall.ts`: 184 produktposter fördelade på 32 produktundersidor,
-4 maskinsidor och 7 leverantörssidor, plus 182 bildfiler.
+ordagrant till `lib/innehall.ts`: 164 produktposter fördelade på 32 produktundersidor,
+4 maskinsidor och 7 leverantörssidor, plus 182 bildfiler och 75 kontrollerade
+utgående länkar till leverantörernas egna sajter.
 
 `lib/innehall.ts` är **genererad** — redigera den inte för hand om migreringen ska
 kunna köras om. Texterna är kundens egna och SEO-viktiga; ändra dem inte utan
@@ -63,6 +65,30 @@ avstämning.
 `next.config.ts` innehåller 37 permanenta redirects. Övriga gamla URL:er behåller
 sina slugs och behöver ingen. Alla 61 gamla adresser är verifierade att landa på en
 route som finns — kör om kontrollen efter varje ändring av slugs eller redirects.
+
+## Bilder
+
+Handoffens PNG:er är konverterade till WebP (20 MB → 2,3 MB) och har fått
+ASCII-filnamn, så referenserna slipper procent-kodning. Fyra oanvända filer är
+borttagna. Byter du ut en bild: behåll filnamnet, eller uppdatera referensen i
+`lib/data.ts`.
+
+Delningsbilden finns även som JPG (`hero-delning.jpg`) eftersom WebP stöds
+ojämnt av förhandsvisningar i sociala medier.
+
+## Integritet och cookies
+
+Sajten sätter **inga cookies** och har ingen besöksstatistik, inga annonsverktyg
+och ingen spårning. Google Maps bäddas medvetet inte in som iframe — kartan är
+en vanlig länk — vilket gör att inget tredjepartsinnehåll laddas och att
+sajten inte behöver något samtyckesbanner. Bygger du in analytics eller en
+kartinbäddning senare ändras den bedömningen, och då krävs samtycke.
+
+## Kontaktformulärets spamskydd
+
+Formuläret har ett dolt honeypot-fält och en kontroll av hur snabbt det skickas
+in. Träffar någon av dem returneras OK utan att mejl skickas, så en bot inte får
+veta att den blockerades. Ingen extern tjänst och inga cookies inblandade.
 
 ## Designtokens
 
@@ -89,15 +115,26 @@ handoffen. De migrerade produktbilderna är kundens egna men lågupplösta (mell
 Nyfotografering behövs framför allt för: startsidans hero, kategorikorten,
 butiken/gården utifrån och stämningsbilder.
 
-**Integritetspolicyn är ofullständig.** Texten på `/integritetspolicy` är kundens
-egen, men skrevs 2018 och handlar bara om kundregistret. Den säger ingenting om
-kontaktformuläret eller den inbäddade Google Maps-kartan (som sätter cookies).
-Kunden behöver komplettera, och sajten behöver troligen ett cookie-samtycke för
-kartan.
+**Integritetspolicyn bör läsas igenom av kunden.** Grundtexten är deras egen men
+skrevs 2018 och handlade bara om kundregistret. Avsnitten om cookies och
+kontaktformuläret är tillagda av oss och beskriver hur sajten faktiskt fungerar
+— men kunden ska godkänna formuleringarna.
 
-**Uppgifter att verifiera med kunden.** Öppettider, org.nr och F-skatt till footern,
+**Adressen är inte avgjord.** Gamla sajtens footer skriver "Industriområde S
+Långesand 7", kundens GDPR-dokument bara "Långesand 7". Bygget använder den korta
+formen. Fråga kunden vilken som gäller — den står även i schema.org-markupen.
+
+**Jackon heter numera BEWI.** Leverantörslänken pekar på bewi.com. Fråga om
+leverantörslistan ska byta namn.
+
+**Uppgifter att verifiera med kunden.** Org.nr och F-skatt till footern,
 kontaktpersonernas roller, leveransområde och eventuella fraktavgifter, samt om de
-fortfarande säljer färdig betong (påstås på startsidan).
+fortfarande säljer färdig betong (påstås på startsidan). Öppettiderna är
+verifierade mot gamla sajten och stämmer.
+
+**Koordinater saknas i schema.org-markupen.** `geo` är medvetet utelämnat i
+`components/StruktureradData.tsx` — fyll i riktiga koordinater när du varit
+på plats, gissa dem inte.
 
 **Miljösidorna** innehåller platshållartext. Kundens riktiga miljöpolicy och
 uppgifter om miljödiplomeringen (vilken diplomering, vilket år) saknas.

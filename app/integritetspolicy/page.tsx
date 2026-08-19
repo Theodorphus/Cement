@@ -66,6 +66,25 @@ export default function IntegritetspolicyPage() {
           Vi lämnar aldrig ut dina personuppgifter till någon annan.
         </p>
 
+        <h2 style={rubrik}>Cookies och besöksstatistik</h2>
+
+        <p style={brod}>
+          Den här webbplatsen använder inga cookies. Vi mäter inte antalet
+          besökare, använder ingen besöksstatistik och har inga annonsverktyg
+          eller spårning från tredje part. Kartan till oss är en vanlig länk
+          till Google Maps — inget kartfönster laddas in på sidan, så inget
+          spåras förrän du själv väljer att klicka dig vidare.
+        </p>
+
+        <h2 style={rubrik}>När du mejlar oss via formuläret</h2>
+
+        <p style={brod}>
+          Skickar du ett meddelande via kontaktformuläret använder vi namnet,
+          e-postadressen och meddelandet enbart för att svara dig. Uppgifterna
+          skickas till vår e-post och sparas inte i någon separat databas på
+          webbplatsen.
+        </p>
+
         <div
           style={{
             background: "var(--paper)",
@@ -109,6 +128,11 @@ const ingress: React.CSSProperties = {
   maxWidth: "62ch",
   lineHeight: 1.6,
   margin: "0 0 30px",
+};
+
+const rubrik: React.CSSProperties = {
+  fontSize: 26,
+  margin: "14px 0 -4px",
 };
 
 const brod: React.CSSProperties = {

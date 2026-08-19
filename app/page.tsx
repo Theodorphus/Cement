@@ -24,7 +24,7 @@ export default function Home() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/Hero3.png')",
+            backgroundImage: "url('/assets/hero-gard.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             animation: "heroZoom 16s ease-out both",

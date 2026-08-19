@@ -28,6 +28,10 @@ export default function ContactForm() {
   const [epost, setEpost] = useState("");
   const [medd, setMedd] = useState("");
   const [status, setStatus] = useState<Status>("idle");
+  // Spamskydd: fältet är dolt för människor men fylls i av enklare bottar.
+  const [webbplats, setWebbplats] = useState("");
+  // Andra ledet: en bot postar i princip omedelbart, en människa gör det inte.
+  const [oppnadVid] = useState(() => Date.now());
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -37,13 +41,20 @@ export default function ContactForm() {
       const res = await fetch("/api/kontakt", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ namn, epost, meddelande: medd }),
+        body: JSON.stringify({
+          namn,
+          epost,
+          meddelande: medd,
+          webbplats,
+          tid: Date.now() - oppnadVid,
+        }),
       });
       if (!res.ok) throw new Error("Serverfel");
       setStatus("sent");
       setNamn("");
       setEpost("");
       setMedd("");
+      setWebbplats("");
     } catch {
       setStatus("error");
     }
@@ -51,6 +62,21 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} style={{ display: "grid", gap: 14 }} noValidate>
+      {/* Honeypot. Ligger utanför tabbordningen och döljs för skärmläsare,
+          så den syns bara för automatik som fyller i allt den hittar. */}
+      <div aria-hidden="true" style={{ position: "absolute", left: "-9999px", top: "auto", width: 1, height: 1, overflow: "hidden" }}>
+        <label htmlFor="webbplats">Lämna detta fält tomt</label>
+        <input
+          id="webbplats"
+          name="webbplats"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          value={webbplats}
+          onChange={(e) => setWebbplats(e.target.value)}
+        />
+      </div>
+
       <div>
         <div style={labelStyle}>Namn *</div>
         <input

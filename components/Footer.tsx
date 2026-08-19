@@ -63,15 +63,26 @@ export default function Footer() {
               031-966066
             </a>
           </div>
-          <a
-            href={FORETAG.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            style={{ display: "inline-block", marginTop: 12, fontSize: 14 }}
-          >
-            Visa på karta →
-          </a>
+          <div style={{ display: "flex", gap: 18, marginTop: 12, flexWrap: "wrap" }}>
+            <a
+              href={FORETAG.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link"
+              style={{ fontSize: 14 }}
+            >
+              Visa på karta →
+            </a>
+            <a
+              href={FORETAG.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer-link"
+              style={{ fontSize: 14 }}
+            >
+              Facebook →
+            </a>
+          </div>
         </div>
 
         <div>

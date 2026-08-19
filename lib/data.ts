@@ -9,17 +9,14 @@ export const FORETAG = {
   adressRad2: "475 31 Öckerö",
   telefon: "031-96 60 66",
   telefonHref: "tel:031966066",
+  epost: "info@ockerocement.se",
+  facebook: "https://www.facebook.com/ockerocementgjuteriab",
   oppettiderRad1: "Måndag–fredag 7–16",
   oppettiderRad2: "Lördagar 9–13",
   /** Google Maps-sökning på adressen (öppnar rätt plats i alla enheter). */
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
     encodeURIComponent("Långesand 7, 475 31 Öckerö"),
-  /** Inbäddningsbar karta (kräver ingen API-nyckel). */
-  mapsEmbedUrl:
-    "https://www.google.com/maps?q=" +
-    encodeURIComponent("Långesand 7, 475 31 Öckerö") +
-    "&z=14&output=embed",
 };
 
 export type NavItem = {
@@ -52,7 +49,7 @@ export const KATEGORIER: Kategori[] = [
     slug: "betong-cement",
     name: "Betong/Cement",
     desc: "Armering, byggkemi, murbruk, putsbruk och golvavjämning.",
-    img: "/assets/BetongCement.png",
+    img: "/assets/kat-betong-cement.webp",
   },
   {
     slug: "markbelaggning",
@@ -64,25 +61,25 @@ export const KATEGORIER: Kategori[] = [
     slug: "sand-kross-jord",
     name: "Sand/Krossprodukter/Jord",
     desc: "Jord i säckar, gräsfrö och gödsel.",
-    img: "/assets/SandKrossJord.png",
+    img: "/assets/kat-sand-kross-jord.webp",
   },
   {
     slug: "byggmaterial",
     name: "Byggmaterial",
     desc: "Material för husgrund och bygge.",
-    img: "/assets/Byggmaterial.png",
+    img: "/assets/kat-byggmaterial.webp",
   },
   {
     slug: "sten-leca-ror",
     name: "Sten/Leca/Rör",
     desc: "Leca, mursten, cementsten, stegsten och rör.",
-    img: "/assets/StenLecaR%C3%B6r.png",
+    img: "/assets/kat-sten-leca-ror.webp",
   },
   {
     slug: "ved",
     name: "Ved",
     desc: "Ved, pellets och värmeloggs.",
-    img: "/assets/Ved.png",
+    img: "/assets/kat-ved.webp",
   },
   {
     slug: "tradgardsdekoration-rengoring",
@@ -176,19 +173,19 @@ export const UTHYRNING: Maskin[] = [
     slug: "kombihammare-kapmaskin",
     name: "Kombihammare/Kapmaskin",
     desc: "För rivning, bilning och kapning.",
-    img: "/assets/KombihammareKapmaskin.png",
+    img: "/assets/maskin-kombihammare-kapmaskin.webp",
   },
   {
     slug: "betongslip-dammsugare",
     name: "Betongslip/Dammsugare",
     desc: "Slipa betonggolv dammfritt.",
-    img: "/assets/BetongslipDammsugare.png",
+    img: "/assets/maskin-betongslip-dammsugare.webp",
   },
   {
     slug: "jordfras",
     name: "Jordfräs",
     desc: "Förbered rabatter och gräsmatta.",
-    img: "/assets/Jordfr%C3%A4s.png",
+    img: "/assets/maskin-jordfras.webp",
   },
   {
     slug: "ovrigt",

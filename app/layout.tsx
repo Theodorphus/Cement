@@ -4,6 +4,7 @@ import { instrumentSerif, instrumentSans } from "@/lib/fonts";
 import TopBanner from "@/components/TopBanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StruktureradData from "@/components/StruktureradData";
 
 const SITE_URL = "https://ockerocement.se";
 
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/assets/Hero4.png",
+        url: "/assets/hero-delning.jpg",
         width: 1536,
         height: 1024,
         alt: "Öckerö Cementgjuteri — byggvaruhandel i Göteborgs skärgård",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
       "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
     description:
       "Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar främst i Göteborgs Skärgård och Torslanda.",
-    images: ["/assets/Hero4.png"],
+    images: ["/assets/hero-delning.jpg"],
   },
 };
 
@@ -49,6 +50,7 @@ export default function RootLayout({
       className={`${instrumentSerif.variable} ${instrumentSans.variable}`}
     >
       <body>
+        <StruktureradData siteUrl={SITE_URL} />
         <div
           style={{
             minHeight: "100vh",

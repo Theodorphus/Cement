@@ -145,26 +145,35 @@ export default function KontaktPage() {
             </a>
           </div>
 
-          {/* Inbäddad karta */}
+          {/* Öppettider. Låg tidigare bara i toppbannern och footern, trots
+              att det är här besökare letar efter dem. */}
           <div
             style={{
               marginTop: 20,
-              borderRadius: 14,
-              overflow: "hidden",
+              background: "var(--paper)",
               border: "1px solid var(--kant)",
-              height: 260,
+              borderRadius: 14,
+              padding: "30px 32px",
             }}
           >
-            <iframe
-              title="Karta till Öckerö Cementgjuteri, Långesand 7, Öckerö"
-              src={FORETAG.mapsEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0, display: "block" }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
+            <div style={eyebrow}>Öppettider</div>
+            <div
+              style={{
+                fontSize: 15.5,
+                lineHeight: 1.7,
+                color: "#3A484C",
+                display: "grid",
+                gridTemplateColumns: "auto 1fr",
+                gap: "2px 22px",
+              }}
+            >
+              <span>Måndag–fredag</span>
+              <span style={{ fontWeight: 600 }}>7–16</span>
+              <span>Lördagar</span>
+              <span style={{ fontWeight: 600 }}>9–13</span>
+              <span>Söndagar</span>
+              <span style={{ color: "var(--muted)" }}>Stängt</span>
+            </div>
           </div>
         </div>
 

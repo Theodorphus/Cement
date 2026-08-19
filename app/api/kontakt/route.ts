@@ -10,8 +10,18 @@ import { NextResponse } from "next/server";
  *   CONTACT_TO       – mottagaradress (t.ex. info@ockerocement.se)
  *   CONTACT_FROM     – avsändaradress verifierad hos Resend
  */
+/** Minsta rimliga tid för en människa att fylla i formuläret. */
+const MIN_IFYLLNADSTID_MS = 3000;
+const MAX_LANGD = 5000;
+
 export async function POST(request: Request) {
-  let body: { namn?: string; epost?: string; meddelande?: string };
+  let body: {
+    namn?: string;
+    epost?: string;
+    meddelande?: string;
+    webbplats?: string;
+    tid?: number;
+  };
   try {
     body = await request.json();
   } catch {
@@ -22,9 +32,29 @@ export async function POST(request: Request) {
   const epost = (body.epost ?? "").trim();
   const meddelande = (body.meddelande ?? "").trim();
 
+  // Spamskydd. Ett ifyllt honeypot-fält eller en orimligt snabb inskickning
+  // besvaras med OK utan att något skickas — en bot ska inte få veta att den
+  // fastnade, för då justerar den bara sitt beteende.
+  const honeypot = (body.webbplats ?? "").trim();
+  const tid = typeof body.tid === "number" ? body.tid : Number.MAX_SAFE_INTEGER;
+  if (honeypot || tid < MIN_IFYLLNADSTID_MS) {
+    console.info("[kontaktformulär] avvisat som spam", {
+      honeypot: Boolean(honeypot),
+      tid,
+    });
+    return NextResponse.json({ ok: true });
+  }
+
   if (!namn || !epost || !meddelande) {
     return NextResponse.json(
       { error: "Namn, e-postadress och meddelande krävs." },
+      { status: 400 }
+    );
+  }
+
+  if (namn.length > 200 || epost.length > 200 || meddelande.length > MAX_LANGD) {
+    return NextResponse.json(
+      { error: "Meddelandet är för långt." },
       { status: 400 }
     );
   }

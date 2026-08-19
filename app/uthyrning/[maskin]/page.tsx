@@ -46,6 +46,7 @@ export default async function MaskinPage({
       titel={sida.namn}
       intro={sida.intro}
       produkter={sida.produkter}
+      lankar={sida.lankar}
     />
   );
 }
