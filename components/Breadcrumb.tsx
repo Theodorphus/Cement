@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Fragment, type CSSProperties } from "react";
+import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export type Crumb = { label: string; href?: string };
 
@@ -22,6 +23,10 @@ export default function Breadcrumb({
         ...style,
       }}
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
+      />
       {crumbs.map((c, i) => (
         <Fragment key={i}>
           {i > 0 && " / "}

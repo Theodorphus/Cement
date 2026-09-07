@@ -49,6 +49,7 @@ export default function ProdukterPage() {
             desc={kat.desc}
             img={kat.img}
             showCta
+            headingLevel={2}
           />
         ))}
       </div>

@@ -12,6 +12,9 @@ const EJDER_IMG = "/assets/Ejder.jpg";
 export default function Home() {
   return (
     <div className="page-mount">
+      {/* Heron är sidans LCP-element och laddas som CSS-bakgrund, vilket gör att
+          webbläsaren annars hittar den först när stilarna är tolkade. */}
+      <link rel="preload" as="image" href="/assets/Hero3.webp" fetchPriority="high" />
       {/* ── Hero ── */}
       <section
         style={{

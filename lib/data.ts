@@ -8,6 +8,15 @@ export const FORETAG = {
   telefonHref: "tel:031966066",
   oppettiderRad1: "Måndag–fredag 7–16",
   oppettiderRad2: "Lördagar 9–13",
+  /**
+   * Samma öppettider på maskinläsbar form, för strukturerad data.
+   * Ändras tillsammans med raderna ovan så att sajten och sökmotorerna
+   * aldrig visar olika tider.
+   */
+  oppettider: [
+    { dagar: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], oppnar: "07:00", stanger: "16:00" },
+    { dagar: ["Saturday"], oppnar: "09:00", stanger: "13:00" },
+  ],
   /** Google Maps-sökning på adressen (öppnar rätt plats i alla enheter). */
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +
