@@ -1,26 +1,5 @@
-import type { Metadata } from "next";
-import SimplePage from "@/components/SimplePage";
+﻿import Link from "next/link";
+import {pageMetadata} from "@/lib/site";
+export const metadata=pageMetadata("Miljöpolicy","Öckerö Cementgjuteris inriktning för miljöarbetet.","/miljo/miljopolicy");
+export default function Policy(){return <article className="content-page reading-width"><h1>Miljöpolicy</h1><p className="intro">Vår inriktning är att minska verksamhetens miljöbelastning och arbeta för ständiga förbättringar.</p><ul className="product-details"><li>Minska resursförbrukning och främja återanvändning och återvinning.</li><li>Väga in miljöpåverkan vid inköp av varor och tjänster.</li><li>Samordna transporter när det är möjligt.</li><li>Följa miljökrav som berör verksamheten.</li></ul><p><Link href="/kontakt?produkt=Milj%C3%B6policy">Kontakta oss för den fullständiga, aktuella miljöpolicyn.</Link></p></article>;}
 
-export const metadata: Metadata = {
-  title: "Miljöpolicy",
-  description:
-    "Öckerö Cementgjuteris miljöpolicy — hur vi tar ansvar för miljön i vår dagliga verksamhet.",
-};
-
-export default function MiljopolicyPage() {
-  return (
-    <SimplePage
-      crumbs={[
-        { label: "Startsida", href: "/" },
-        { label: "Miljö", href: "/miljo" },
-        { label: "Miljöpolicy" },
-      ]}
-      title="Miljöpolicy"
-      intro="Vi strävar efter att minska vår miljöpåverkan i varje led — från inköp och lager till leverans ut i skärgården."
-      paragraphs={[
-        "Vi väljer i möjligaste mån material och leverantörer med god miljöprofil, och samordnar våra leveranser för att hålla nere antalet transporter i skärgården.",
-        "Avfall källsorteras och återvinns. Vi arbetar löpande med att förbättra våra rutiner och följa gällande miljölagstiftning.",
-      ]}
-    />
-  );
-}

@@ -15,7 +15,7 @@ export default function Breadcrumb({
 }) {
   const linkColor = light ? "#fff" : "var(--accent)";
   return (
-    <div
+    <nav aria-label="Brödsmulor"
       style={{
         fontSize: 13,
         color: light ? "rgba(253,251,246,0.75)" : "var(--muted)",
@@ -30,10 +30,10 @@ export default function Breadcrumb({
               {c.label}
             </Link>
           ) : (
-            <span>{c.label}</span>
+            <span aria-current="page">{c.label}</span>
           )}
         </Fragment>
       ))}
-    </div>
+    </nav>
   );
 }

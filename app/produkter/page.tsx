@@ -4,6 +4,8 @@ import CategoryCard from "@/components/CategoryCard";
 import { KATEGORIER } from "@/lib/data";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/produkter" },
+  openGraph: { url: "/produkter" },
   title: "Produkter",
   description:
     "Byggmaterial, markbeläggning, betong, ved och trädgårdsdekoration — allt för husgrund och trädgård i skärgården.",

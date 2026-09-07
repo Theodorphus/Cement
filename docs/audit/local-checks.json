@@ -1,0 +1,313 @@
+{
+  "checkedAt": "2026-09-07T21:23:50.295Z",
+  "sitemapPages": 23,
+  "rows": [
+    {
+      "path": "/",
+      "status": 200,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": [
+        "/assets/Hero%20vid.mp4",
+        "/assets/Hero3.png",
+        "/assets/BetongCement.png",
+        "/assets/Markbelaggning.jpg",
+        "/assets/SandKrossJord.png",
+        "/assets/Byggmaterial.png",
+        "/assets/StenLecaR%C3%B6r.png",
+        "/assets/Ved.png",
+        "/assets/Tradgardsdekor.jpg",
+        "/assets/Ejder.jpg"
+      ]
+    },
+    {
+      "path": "/produkter",
+      "status": 200,
+      "location": null,
+      "title": "Produkter — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/BetongCement.png",
+        "/assets/Markbelaggning.jpg",
+        "/assets/SandKrossJord.png",
+        "/assets/Byggmaterial.png",
+        "/assets/StenLecaR%C3%B6r.png",
+        "/assets/Ved.png",
+        "/assets/Tradgardsdekor.jpg"
+      ]
+    },
+    {
+      "path": "/uthyrning",
+      "status": 200,
+      "location": null,
+      "title": "Uthyrning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/KombihammareKapmaskin.png",
+        "/assets/BetongslipDammsugare.png",
+        "/assets/Jordfr%C3%A4s.png"
+      ]
+    },
+    {
+      "path": "/vara-leverantorer",
+      "status": 200,
+      "location": null,
+      "title": "Våra leverantörer — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/miljo",
+      "status": 200,
+      "location": null,
+      "title": "Miljö — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/miljo/miljopolicy",
+      "status": 200,
+      "location": null,
+      "title": "Miljöpolicy — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/miljo/miljodiplom",
+      "status": 200,
+      "location": null,
+      "title": "Miljödiplom — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/aktuellt",
+      "status": 200,
+      "location": null,
+      "title": "Aktuellt — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/kontakt",
+      "status": 200,
+      "location": null,
+      "title": "Kontakta oss — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Butik.jpg"
+      ]
+    },
+    {
+      "path": "/produkter/betong-cement",
+      "status": 200,
+      "location": null,
+      "title": "Betong/Cement — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/BetongCement.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning",
+      "status": 200,
+      "location": null,
+      "title": "Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Markbelaggning.jpg"
+      ]
+    },
+    {
+      "path": "/produkter/sand-kross-jord",
+      "status": 200,
+      "location": null,
+      "title": "Sand/Krossprodukter/Jord — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/SandKrossJord.png"
+      ]
+    },
+    {
+      "path": "/produkter/byggmaterial",
+      "status": 200,
+      "location": null,
+      "title": "Byggmaterial — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Byggmaterial.png"
+      ]
+    },
+    {
+      "path": "/produkter/sten-leca-ror",
+      "status": 200,
+      "location": null,
+      "title": "Sten/Leca/Rör — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/StenLecaR%C3%B6r.png"
+      ]
+    },
+    {
+      "path": "/produkter/ved",
+      "status": 200,
+      "location": null,
+      "title": "Ved — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Ved.png"
+      ]
+    },
+    {
+      "path": "/produkter/tradgardsdekoration-rengoring",
+      "status": 200,
+      "location": null,
+      "title": "Trädgårdsdekoration/Rengöring — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Tradgardsdekor.jpg"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/marksten-betong-natursten",
+      "status": 200,
+      "location": null,
+      "title": "Marksten betong/natursten — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/plattor",
+      "status": 200,
+      "location": null,
+      "title": "Plattor — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/dekorsten",
+      "status": 200,
+      "location": null,
+      "title": "Dekorsten — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/skiffer",
+      "status": 200,
+      "location": null,
+      "title": "Skiffer — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/fardig-grasmatta",
+      "status": 200,
+      "location": null,
+      "title": "Färdig Gräsmatta / Gräsmatta på Rulle — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/gards-ganggrus",
+      "status": 200,
+      "location": null,
+      "title": "Gårds-/Gånggrus — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/produkter/markbelaggning/laggningsanvisningar",
+      "status": 200,
+      "location": null,
+      "title": "Läggningsanvisningar marksten och plattor — Markbeläggning — Öckerö Cementgjuteri AB",
+      "canonical": null,
+      "assets": [
+        "/assets/Produktsida.png",
+        "/assets/Miniatyr.png",
+        "/assets/Hero.png"
+      ]
+    },
+    {
+      "path": "/startsida",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/produkter/betongcement/armering",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/uthyrning/jordfras",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/kontakt/har-hittar-du-oss",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/cookies",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    },
+    {
+      "path": "/aktuellt/gdpr---for-din-trygghet",
+      "status": 404,
+      "location": null,
+      "title": "Öckerö Cementgjuteri AB — Byggmaterial, betong &amp; maskinuthyrning i skärgården",
+      "canonical": null,
+      "assets": []
+    }
+  ]
+}

@@ -93,6 +93,7 @@ export default function Footer() {
             <Link href="/produkter/markbelaggning" className="footer-link">
               Markbeläggning
             </Link>
+            <Link href="/leverans" className="footer-link">Leverans och hämtning</Link>
             <Link href="/uthyrning" className="footer-link">
               Uthyrning
             </Link>
@@ -160,15 +161,11 @@ export default function Footer() {
             color: "rgba(253,251,246,0.5)",
           }}
         >
-          <span>© 2026 Öckerö Cementgjuteri AB</span>
+          <span>© {new Date().getFullYear()} Öckerö Cementgjuteri AB</span>
           <span>
-            <a href="#" style={{ color: "rgba(253,251,246,0.7)" }}>
-              Cookies
-            </a>{" "}
+            <Link href="/cookies" className="footer-link">Cookies</Link>{" "}
             ·{" "}
-            <a href="#" style={{ color: "rgba(253,251,246,0.7)" }}>
-              Hantera cookieinställningar
-            </a>
+            <Link href="/integritet" className="footer-link">Personuppgifter</Link>
           </span>
         </div>
       </div>

@@ -3,9 +3,11 @@ import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/miljo" },
+  openGraph: { url: "/miljo" },
   title: "Miljö",
   description:
-    "Vårt miljöarbete på Öckerö Cementgjuteri — miljöpolicy och miljödiplomering. Vi tar ansvar för närmiljön i skärgården.",
+    "Vårt miljöarbete på Öckerö Cementgjuteri — miljöpolicy och dokumentation. Vi tar ansvar för närmiljön i skärgården.",
 };
 
 export default function MiljoPage() {
@@ -57,7 +59,7 @@ export default function MiljoPage() {
               Miljödiplom
             </div>
             <div style={{ fontSize: 13.5, color: "var(--muted)" }}>
-              Vår miljödiplomering och vad den innebär.
+              Kontakta oss för aktuella handlingar.
             </div>
           </div>
           <div style={{ color: "var(--accent)", fontSize: 18, flex: "none" }}>→</div>

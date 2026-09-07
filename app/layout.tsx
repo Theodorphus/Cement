@@ -5,10 +5,11 @@ import TopBanner from "@/components/TopBanner";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-const SITE_URL = "https://ockerocement.se";
+import { SITE_URL } from "@/lib/site";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
+  robots: process.env.SITE_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },
   title: {
     default:
       "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/assets/Hero4.png",
+        url: "/assets/Hero4.webp",
         width: 1536,
         height: 1024,
         alt: "Öckerö Cementgjuteri — byggvaruhandel i Göteborgs skärgård",
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
       "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
     description:
       "Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar främst i Göteborgs Skärgård och Torslanda.",
-    images: ["/assets/Hero4.png"],
+    images: ["/assets/Hero4.webp"],
   },
 };
 
@@ -56,11 +57,12 @@ export default function RootLayout({
             flexDirection: "column",
           }}
         >
+          <a href="#main-content" className="skip-link">Hoppa till innehåll</a>
           <TopBanner />
           <Header />
           {/* Ingen flex:1 här — main är innehållshög så footern följer direkt
               utan ljus glipa. Body (footer-färgad) fyller ev. rest på höga skärmar. */}
-          <main>{children}</main>
+          <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
         </div>
       </body>

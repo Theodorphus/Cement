@@ -1,8 +1,24 @@
-import type { NextConfig } from "next";
-
-const nextConfig: NextConfig = {
-  // Alla bilder serveras lokalt från public/assets. Lägg till redirects här om
-  // gamla URL:er från nuvarande sajt behöver 301:as vid lansering.
+﻿import type {NextConfig} from "next";
+import {CATALOG,productPath} from "./lib/catalog";
+const categoryMoves = [
+ ["betongcement","betong-cement"],["sandkrossprodukterjord","sand-kross-jord"],["stenlecaror","sten-leca-ror"],["tradgardsdekorationrengoring","tradgardsdekoration-rengoring"]
+];
+const config:NextConfig={
+ distDir: process.env.NEXT_DIST_DIR || ".next",
+ poweredByHeader:false,
+ async redirects(){return [
+  ...CATALOG.filter(p=>p.oldPath!==productPath(p)).map(p=>({source:p.oldPath,destination:productPath(p),permanent:true})),
+  ...categoryMoves.map(([oldSlug,newSlug])=>({source:`/produkter/${oldSlug}`,destination:`/produkter/${newSlug}`,permanent:true})),
+  {source:"/startsida",destination:"/",permanent:true},
+  {source:"/kontakt/har-hittar-du-oss",destination:"/kontakt",permanent:true},
+  {source:"/aktuellt/gdpr---for-din-trygghet",destination:"/integritet",permanent:true}
+ ];},
+ async headers(){return [{source:"/:path*",headers:[
+  {key:"X-Content-Type-Options",value:"nosniff"},
+  {key:"Referrer-Policy",value:"strict-origin-when-cross-origin"},
+  {key:"X-Frame-Options",value:"SAMEORIGIN"},
+  {key:"Permissions-Policy",value:"camera=(), microphone=(), geolocation=()"}
+ ]}];}
 };
+export default config;
 
-export default nextConfig;

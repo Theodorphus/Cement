@@ -18,7 +18,7 @@ export default function TopBanner() {
       }}
     >
       <span style={{ whiteSpace: "nowrap" }}>
-        Öppettider: Mån–fre 7–16 · Lördagar 9–13
+        Öppettider: {FORETAG.oppettiderRad1} · {FORETAG.oppettiderRad2}
       </span>
       <span className="topbanner-sep" style={{ opacity: 0.55 }}>
         |

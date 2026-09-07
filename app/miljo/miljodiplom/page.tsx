@@ -1,26 +1,5 @@
-import type { Metadata } from "next";
-import SimplePage from "@/components/SimplePage";
+﻿import Link from "next/link";
+import {pageMetadata} from "@/lib/site";
+export const metadata=pageMetadata("Miljödiplom","Kontakta Öckerö Cementgjuteri för aktuella handlingar om miljöarbetet.","/miljo/miljodiplom");
+export default function Diploma(){return <article className="content-page reading-width"><h1>Miljödiplom</h1><p className="intro">Behöver du aktuella handlingar om vårt miljöarbete inför ett inköp eller projekt?</p><p>Kontakta oss så hjälper vi dig med rätt underlag.</p><Link className="btn btn-deep" href="/kontakt?produkt=Milj%C3%B6dokumentation">Fråga om miljödokumentation</Link></article>;}
 
-export const metadata: Metadata = {
-  title: "Miljödiplom",
-  description:
-    "Öckerö Cementgjuteris miljödiplomering — vårt kvitto på ett systematiskt miljöarbete.",
-};
-
-export default function MiljodiplomPage() {
-  return (
-    <SimplePage
-      crumbs={[
-        { label: "Startsida", href: "/" },
-        { label: "Miljö", href: "/miljo" },
-        { label: "Miljödiplom" },
-      ]}
-      title="Miljödiplom"
-      intro="Vår miljödiplomering är ett kvitto på att vi arbetar systematiskt och löpande med miljöfrågor."
-      paragraphs={[
-        "Diplomeringen innebär att vi kartlägger vår miljöpåverkan, sätter mål och följer upp dem varje år.",
-        "Har du frågor om vårt miljöarbete är du välkommen att kontakta oss.",
-      ]}
-    />
-  );
-}

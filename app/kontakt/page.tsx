@@ -7,11 +7,15 @@ const BUTIK_IMG = "/assets/Butik.jpg";
 
 export const metadata: Metadata = {
   title: "Kontakta oss",
+  alternates: { canonical: "/kontakt" },
+  openGraph: { url: "/kontakt" },
   description:
-    "Kontakta Öckerö Cementgjuteri AB — Långesand 7, 475 31 Öckerö. Telefon 031-96 60 66. Mejla oss så svarar vi oftast samma dag.",
+    "Kontakta Öckerö Cementgjuteri AB — Långesand 7, 475 31 Öckerö. Telefon 031-96 60 66. Kontakta oss om material, leverans och uthyrning.",
 };
 
-export default function KontaktPage() {
+export default async function KontaktPage({ searchParams }: { searchParams: Promise<{ produkt?: string | string[] }> }) {
+  const query = await searchParams;
+  const subject = typeof query.produkt === "string" ? query.produkt.slice(0, 150) : "";
   return (
     <div
       className="page-mount"
@@ -145,27 +149,7 @@ export default function KontaktPage() {
             </a>
           </div>
 
-          {/* Inbäddad karta */}
-          <div
-            style={{
-              marginTop: 20,
-              borderRadius: 14,
-              overflow: "hidden",
-              border: "1px solid var(--kant)",
-              height: 260,
-            }}
-          >
-            <iframe
-              title="Karta till Öckerö Cementgjuteri, Långesand 7, Öckerö"
-              src={FORETAG.mapsEmbedUrl}
-              width="100%"
-              height="100%"
-              style={{ border: 0, display: "block" }}
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              allowFullScreen
-            />
-          </div>
+          <p>Besök gärna vår utställning med marksten och plattor. Ring oss om du vill planera ditt besök.</p>
         </div>
 
         {/* Höger: formulär (sticky) */}
@@ -195,9 +179,9 @@ export default function KontaktPage() {
               margin: "0 0 24px",
             }}
           >
-            Vi svarar oftast samma dag.
+            Berätta vad du behöver så hjälper vi dig vidare.
           </p>
-          <ContactForm />
+          <ContactForm subject={subject} />
         </div>
       </div>
     </div>

@@ -1,61 +1,6 @@
-import type { Metadata } from "next";
-import Breadcrumb from "@/components/Breadcrumb";
-import { LEVERANTORER } from "@/lib/data";
+﻿import Link from "next/link";
+import {SUPPLIERS} from "@/lib/suppliers";
+import {pageMetadata} from "@/lib/site";
+export const metadata=pageMetadata("Våra leverantörer","Leverantörer och produktområden hos Öckerö Cementgjuteri.","/vara-leverantorer");
+export default function Suppliers(){return <div className="content-page"><h1>Våra leverantörer</h1><p className="intro">Upptäck produktområdena och hitta vidare till tillverkarna. Kontakta oss om vad vi kan ta hem till ditt projekt.</p><div className="subcategories">{SUPPLIERS.map(s=><Link className="sub-card" key={s.slug} href={`/vara-leverantorer/${s.slug}`}><h2>{s.name}</h2><p>{s.desc}</p><span>Läs mer →</span></Link>)}</div></div>;}
 
-export const metadata: Metadata = {
-  title: "Våra leverantörer",
-  description:
-    "Vi samarbetar med ledande leverantörer som S:T Eriks, Benders, Weber, Jackon, BE-Group, Wienerberger och Vedums Gräs.",
-};
-
-export default function LeverantorerPage() {
-  return (
-    <div
-      className="page-mount"
-      style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 28px 90px" }}
-    >
-      <Breadcrumb
-        crumbs={[
-          { label: "Startsida", href: "/" },
-          { label: "Våra leverantörer" },
-        ]}
-        style={{ marginBottom: 14 }}
-      />
-      <h1 style={{ fontSize: 54, margin: "0 0 40px" }}>Våra leverantörer</h1>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(280px,1fr))",
-          gap: 18,
-        }}
-      >
-        {LEVERANTORER.map((lev) => (
-          <div
-            key={lev.name}
-            className="lev-card"
-            style={{
-              background: "var(--paper)",
-              border: "1px solid var(--kant)",
-              borderRadius: 12,
-              padding: "28px 26px",
-              transition: "box-shadow 0.2s ease",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-serif), serif",
-                fontSize: 26,
-                marginBottom: 6,
-              }}
-            >
-              {lev.name}
-            </div>
-            <div style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.5 }}>
-              {lev.desc}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}

@@ -1,21 +1,5 @@
-import type { Metadata } from "next";
-import SimplePage from "@/components/SimplePage";
+﻿import Link from "next/link";
+import {pageMetadata} from "@/lib/site";
+export const metadata=pageMetadata("Aktuellt","Kontakta Öckerö Cementgjuteri om aktuellt sortiment, leveranser och öppettider.","/aktuellt");
+export default function News(){return <article className="content-page reading-width"><h1>Aktuellt</h1><p className="intro">Undrar du vad som finns hemma eller planerar du ett besök?</p><p>Kontakta oss för aktuellt sortiment, beställningar och eventuella avvikande öppettider.</p><div className="actions"><Link href="/kontakt" className="btn btn-deep">Kontakta oss</Link><a href="https://www.facebook.com/ockerocementgjuteriab" className="btn btn-outline">Besök oss på Facebook</a></div><h2>Planera ditt projekt</h2><p><Link href="/produkter/ved">Ved och pellets</Link> · <Link href="/produkter/markbelaggning">Markbeläggning</Link> · <Link href="/leverans">Leverans och hämtning</Link></p></article>;}
 
-export const metadata: Metadata = {
-  title: "Aktuellt",
-  description:
-    "Aktuellt hos Öckerö Cementgjuteri — nyheter, säsong och tips för husgrund och trädgård i skärgården.",
-};
-
-export default function AktuelltPage() {
-  return (
-    <SimplePage
-      crumbs={[{ label: "Startsida", href: "/" }, { label: "Aktuellt" }]}
-      title="Aktuellt"
-      intro="Här samlar vi nyheter, säsongstips och det som är på gång hos oss på gården."
-      paragraphs={[
-        "Just nu fyller vi på inför säsongen med marksten, jord och gräs på rulle. Ring oss gärna så berättar vi vad som finns hemma.",
-      ]}
-    />
-  );
-}

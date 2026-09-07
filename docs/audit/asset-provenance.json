@@ -1,0 +1,575 @@
+{
+  "checkedAt": "2026-09-07T22:07:58.818Z",
+  "method": "Original-site CDN images visually reviewed; logos, price lists and scanned instructions excluded. No generated or substitute imagery. Resize inside 1000 � 1000 without enlargement; WebP quality 82. Existing PNG variants inside 1920 � 1920; original files retained.",
+  "catalog": [
+    {
+      "src": "/assets/catalog/armering-1.webp",
+      "alt": "Armeringsj�rn",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/armering",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/f07349ff-b279-4d09-99a5-f0298fd7da9c/460",
+      "width": 220,
+      "height": 147,
+      "bytes": 14484
+    },
+    {
+      "src": "/assets/catalog/armering-2.webp",
+      "alt": "Armeringsn�t",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/armering",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/d42dc118-feda-4b2e-a6e5-ecc922ef8978/460",
+      "width": 400,
+      "height": 300,
+      "bytes": 44508
+    },
+    {
+      "src": "/assets/catalog/armering-3.webp",
+      "alt": "Bist�l f�r murverk",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/armering",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/51ab8418-cd10-4ce9-9fdb-a075b730789f/1920",
+      "width": 300,
+      "height": 300,
+      "bytes": 5278
+    },
+    {
+      "src": "/assets/catalog/betongcement-1.webp",
+      "alt": "Finbetong i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/betongcement",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/da7a80e4-0454-4689-851d-f8f83282c312/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2280
+    },
+    {
+      "src": "/assets/catalog/betongcement-2.webp",
+      "alt": "Grovbetong i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/betongcement",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/98afd7c1-9084-43ab-9e77-55af8f8983a3/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2104
+    },
+    {
+      "src": "/assets/catalog/plattsattning-1.webp",
+      "alt": "F�stmassa i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/plattsattning",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/66b6cac6-01ff-401e-9f33-7bcdfa639c12/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2684
+    },
+    {
+      "src": "/assets/catalog/plattsattning-2.webp",
+      "alt": "Mapei Keraflex f�stmassa",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/plattsattning",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/f2108f83-0fb6-4618-9cd8-d771f10d8a91/460",
+      "width": 130,
+      "height": 192,
+      "bytes": 7766
+    },
+    {
+      "src": "/assets/catalog/murbruk-1.webp",
+      "alt": "Murbruk i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/murbruk",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/28629334-5683-49cd-950a-100a42b545df/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2844
+    },
+    {
+      "src": "/assets/catalog/putsbruk-1.webp",
+      "alt": "Putsbruk i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/putsbruk",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/b46b81b1-8e5e-4484-b9fe-941108463f00/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2840
+    },
+    {
+      "src": "/assets/catalog/golvavjamning-1.webp",
+      "alt": "Golvavj�mning i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/golvavjamning",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/a1775187-0320-40bf-bb58-b9f54da432dc/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 3058
+    },
+    {
+      "src": "/assets/catalog/golvavjamning-2.webp",
+      "alt": "Sj�lvutj�mnande golvbruk i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/betongcement/golvavjamning",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/69b23462-75bd-4b7e-89e0-efb790b4813a/460",
+      "width": 160,
+      "height": 127,
+      "bytes": 2934
+    },
+    {
+      "src": "/assets/catalog/marksten-betongnatursten-1.webp",
+      "alt": "Tumlad marksten i granit",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/marksten-betongnatursten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/88770fb1-8ef7-4d9f-a2bd-0050c1d826fc/1920",
+      "width": 405,
+      "height": 291,
+      "bytes": 21218
+    },
+    {
+      "src": "/assets/catalog/marksten-betongnatursten-2.webp",
+      "alt": "Exempel p� marksten fr�n S:T Eriks",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/marksten-betongnatursten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/3d7fe679-c343-429d-afff-2d633dbff425/1920",
+      "width": 941,
+      "height": 789,
+      "bytes": 55478
+    },
+    {
+      "src": "/assets/catalog/marksten-betongnatursten-3.webp",
+      "alt": "Exempel p� marksten fr�n Benders",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/marksten-betongnatursten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/c76a34af-ea2e-4d95-ac78-a8bc4d63448a/1920",
+      "width": 1000,
+      "height": 604,
+      "bytes": 29030
+    },
+    {
+      "src": "/assets/catalog/plattor-1.webp",
+      "alt": "Exempel p� plattor fr�n S:T Eriks",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/plattor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/754d1375-395f-415d-88b6-9501cb34ee65/1920",
+      "width": 723,
+      "height": 649,
+      "bytes": 36320
+    },
+    {
+      "src": "/assets/catalog/plattor-2.webp",
+      "alt": "Exempel p� plattor fr�n Benders",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/plattor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/7cf4c2d7-f8d1-4a8b-913f-bc3048438b83/1920",
+      "width": 1000,
+      "height": 624,
+      "bytes": 30884
+    },
+    {
+      "src": "/assets/catalog/dekorsten-1.webp",
+      "alt": "Dekorsten i olika f�rger och storlekar",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/dekorsten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/31c21aa3-e85d-4e2a-ba68-509ce325e99b/1920",
+      "width": 755,
+      "height": 577,
+      "bytes": 47864
+    },
+    {
+      "src": "/assets/catalog/skiffer-1.webp",
+      "alt": "N�rbild av skifferns yta",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/skiffer",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/9272bf96-a242-4901-8c2d-1016eeabde13/1920",
+      "width": 716,
+      "height": 330,
+      "bytes": 60594
+    },
+    {
+      "src": "/assets/catalog/fardig-grasmatta-grasmatta-pa-rulle-1.webp",
+      "alt": "Gr�smatta p� rulle och odlad gr�smatta",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/55963e8e-d5e3-452f-b5de-8673b8c57f27/460",
+      "width": 421,
+      "height": 173,
+      "bytes": 15714
+    },
+    {
+      "src": "/assets/catalog/gards-ganggrus-1.webp",
+      "alt": "Rund natursten 8/16",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/gards-ganggrus",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/8b3c5ebe-2f01-49a6-be21-7e87eead1b2e/1920",
+      "width": 563,
+      "height": 1000,
+      "bytes": 245188
+    },
+    {
+      "src": "/assets/catalog/gards-ganggrus-2.webp",
+      "alt": "R�tt g�nggrus 8/11",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/gards-ganggrus",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/853c6515-416e-4a21-95ee-3da66e5ab1f2/1920",
+      "width": 563,
+      "height": 1000,
+      "bytes": 270358
+    },
+    {
+      "src": "/assets/catalog/gards-ganggrus-3.webp",
+      "alt": "Gr� singel 8/11",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/gards-ganggrus",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/16ed65e8-cea0-4566-b96e-7841d20ebc9e/1920",
+      "width": 563,
+      "height": 1000,
+      "bytes": 271884
+    },
+    {
+      "src": "/assets/catalog/gards-ganggrus-4.webp",
+      "alt": "Singel 4/8",
+      "sourcePage": "https://www.ockerocement.se/produkter/markbelaggning/gards-ganggrus",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/6be592af-f4fd-4394-af89-c427b6daa842/1920",
+      "width": 563,
+      "height": 1000,
+      "bytes": 273582
+    },
+    {
+      "src": "/assets/catalog/jord-i-sackar-1.webp",
+      "alt": "Gr�smattedress i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/sandkrossprodukterjord/jord-i-sackar",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/0d955a17-e7cb-4c90-9959-ec02c674db17/460",
+      "width": 449,
+      "height": 839,
+      "bytes": 52222
+    },
+    {
+      "src": "/assets/catalog/jord-i-sackar-2.webp",
+      "alt": "Planteringsjord i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/sandkrossprodukterjord/jord-i-sackar",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/1f0b129e-ae43-44ac-ab22-4ca37eb16927/460",
+      "width": 435,
+      "height": 806,
+      "bytes": 48666
+    },
+    {
+      "src": "/assets/catalog/grasfrogodsel-1.webp",
+      "alt": "Gr�sfr� Villa Classic",
+      "sourcePage": "https://www.ockerocement.se/produkter/sandkrossprodukterjord/grasfrogodsel",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/50e1acc7-1152-445a-b913-d799422f8de8/1920",
+      "width": 529,
+      "height": 910,
+      "bytes": 54210
+    },
+    {
+      "src": "/assets/catalog/grasfrogodsel-2.webp",
+      "alt": "Gr�sfr� Extra Green",
+      "sourcePage": "https://www.ockerocement.se/produkter/sandkrossprodukterjord/grasfrogodsel",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/a94c3704-b1c1-48df-9f9a-297acd906aaf/1920",
+      "width": 555,
+      "height": 843,
+      "bytes": 50622
+    },
+    {
+      "src": "/assets/catalog/leca-1.webp",
+      "alt": "Murblock i l�ttklinker",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/leca",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/33c10706-96dc-47aa-b476-f9b1e693601d/460",
+      "width": 340,
+      "height": 340,
+      "bytes": 6372
+    },
+    {
+      "src": "/assets/catalog/leca-2.webp",
+      "alt": "L�ttklinker i s�ck",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/leca",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/90f7798e-766e-4724-ac0e-ae8d2fa0fbc5/460",
+      "width": 240,
+      "height": 240,
+      "bytes": 7342
+    },
+    {
+      "src": "/assets/catalog/mursten-1.webp",
+      "alt": "Exempel p� mursten fr�n S:T Eriks",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/mursten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/3af2b3ca-9133-440c-8f1c-cbd7131fe294/1920",
+      "width": 745,
+      "height": 396,
+      "bytes": 20214
+    },
+    {
+      "src": "/assets/catalog/cementsten-1.webp",
+      "alt": "Cementsten staplad p� pall",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/cementsten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/4bcd5d53-ab01-4c73-a8c3-21070099cd1d/1920",
+      "width": 1000,
+      "height": 563,
+      "bytes": 164954
+    },
+    {
+      "src": "/assets/catalog/stegsten-1.webp",
+      "alt": "Stegsten i skiffer",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/stegsten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/0c0b5d3a-ecb2-4e37-8310-9b42f8ee6247/460",
+      "width": 460,
+      "height": 460,
+      "bytes": 7512
+    },
+    {
+      "src": "/assets/catalog/stegsten-2.webp",
+      "alt": "Stegsten i granit",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/stegsten",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/11fa59f4-e83c-44bf-af05-2076840b9ebd/460",
+      "width": 460,
+      "height": 386,
+      "bytes": 74556
+    },
+    {
+      "src": "/assets/catalog/ror-1.webp",
+      "alt": "Betongr�r p� g�rden",
+      "sourcePage": "https://www.ockerocement.se/produkter/stenlecaror/ror",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/d7af578c-7a20-4110-b064-9ac793da3999/1920",
+      "width": 1000,
+      "height": 563,
+      "bytes": 111862
+    },
+    {
+      "src": "/assets/catalog/ved-1.webp",
+      "alt": "Staplad bj�rkved",
+      "sourcePage": "https://www.ockerocement.se/produkter/ved/ved",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/0c425320-1e6d-46b8-85ab-c0c387728f89/460",
+      "width": 460,
+      "height": 345,
+      "bytes": 45600
+    },
+    {
+      "src": "/assets/catalog/pellets-1.webp",
+      "alt": "Pellets i s�ck och p� pall",
+      "sourcePage": "https://www.ockerocement.se/produkter/ved/pellets",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/1e23790a-d91a-4fa3-9136-e44acbead878/460",
+      "width": 440,
+      "height": 613,
+      "bytes": 36640
+    },
+    {
+      "src": "/assets/catalog/varmeloggs-1.webp",
+      "alt": "F�rpackningar med v�rmeloggs",
+      "sourcePage": "https://www.ockerocement.se/produkter/ved/varmeloggs",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/a9a83b48-38cc-47c0-9089-290d928647c8/460",
+      "width": 440,
+      "height": 440,
+      "bytes": 29920
+    },
+    {
+      "src": "/assets/catalog/gabioner-1.webp",
+      "alt": "Runda stenfyllda gabioner vid uteplats",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/gabioner",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/89236b51-8654-42f5-bedf-0439795dc3a6/1920",
+      "width": 495,
+      "height": 258,
+      "bytes": 41544
+    },
+    {
+      "src": "/assets/catalog/gabioner-2.webp",
+      "alt": "Stenfylld gabion med plantering",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/gabioner",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/5638a5ae-8f99-49f7-8c8e-1c900b024f89/1920",
+      "width": 644,
+      "height": 462,
+      "bytes": 78772
+    },
+    {
+      "src": "/assets/catalog/betongkrukorcortenkrukor-1.webp",
+      "alt": "Rund betongkruka",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongkrukorcortenkrukor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/c93c5020-4951-4817-a6e1-f2cc7d0d32e9/1920",
+      "width": 224,
+      "height": 215,
+      "bytes": 2780
+    },
+    {
+      "src": "/assets/catalog/betongkrukorcortenkrukor-2.webp",
+      "alt": "Rektangul�r betongkruka",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongkrukorcortenkrukor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/3b1a58b9-aaed-4ce4-be5c-64ea9636a57e/1920",
+      "width": 308,
+      "height": 180,
+      "bytes": 3952
+    },
+    {
+      "src": "/assets/catalog/betongkrukorcortenkrukor-3.webp",
+      "alt": "Planteringsk�rl i cortenst�l",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongkrukorcortenkrukor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/b57d81ea-7dec-4a92-8676-cd71c227300f/1920",
+      "width": 338,
+      "height": 450,
+      "bytes": 17906
+    },
+    {
+      "src": "/assets/catalog/betongbankarbordsskivor-1.webp",
+      "alt": "Stor betongb�nk",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongbankarbordsskivor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/d8348849-1bdb-4d66-b88f-128ff6a690f1/1920",
+      "width": 973,
+      "height": 465,
+      "bytes": 107066
+    },
+    {
+      "src": "/assets/catalog/betongbankarbordsskivor-2.webp",
+      "alt": "Rund bordsskiva i betong",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongbankarbordsskivor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/7cd0fd0c-aa91-49e8-9502-3e90262108e8/1920",
+      "width": 299,
+      "height": 266,
+      "bytes": 11874
+    },
+    {
+      "src": "/assets/catalog/betongbankarbordsskivor-3.webp",
+      "alt": "Betongb�nk med raka sidor",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/betongbankarbordsskivor",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/7aa3eccd-af4f-498b-bccd-41e8ff2a9cc0/1920",
+      "width": 493,
+      "height": 257,
+      "bytes": 21162
+    },
+    {
+      "src": "/assets/catalog/fyrarvattentunna-1.webp",
+      "alt": "Tr�tunna",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/62f33a3a-66bf-4151-9317-c3eb1c7b4a8e/1920",
+      "width": 268,
+      "height": 341,
+      "bytes": 5638
+    },
+    {
+      "src": "/assets/catalog/fyrarvattentunna-2.webp",
+      "alt": "Begagnat tr�fat",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/494c70ef-0c4b-476d-8f05-1ebbac7e208b/1920",
+      "width": 184,
+      "height": 283,
+      "bytes": 9658
+    },
+    {
+      "src": "/assets/catalog/fyrarvattentunna-3.webp",
+      "alt": "Fyrformad gabion",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/f5b9652c-f739-491b-9852-0e34ff252a21/1920",
+      "width": 800,
+      "height": 800,
+      "bytes": 16808
+    },
+    {
+      "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-1.webp",
+      "alt": "Rabattkant i cortenst�l",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/rabattkant-cortenstaleldfat-mm",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/586a4555-8856-4a49-9dd2-e10d662d3de8/460",
+      "width": 460,
+      "height": 243,
+      "bytes": 2328
+    },
+    {
+      "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-2.webp",
+      "alt": "Cortenringar f�r plantering",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/rabattkant-cortenstaleldfat-mm",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/edbf4b17-1dfb-403c-af27-9903a4956d4b/460",
+      "width": 460,
+      "height": 289,
+      "bytes": 36712
+    },
+    {
+      "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-3.webp",
+      "alt": "Eldfat i olika storlekar",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/rabattkant-cortenstaleldfat-mm",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/aabc8702-f0eb-49db-b6b6-cd1882c5791e/1920",
+      "width": 325,
+      "height": 488,
+      "bytes": 37744
+    },
+    {
+      "src": "/assets/catalog/ocean-1.webp",
+      "alt": "Allreng�ring i flaska",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/ocean",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/699add78-8460-440c-9c92-82151fd07398/1920",
+      "width": 408,
+      "height": 412,
+      "bytes": 5236
+    },
+    {
+      "src": "/assets/catalog/ocean-2.webp",
+      "alt": "Handtv�l i pumpflaska",
+      "sourcePage": "https://www.ockerocement.se/produkter/tradgardsdekorationrengoring/ocean",
+      "sourceImage": "https://cdn.yourvismawebsite.com/img/04/08ff4365-8f2f-472e-b3c3-9d83dcc71ec2/1920",
+      "width": 200,
+      "height": 200,
+      "bytes": 1468
+    }
+  ],
+  "optimizedExisting": [
+    {
+      "original": "/assets/BetongCement.png",
+      "src": "/assets/BetongCement.webp",
+      "originalBytes": 1889591,
+      "bytes": 182374
+    },
+    {
+      "original": "/assets/BetongslipDammsugare.png",
+      "src": "/assets/BetongslipDammsugare.webp",
+      "originalBytes": 1489516,
+      "bytes": 145008
+    },
+    {
+      "original": "/assets/Byggmaterial.png",
+      "src": "/assets/Byggmaterial.webp",
+      "originalBytes": 1675180,
+      "bytes": 151172
+    },
+    {
+      "original": "/assets/Hero.png",
+      "src": "/assets/Hero.webp",
+      "originalBytes": 2254082,
+      "bytes": 258954
+    },
+    {
+      "original": "/assets/Hero2.png",
+      "src": "/assets/Hero2.webp",
+      "originalBytes": 2764718,
+      "bytes": 289932
+    },
+    {
+      "original": "/assets/Hero3.png",
+      "src": "/assets/Hero3.webp",
+      "originalBytes": 2437454,
+      "bytes": 191344
+    },
+    {
+      "original": "/assets/Hero4.png",
+      "src": "/assets/Hero4.webp",
+      "originalBytes": 2787220,
+      "bytes": 253066
+    },
+    {
+      "original": "/assets/Jordfräs.png",
+      "src": "/assets/Jordfräs.webp",
+      "originalBytes": 2122536,
+      "bytes": 248152
+    },
+    {
+      "original": "/assets/KombihammareKapmaskin.png",
+      "src": "/assets/KombihammareKapmaskin.webp",
+      "originalBytes": 1093660,
+      "bytes": 78084
+    },
+    {
+      "original": "/assets/Miniatyr.png",
+      "src": "/assets/Miniatyr.webp",
+      "originalBytes": 2642733,
+      "bytes": 338470
+    },
+    {
+      "original": "/assets/Produktsida.png",
+      "src": "/assets/Produktsida.webp",
+      "originalBytes": 3618159,
+      "bytes": 508722
+    },
+    {
+      "original": "/assets/SandKrossJord.png",
+      "src": "/assets/SandKrossJord.webp",
+      "originalBytes": 2776859,
+      "bytes": 329298
+    },
+    {
+      "original": "/assets/StenLecaRör.png",
+      "src": "/assets/StenLecaRör.webp",
+      "originalBytes": 2312601,
+      "bytes": 294534
+    },
+    {
+      "original": "/assets/Ved.png",
+      "src": "/assets/Ved.webp",
+      "originalBytes": 2391565,
+      "bytes": 295198
+    }
+  ],
+  "missing": [
+    "/produkter/betongcement/byggkemi",
+    "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+    "/produkter/stenlecaror/bygg-sjalv-med-murblock",
+    "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning"
+  ]
+}

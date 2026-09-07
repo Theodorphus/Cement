@@ -1,12 +1,6 @@
-import type { MetadataRoute } from "next";
-
-export default function robots(): MetadataRoute.Robots {
-  return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/api/"],
-    },
-    sitemap: "https://ockerocement.se/sitemap.xml",
-  };
+﻿import type {MetadataRoute} from "next";
+import {SITE_URL} from "@/lib/site";
+export default function robots():MetadataRoute.Robots{
+ return {rules:{userAgent:"*",allow:"/",disallow:["/api/"]},...(process.env.SITE_INDEXABLE==="true"?{sitemap:SITE_URL+"/sitemap.xml"}:{})};
 }
+

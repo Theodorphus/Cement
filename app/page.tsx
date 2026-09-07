@@ -3,7 +3,9 @@ import Reveal from "@/components/Reveal";
 import CategoryCard from "@/components/CategoryCard";
 import HeroVideo from "@/components/HeroVideo";
 import Wave from "@/components/Wave";
-import { KATEGORIER, LEVERANTORER } from "@/lib/data";
+import { KATEGORIER, FORETAG } from "@/lib/data";
+
+export const metadata = { alternates: { canonical: "/" } };
 
 const EJDER_IMG = "/assets/Ejder.jpg";
 
@@ -24,7 +26,7 @@ export default function Home() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/Hero3.png')",
+            backgroundImage: "url('/assets/Hero3.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             animation: "heroZoom 16s ease-out both",
@@ -65,22 +67,22 @@ export default function Home() {
               animation: "heroText 0.7s ease 0.05s both",
             }}
           >
-            Öckerö · Göteborgs skärgård · Sedan generationer
+            Öckerö Cementgjuteri · Göteborgs skärgård
           </div>
           <h1
             style={{
               fontFamily: "var(--font-serif), serif",
               fontWeight: 400,
-              fontSize: 72,
+              fontSize: 58,
               lineHeight: 1.02,
               color: "var(--ljus)",
               margin: "0 0 18px",
-              maxWidth: "15ch",
+              maxWidth: "22ch",
               textShadow: "0 2px 24px rgba(18,32,38,0.5)",
               animation: "heroText 0.7s ease 0.15s both",
             }}
           >
-            Välkommen!
+            Byggmaterial och betong i Göteborgs skärgård
           </h1>
           <p
             style={{
@@ -161,9 +163,9 @@ export default function Home() {
           >
             <div style={eyebrowStyle}>Våra öppettider</div>
             <div style={{ fontSize: 16.5, fontWeight: 600 }}>
-              Måndag–fredag 7–16
+              {FORETAG.oppettiderRad1}
             </div>
-            <div style={{ fontSize: 16.5, fontWeight: 600 }}>Lördagar 9–13</div>
+            <div style={{ fontSize: 16.5, fontWeight: 600 }}>{FORETAG.oppettiderRad2}</div>
           </div>
           <div
             style={{
@@ -458,15 +460,7 @@ export default function Home() {
                 alignItems: "center",
               }}
             >
-              {LEVERANTORER.map((lev) => (
-                <Link
-                  key={lev.name}
-                  href="/vara-leverantorer"
-                  className="lev-strip lev-strip-dark"
-                >
-                  {lev.name}
-                </Link>
-              ))}
+              <Link href="/vara-leverantorer" className="lev-strip lev-strip-dark">Se våra leverantörer och produktområden →</Link>
             </div>
           </div>
         </div>
