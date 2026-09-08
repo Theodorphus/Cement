@@ -18,6 +18,12 @@ const config:NextConfig={
   {key:"Referrer-Policy",value:"strict-origin-when-cross-origin"},
   {key:"X-Frame-Options",value:"SAMEORIGIN"},
   {key:"Permissions-Policy",value:"camera=(), microphone=(), geolocation=()"}
+ ]},
+ // Bilderna i /public har inte innehållshashade filnamn, så de får en
+ // måttlig cachetid med revalidering i stället för "immutable". Byts en
+ // bild ut slår ändringen igenom inom ett dygn utan hård cachetömning.
+ {source:"/assets/:path*",headers:[
+  {key:"Cache-Control",value:"public, max-age=86400, stale-while-revalidate=604800"}
  ]}];}
 };
 export default config;
