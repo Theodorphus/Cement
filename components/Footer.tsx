@@ -60,7 +60,7 @@ export default function Footer() {
             <br />
             Tel:{" "}
             <a href={FORETAG.telefonHref} style={{ color: "var(--ljus)" }}>
-              031-966066
+              {FORETAG.telefon}
             </a>
           </div>
           <a

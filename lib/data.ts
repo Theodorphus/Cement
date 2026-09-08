@@ -2,7 +2,16 @@
 
 export const FORETAG = {
   namn: "Öckerö Cementgjuteri AB",
-  adressRad1: "Industriområde S Långesand 7",
+  /**
+   * Adressen i delar, så att sidor, karta och strukturerad data alltid visar
+   * samma uppgift. Originalsajten anger "Industriområde Södra Långesand 7"
+   * som fullständig adress och "Långesand 7" som kortform.
+   */
+  gata: "Långesand 7",
+  gataFullstandig: "Industriområde Södra Långesand 7",
+  postnummer: "475 31",
+  ort: "Öckerö",
+  adressRad1: "Industriområde Södra Långesand 7",
   adressRad2: "475 31 Öckerö",
   telefon: "031-96 60 66",
   telefonHref: "tel:031966066",

@@ -185,9 +185,9 @@ export default function Home() {
           <div style={{ padding: "26px 30px" }}>
             <div style={eyebrowStyle}>Hitta hit</div>
             <div style={{ fontSize: 15.5, lineHeight: 1.5, color: "#3A484C" }}>
-              Industriområde S Långesand 7
+              {FORETAG.adressRad1}
               <br />
-              475 31 Öckerö
+              {FORETAG.adressRad2}
             </div>
           </div>
         </div>

@@ -19,9 +19,9 @@ export function localBusinessJsonLd() {
     telephone: FORETAG.telefon,
     address: {
       "@type": "PostalAddress",
-      streetAddress: FORETAG.adressRad1,
-      postalCode: "475 31",
-      addressLocality: "Öckerö",
+      streetAddress: FORETAG.gataFullstandig,
+      postalCode: FORETAG.postnummer,
+      addressLocality: FORETAG.ort,
       addressCountry: "SE",
     },
     hasMap: FORETAG.mapsUrl,

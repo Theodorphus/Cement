@@ -92,17 +92,6 @@ h3 {
   }
 }
 
-@keyframes reveal {
-  from {
-    opacity: 0;
-    transform: translateY(28px);
-  }
-  to {
-    opacity: 1;
-    transform: none;
-  }
-}
-
 @keyframes heroZoom {
   from {
     transform: scale(1.09);
@@ -128,34 +117,10 @@ h3 {
   animation: fadeUp 0.5s ease both;
 }
 
-/* ── Scroll-reveal ──
-   Prototypen använder animation-timeline: view(). Vi använder IntersectionObserver
-   (Reveal-komponenten) för bredare stöd: startläge dolt, .is-visible triggar reveal. */
-.reveal {
-  opacity: 0;
-  transform: translateY(28px);
-}
-
-.reveal.is-visible {
-  animation: reveal 0.7s ease both;
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .reveal,
-  .reveal.is-visible {
-    opacity: 1;
-    transform: none;
-    animation: none;
-  }
   .page-mount {
     animation: none;
   }
-}
-
-/* Om JS är avstängt: visa allt innehåll */
-.no-js .reveal {
-  opacity: 1;
-  transform: none;
 }
 
 /* ── Layout-hjälpare ── */
@@ -169,10 +134,6 @@ h3 {
 /* ── Sektionsband för rytm/djup ── */
 .band-sand {
   background: linear-gradient(180deg, rgba(232, 225, 210, 0.55), rgba(232, 225, 210, 0.28));
-}
-
-.band-mist {
-  background: linear-gradient(180deg, rgba(226, 235, 235, 0.6), rgba(226, 235, 235, 0.25));
 }
 
 /* Vågform som mjuk övergång mellan sektioner (SVG-mask via bakgrund) */
@@ -319,11 +280,6 @@ h3 {
   color: var(--ljus);
 }
 
-/* Leverantörskort */
-.lev-card:hover {
-  box-shadow: 0 12px 28px rgba(24, 40, 46, 0.1);
-}
-
 /* Underkategori-kort (kategorisidan) */
 .sub-card:hover {
   transform: translateY(-3px);
@@ -363,87 +319,7 @@ h3 {
   flex: none;
 }
 
-.nav-toggle-bar {
-  display: block;
-  width: 20px;
-  height: 2px;
-  margin: 0 auto;
-  background: var(--deep);
-  border-radius: 2px;
-  transition: transform 0.25s ease, opacity 0.2s ease;
-}
-
-.nav-toggle-bar.is-open-1 {
-  transform: translateY(7px) rotate(45deg);
-}
-.nav-toggle-bar.is-open-2 {
-  opacity: 0;
-}
-.nav-toggle-bar.is-open-3 {
-  transform: translateY(-7px) rotate(-45deg);
-}
-
-/* Utfällbar mobilmeny: dold (kollapsad) tills öppnad */
-.nav-mobile {
-  display: none;
-  overflow: hidden;
-  max-height: 0;
-  transition: max-height 0.3s ease;
-  background: rgba(246, 243, 236, 0.98);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-top: 1px solid rgba(32, 43, 46, 0.08);
-}
-
-.nav-mobile.is-open {
-  max-height: 70vh;
-}
-
-.nav-mobile nav {
-  display: flex;
-  flex-direction: column;
-  padding: 8px 16px 16px;
-}
-
-.nav-mobile-link {
-  padding: 14px 12px;
-  font-size: 17px;
-  font-weight: 500;
-  color: var(--ink);
-  text-decoration: none;
-  border-radius: 9px;
-  border-bottom: 1px solid rgba(32, 43, 46, 0.06);
-}
-
-.nav-mobile-link:last-child {
-  border-bottom: none;
-}
-
-.nav-mobile-link:hover {
-  text-decoration: none;
-  background: rgba(36, 64, 76, 0.05);
-}
-
-.nav-mobile-link[data-active="true"] {
-  color: var(--deep);
-  font-weight: 600;
-  background: rgba(36, 64, 76, 0.08);
-}
-
 /* ══════════ Breakpoints ══════════ */
-
-/* Byt till hamburgermeny när 7 nav-länkar börjar trängas */
-@media (max-width: 900px) {
-  .nav-desktop {
-    display: none !important;
-  }
-  .nav-toggle {
-    display: flex;
-  }
-  .nav-mobile {
-    display: block;
-  }
-}
 
 /* Stapla flerkolumnsgrids */
 @media (max-width: 860px) {
@@ -564,6 +440,9 @@ h3 {
 .category-hero p { font-size:18px; max-width:60ch; }
 .product-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:44px; margin-top:32px; align-items:start; }
 .product-layout h1 { margin-top:10px; font-size:42px; }
+/* Bilden följer med när man läser långa produktlistor. Headern är sticky på
+   64px, därav toppavståndet. Stängs av i en spalt (se 860px nedan). */
+.product-gallery { position:sticky; top:88px; }
 .product-main-image { position:relative; aspect-ratio:1.2; background:white; border:1px solid var(--kant); border-radius:14px; overflow:hidden; }
 .product-thumbs { display:flex; flex-wrap:wrap; gap:10px; margin-top:12px; }
 .product-thumbs button { cursor:pointer; border:2px solid transparent; border-radius:8px; background:white; padding:4px; width:calc(25% - 8px); min-width:60px; }
@@ -582,11 +461,28 @@ h3 {
 .help-panel h2 { margin:0 0 10px; font-size:26px; }
 .help-panel .btn { padding:14px 22px; }
 .material-group { padding:20px 24px; background:white; border-radius:12px; }
+
+/* Endast för skärmläsare: syns inte men läses upp. */
+.visually-hidden { position:absolute; width:1px; height:1px; margin:-1px; padding:0; overflow:hidden; clip:rect(0 0 0 0); clip-path:inset(50%); white-space:nowrap; border:0; }
+
+/* Sök i sortimentet */
+.product-search { background:var(--paper); border:1px solid var(--kant); border-radius:14px; padding:26px 28px; margin:0 0 40px; }
+.product-search h2 { margin:0 0 4px; font-size:24px; }
+.product-search label { display:block; font-size:14px; color:var(--muted); margin-bottom:10px; }
+.product-search input { width:100%; max-width:520px; border:1px solid rgba(32,43,46,.22); border-radius:10px; padding:13px 14px; font:16px var(--font-sans),sans-serif; color:var(--ink); background:var(--ljus); }
+.product-search input:focus-visible { outline:2px solid var(--accent); outline-offset:2px; }
+.product-search-hits { list-style:none; margin:18px 0 0; padding:0; display:grid; grid-template-columns:repeat(auto-fill,minmax(min(100%,240px),1fr)); gap:10px; }
+.product-search-hits a { display:flex; flex-direction:column; gap:2px; padding:12px 14px; border:1px solid var(--kant); border-radius:10px; background:var(--ljus); text-decoration:none; color:var(--ink); }
+.product-search-hits a:hover { border-color:var(--accent); }
+.product-search-hits strong { font-size:15.5px; font-weight:600; }
+.product-search-hits span { font-size:13px; color:var(--muted); }
+.product-search-empty { margin:18px 0 0; font-size:15px; color:var(--muted); line-height:1.6; max-width:60ch; }
+.product-search-empty a { color:var(--accent); }
 .rental-image { width:100%; height:auto; max-height:480px; object-fit:contain; border-radius:12px; }
 .category-card { display:block; color:inherit; text-decoration:none; }
 .category-card .card-img { position:relative; overflow:hidden; }
 .category-card-body { padding:20px; }
-.category-card-body h3 { font-family:var(--font-sans),sans-serif; font-size:18px; font-weight:600; margin:0 0 8px; }
+.category-card-body h2,.category-card-body h3 { font-family:var(--font-sans),sans-serif; font-size:18px; font-weight:600; margin:0 0 8px; }
 .category-card-body p { font-size:15px; line-height:1.55; color:var(--muted); margin:0 0 10px; }
 
 /* Navigation and focus */
@@ -595,7 +491,9 @@ h3 {
 .brand { display:flex; align-items:center; gap:12px; min-width:0; text-decoration:none!important; color:var(--ink); }
 .brand>span:last-child { min-width:0; }
 .brand-symbol { display:grid; place-items:center; flex:none; width:38px; height:38px; background:var(--deep); color:var(--ljus); border-radius:8px; font:24px var(--font-serif),serif; }
-.brand-name { display:block; font:21px/1.1 var(--font-serif),serif; }
+/* overflow-wrap gör att namnet aldrig kan tvinga fram vågrät scroll på
+   riktigt smala skärmar, i stället för att förlita sig på overflow-x:hidden. */
+.brand-name { display:block; font:21px/1.1 var(--font-serif),serif; overflow-wrap:anywhere; }
 .brand-tag { display:block; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
 .nav-desktop { display:flex; align-items:center; gap:2px; }
 .nav-link { display:block; padding:12px 9px; color:var(--ink); font-size:14px; border-radius:7px; }
@@ -610,7 +508,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 #main-content:focus { outline:none; }
 @media(max-width:1100px){ .nav-desktop { display:none!important; } .nav-toggle { display:flex; } }
 @media(min-width:1101px){ .mobile-menu { display:none; } }
-@media(max-width:860px){ .product-layout { grid-template-columns:1fr; gap:24px; } }
+@media(max-width:860px){ .product-layout { grid-template-columns:1fr; gap:24px; } .product-gallery { position:static; } }
 @media(max-width:640px){
  .content-page { padding:32px 20px 56px; }
  .header-inner { padding:10px 16px!important; gap:8px; }
@@ -636,5 +534,6 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .form-trap { display:none; }
 .form-status:not(:empty) { padding:14px; border:1px solid currentColor; border-radius:8px; line-height:1.5; }
 .form-status.error { color:#ffe3dd; }
+.form-status.sent { color:#d8f0e2; }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
 

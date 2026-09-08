@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/kontakt" },
   openGraph: { url: "/kontakt" },
   description:
-    "Kontakta Öckerö Cementgjuteri AB — Långesand 7, 475 31 Öckerö. Telefon 031-96 60 66. Kontakta oss om material, leverans och uthyrning.",
+    `Kontakta ${FORETAG.namn} — ${FORETAG.gata}, ${FORETAG.adressRad2}. Telefon ${FORETAG.telefon}. Kontakta oss om material, leverans och uthyrning.`,
 };
 
 export default async function KontaktPage({ searchParams }: { searchParams: Promise<{ produkt?: string | string[] }> }) {
@@ -49,14 +49,14 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
           >
             <div style={eyebrow}>Besök &amp; post</div>
             <div style={{ fontWeight: 600, fontSize: 17, marginBottom: 4 }}>
-              Öckerö Cementgjuteri AB
+              {FORETAG.namn}
             </div>
             <div style={{ fontSize: 15.5, lineHeight: 1.6, color: "#3A484C" }}>
-              Långesand 7
+              {FORETAG.adressRad1}
               <br />
-              475 31 Öckerö
+              {FORETAG.adressRad2}
               <br />
-              Telefon <a href="tel:031966066">031-96 60 66</a>
+              Telefon <a href={FORETAG.telefonHref}>{FORETAG.telefon}</a>
             </div>
             <a
               href={FORETAG.mapsUrl}
@@ -138,7 +138,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
             }}
           />
           <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 10 }}>
-            Vår gård på Långesand 7, Öckerö.{" "}
+            Vår gård på {FORETAG.gata}, {FORETAG.ort}.{" "}
             <a
               href={FORETAG.mapsUrl}
               target="_blank"

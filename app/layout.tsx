@@ -12,8 +12,8 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   robots: process.env.SITE_INDEXABLE === "true" ? { index: true, follow: true } : { index: false, follow: false },
   title: {
-    default:
-      "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
+    // Håll under ~60 tecken; Google klipper längre titlar i resultatlistan.
+    default: "Byggmaterial och betong i Göteborgs skärgård — Öckerö Cementgjuteri",
     template: "%s — Öckerö Cementgjuteri AB",
   },
   description:

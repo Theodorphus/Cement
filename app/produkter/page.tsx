@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import CategoryCard from "@/components/CategoryCard";
+import ProductSearch from "@/components/ProductSearch";
 import { KATEGORIER } from "@/lib/data";
 
 export const metadata: Metadata = {
@@ -34,6 +35,7 @@ export default function ProdukterPage() {
         Byggmaterial, markbeläggning, betong, ved och trädgårdsdekoration — allt
         för husgrund och trädgård i skärgården.
       </p>
+      <ProductSearch />
       <div
         style={{
           display: "grid",
