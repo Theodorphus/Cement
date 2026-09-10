@@ -109,7 +109,7 @@ export const KATEGORIER: Kategori[] = [
     slug: "tradgardsdekoration-rengoring",
     name: "Trädgårdsdekoration/Rengöring",
     desc: "Gabioner, betongkrukor, bänkar, fyrar och eldfat.",
-    img: "/assets/Tradgardsdekor.jpg",
+    img: "/assets/Tradgardsdekor.webp",
   },
 ];
 

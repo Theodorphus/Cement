@@ -35,39 +35,40 @@ export default function MiljoPage() {
         och välja material och transporter med omsorg.
       </p>
 
+      {/* Miljöpolicyn är kort och konkret, så den står här i sin helhet i
+          stället för bakom ännu ett klick. Egen sida finns kvar för den som
+          länkat dit. */}
       <div
         style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,280px),420px))",
-          gap: 18,
+          background: "var(--paper)",
+          border: "1px solid var(--kant)",
+          borderRadius: 14,
+          padding: "32px 34px",
+          maxWidth: 760,
         }}
       >
-        <Link href="/miljo/miljopolicy" className="sub-card" style={subCardStyle}>
-          <div>
-            <div style={{ fontWeight: 600, fontSize: 16.5, marginBottom: 3 }}>
-              Miljöpolicy
-            </div>
-            <div style={{ fontSize: 13.5, color: "var(--muted)" }}>
-              Så tar vi ansvar för miljön i vår verksamhet.
-            </div>
-          </div>
-          <div style={{ color: "var(--accent)", fontSize: 18, flex: "none" }}>→</div>
+        <h2 style={{ fontSize: 28, margin: "0 0 10px" }}>Miljöpolicy</h2>
+        <p
+          style={{
+            fontSize: 16,
+            color: "var(--muted)",
+            lineHeight: 1.6,
+            margin: "0 0 18px",
+          }}
+        >
+          Vår inriktning är att minska verksamhetens miljöbelastning och arbeta
+          för ständiga förbättringar.
+        </p>
+        <ul className="product-details" style={{ margin: "0 0 20px" }}>
+          <li>Minska resursförbrukning och främja återanvändning och återvinning.</li>
+          <li>Väga in miljöpåverkan vid inköp av varor och tjänster.</li>
+          <li>Samordna transporter när det är möjligt.</li>
+          <li>Följa miljökrav som berör verksamheten.</li>
+        </ul>
+        <Link href="/kontakt?produkt=Milj%C3%B6policy" className="link-arrow">
+          Fråga om vår fullständiga miljöpolicy →
         </Link>
       </div>
     </div>
   );
 }
-
-const subCardStyle: React.CSSProperties = {
-  background: "var(--paper)",
-  border: "1px solid var(--kant)",
-  borderRadius: 12,
-  padding: "22px 24px",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "space-between",
-  gap: 14,
-  textDecoration: "none",
-  color: "inherit",
-  transition: "transform 0.2s ease, box-shadow 0.2s ease",
-};

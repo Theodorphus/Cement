@@ -298,7 +298,11 @@
   "/produkter/markbelaggning/ejder": [
     {
       "src": "/assets/catalog/ejder-1.jpg",
-      "alt": "Ejder 400 kg i betong"
+      "alt": "Ejder 400 kg i betong på gatsten"
+    },
+    {
+      "src": "/assets/Ejder-piren.webp",
+      "alt": "Flera ejdrar uppradade på stenpiren"
     }
   ]
 }

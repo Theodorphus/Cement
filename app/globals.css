@@ -202,6 +202,12 @@ h3 {
   font-weight: 600;
   border-radius: 8px;
   display: inline-block;
+  /* Standardstorlek, så att en knapp ser ut som en knapp även utanför
+     .actions och .help-panel. Enskilda knappar får skriva över med
+     egen padding där de behöver vara större. */
+  padding: 14px 22px;
+  font-size: 15.5px;
+  text-align: center;
   transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
 }
 
@@ -229,6 +235,12 @@ h3 {
   background: var(--accent);
   color: var(--ljus);
   transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--ink);
+  border: 1px solid var(--kant);
 }
 
 .btn-outline:hover {
@@ -480,7 +492,10 @@ h3 {
 .category-card { display:block; color:inherit; text-decoration:none; }
 .category-card .card-img { position:relative; overflow:hidden; }
 .category-card-body { padding:20px; }
-.category-card-body h2,.category-card-body h3 { font-family:var(--font-sans),sans-serif; font-size:18px; font-weight:600; margin:0 0 8px; }
+/* Kategorinamn som "Trädgårdsdekoration/Rengöring" är ett långt ord utan
+   mellanslag. Utan detta bryts det mitt i ("Reng / öring"); nu bryts raden
+   hellre vid snedstrecket, och bara som sista utväg inuti ordet. */
+.category-card-body h2,.category-card-body h3 { font-family:var(--font-sans),sans-serif; font-size:18px; font-weight:600; margin:0 0 8px; overflow-wrap:normal; word-break:normal; hyphens:none; }
 .category-card-body p { font-size:15px; line-height:1.55; color:var(--muted); margin:0 0 10px; }
 
 /* Navigation and focus */
