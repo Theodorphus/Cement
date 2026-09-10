@@ -25,9 +25,9 @@ export const metadata: Metadata = {
     url: SITE_URL,
     images: [
       {
-        url: "/assets/Hero4.webp",
-        width: 1536,
-        height: 1024,
+        url: "/assets/Hero5.webp",
+        width: 1916,
+        height: 821,
         alt: "Öckerö Cementgjuteri — byggvaruhandel i Göteborgs skärgård",
       },
     ],
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
       "Öckerö Cementgjuteri AB — Byggmaterial, betong & maskinuthyrning i skärgården",
     description:
       "Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar främst i Göteborgs Skärgård och Torslanda.",
-    images: ["/assets/Hero4.webp"],
+    images: ["/assets/Hero5.webp"],
   },
 };
 

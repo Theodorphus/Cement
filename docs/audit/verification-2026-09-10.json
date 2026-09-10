@@ -1,492 +1,421 @@
 {
-  "checkedAt": "2026-09-10T09:57:18.985Z",
-  "base": "http://localhost:3132",
+  "checkedAt": "2026-09-10T08:39:42.307Z",
+  "base": "http://localhost:3100",
   "sitemapPages": 69,
-  "oldPages": 63,
-  "assetsChecked": 76,
-  "localLinksChecked": 136,
+  "originalPages": 63,
   "rows": [
     {
       "path": "/",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se\"/>"
     },
     {
       "path": "/produkter",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter\"/>"
     },
     {
       "path": "/uthyrning",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/uthyrning\"/>"
     },
     {
       "path": "/vara-leverantorer",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer\"/>"
     },
     {
       "path": "/miljo",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/miljo\"/>"
     },
     {
       "path": "/miljo/miljopolicy",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/miljo/miljopolicy\"/>"
     },
     {
       "path": "/miljo/miljodiplom",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/miljo/miljodiplom\"/>"
     },
     {
       "path": "/aktuellt",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/aktuellt\"/>"
     },
     {
       "path": "/kontakt",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/kontakt\"/>"
     },
     {
       "path": "/leverans",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/leverans\"/>"
     },
     {
       "path": "/integritet",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/integritet\"/>"
     },
     {
       "path": "/cookies",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/cookies\"/>"
     },
     {
       "path": "/produkter/betong-cement",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement\"/>"
     },
     {
       "path": "/produkter/markbelaggning",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning\"/>"
     },
     {
       "path": "/produkter/sand-kross-jord",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sand-kross-jord\"/>"
     },
     {
       "path": "/produkter/byggmaterial",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror\"/>"
     },
     {
       "path": "/produkter/ved",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/ved\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring\"/>"
     },
     {
       "path": "/produkter/betong-cement/armering",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/armering\"/>"
     },
     {
       "path": "/produkter/betong-cement/betongcement",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/betongcement\"/>"
     },
     {
       "path": "/produkter/betong-cement/byggkemi",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/byggkemi\"/>"
     },
     {
       "path": "/produkter/betong-cement/plattsattning",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/plattsattning\"/>"
     },
     {
       "path": "/produkter/betong-cement/murbruk",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/murbruk\"/>"
     },
     {
       "path": "/produkter/betong-cement/putsbruk",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/putsbruk\"/>"
     },
     {
       "path": "/produkter/betong-cement/golvavjamning",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/betong-cement/golvavjamning\"/>"
     },
     {
       "path": "/produkter/markbelaggning/marksten-betong-natursten",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/marksten-betong-natursten\"/>"
     },
     {
       "path": "/produkter/markbelaggning/plattor",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/plattor\"/>"
     },
     {
       "path": "/produkter/markbelaggning/dekorsten",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/dekorsten\"/>"
     },
     {
       "path": "/produkter/markbelaggning/skiffer",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/skiffer\"/>"
     },
     {
       "path": "/produkter/markbelaggning/fardig-grasmatta",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/fardig-grasmatta\"/>"
     },
     {
       "path": "/produkter/markbelaggning/gards-ganggrus",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/gards-ganggrus\"/>"
     },
     {
       "path": "/produkter/markbelaggning/laggningsanvisningar",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/laggningsanvisningar\"/>"
     },
     {
       "path": "/produkter/sand-kross-jord/jord-i-sackar",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sand-kross-jord/jord-i-sackar\"/>"
     },
     {
       "path": "/produkter/sand-kross-jord/grasfrogodsel",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sand-kross-jord/grasfrogodsel\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/leca",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/leca\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/mursten",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/mursten\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/cementsten",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/cementsten\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/stegsten",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/stegsten\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/ror",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/ror\"/>"
     },
     {
       "path": "/produkter/sten-leca-ror/bygg-sjalv-med-murblock",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/bygg-sjalv-med-murblock\"/>"
     },
     {
       "path": "/produkter/ved/ved",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/ved/ved\"/>"
     },
     {
       "path": "/produkter/ved/pellets",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/ved/pellets\"/>"
     },
     {
       "path": "/produkter/ved/varmeloggs",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/ved/varmeloggs\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/gabioner",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/gabioner\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/betongkrukorcortenkrukor",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/betongkrukorcortenkrukor\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/betongbankarbordsskivor",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/betongbankarbordsskivor\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/fyrarvattentunna",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/fyrarvattentunna\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/rabattkant-cortenstaleldfat-mm",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/rabattkant-cortenstaleldfat-mm\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/alternativ-till-ograsbekampning",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/alternativ-till-ograsbekampning\"/>"
     },
     {
       "path": "/produkter/tradgardsdekoration-rengoring/ocean",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/tradgardsdekoration-rengoring/ocean\"/>"
     },
     {
       "path": "/uthyrning/kombihammarekapmaskin",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/uthyrning/kombihammarekapmaskin\"/>"
     },
     {
       "path": "/uthyrning/betongslipdammsugare",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/uthyrning/betongslipdammsugare\"/>"
     },
     {
       "path": "/uthyrning/jordfras",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/uthyrning/jordfras\"/>"
     },
     {
       "path": "/uthyrning/ovrigt",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/uthyrning/ovrigt\"/>"
     },
     {
       "path": "/vara-leverantorer/st-eriks",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/st-eriks\"/>"
     },
     {
       "path": "/vara-leverantorer/benders",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/benders\"/>"
     },
     {
       "path": "/vara-leverantorer/weber",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/weber\"/>"
     },
     {
       "path": "/vara-leverantorer/jackon",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/jackon\"/>"
     },
     {
       "path": "/vara-leverantorer/be-group",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/be-group\"/>"
     },
     {
       "path": "/vara-leverantorer/wienerberger",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/wienerberger\"/>"
     },
     {
       "path": "/vara-leverantorer/vedums-gras",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/vedums-gras\"/>"
     },
     {
       "path": "/vara-leverantorer/goteborgs-handelsstal",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/goteborgs-handelsstal\"/>"
     },
     {
       "path": "/vara-leverantorer/magrab",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/magrab\"/>"
     },
     {
       "path": "/vara-leverantorer/fagelfors",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/fagelfors\"/>"
     },
     {
       "path": "/vara-leverantorer/econova",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/econova\"/>"
     },
     {
       "path": "/vara-leverantorer/flisby",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/flisby\"/>"
     },
     {
       "path": "/vara-leverantorer/ocean",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/ocean\"/>"
     },
     {
       "path": "/vara-leverantorer/minera",
       "status": 200,
       "location": null,
-      "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/vara-leverantorer/minera\"/>"
     },
     {
@@ -712,7 +641,63 @@
       "location": "/kontakt",
       "targetStatus": 200,
       "canonical": null
+    },
+    {
+      "path": "/BE-Armeringshandboken.pdf",
+      "status": 404,
+      "location": null,
+      "canonical": null
+    },
+    {
+      "path": "/WB+Produktkatalog.pdf",
+      "status": 404,
+      "location": null,
+      "canonical": null
     }
   ],
-  "failures": []
+  "assetsChecked": 78,
+  "brokenAssets": [],
+  "assetParserCorrection": "HTML quote entities stripped before rechecking CSS asset URLs",
+  "correctedAssetChecks": [
+    {
+      "path": "/assets/Hero3.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/Ejder.jpg",
+      "status": 200
+    },
+    {
+      "path": "/assets/Butik.jpg",
+      "status": 200
+    },
+    {
+      "path": "/assets/BetongCement.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/Markbelaggning.jpg",
+      "status": 200
+    },
+    {
+      "path": "/assets/SandKrossJord.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/Byggmaterial.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/StenLecaR%C3%B6r.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/Ved.webp",
+      "status": 200
+    },
+    {
+      "path": "/assets/Tradgardsdekor.jpg",
+      "status": 200
+    }
+  ]
 }

@@ -29,7 +29,7 @@ body {
 /* Skydd mot horisontell scroll på mobil */
 html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
   max-width: 100%;
 }
 
@@ -411,9 +411,6 @@ h3 {
 
 /* ── Riktigt smala skärmar ── */
 @media (max-width: 380px) {
-  .brand-name {
-    font-size: 18px !important;
-  }
   h1 {
     font-size: 30px !important;
   }
@@ -427,6 +424,7 @@ h3 {
 .content-page h3 { font-size:24px; }
 .content-page p,.content-page li { font-size:16px; line-height:1.7; }
 .intro { font-size:19px!important; color:var(--muted); max-width:65ch; margin-bottom:32px; }
+.content-figure { margin:0 0 32px; }
 .eyebrow { font-size:13px!important; letter-spacing:.12em; text-transform:uppercase; color:var(--muted); }
 .subcategories { display:grid; grid-template-columns:repeat(auto-fit,minmax(min(100%,270px),1fr)); gap:20px; }
 .sub-card { display:block; padding:24px; border:1px solid var(--kant); border-radius:12px; background:var(--paper); color:var(--ink); }
@@ -488,13 +486,11 @@ h3 {
 /* Navigation and focus */
 .site-header { position:sticky; top:0; z-index:50; background:rgba(246,243,236,.97); border-bottom:1px solid var(--kant); }
 .header-inner { display:flex; align-items:center; justify-content:space-between; gap:16px; padding-top:12px; padding-bottom:12px; }
-.brand { display:flex; align-items:center; gap:12px; min-width:0; text-decoration:none!important; color:var(--ink); }
-.brand>span:last-child { min-width:0; }
-.brand-symbol { display:grid; place-items:center; flex:none; width:38px; height:38px; background:var(--deep); color:var(--ljus); border-radius:8px; font:24px var(--font-serif),serif; }
-/* overflow-wrap gör att namnet aldrig kan tvinga fram vågrät scroll på
-   riktigt smala skärmar, i stället för att förlita sig på overflow-x:hidden. */
-.brand-name { display:block; font:21px/1.1 var(--font-serif),serif; overflow-wrap:anywhere; }
-.brand-tag { display:block; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); margin-top:4px; }
+/* Logotypen sätter varumärket. Höjden styr storleken och bredden följer med,
+   så märket aldrig kan tvinga fram vågrät scroll på smala skärmar. */
+.brand { display:flex; flex-direction:column; align-items:flex-start; gap:3px; min-width:0; text-decoration:none!important; color:var(--ink); }
+.brand-logo { height:42px; width:auto; max-width:100%; object-fit:contain; }
+.brand-tag { display:block; font-size:10px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
 .nav-desktop { display:flex; align-items:center; gap:2px; }
 .nav-link { display:block; padding:12px 9px; color:var(--ink); font-size:14px; border-radius:7px; }
 .nav-link[aria-current="page"] { background:var(--sand); font-weight:600; }
@@ -512,18 +508,19 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 @media(max-width:640px){
  .content-page { padding:32px 20px 56px; }
  .header-inner { padding:10px 16px!important; gap:8px; }
- .brand { gap:8px; }
- .brand-name { font-size:20px; }
+ .brand { gap:2px; }
+ .brand-logo { height:34px; }
  .brand-tag { font-size:9px; letter-spacing:.06em; }
- .brand-symbol { width:32px; height:32px; }
  .category-hero .container { padding-left:20px; padding-right:20px; }
  .contact-form-panel { padding:28px 22px!important; }
  .help-panel { padding:24px; }
 }
-@media(max-width:360px){ .brand-tag { white-space:normal; max-width:175px; } .brand-name { font-size:18px!important; } }
+@media(max-width:380px){ .brand-logo { height:30px; } }
+@media(max-width:360px){ .brand-tag { white-space:normal; max-width:175px; } }
 /* Form controls keep a visible label and focus, and preserve data on errors. */
 .contact-form { display:grid; gap:10px; color:var(--ljus); }
 .contact-form label { font-size:15px; margin-top:8px; }
+.field-optional { font-weight:400; opacity:.75; }
 .contact-form input,.contact-form textarea { width:100%; min-width:0; border:1px solid rgba(255,255,255,.6); background:rgba(255,255,255,.08); color:var(--ljus); border-radius:8px; padding:12px; font:16px var(--font-sans),sans-serif; }
 .contact-form input:focus-visible,.contact-form textarea:focus-visible,.contact-form button:focus-visible,.contact-form a:focus-visible { outline-color:white; }
 .contact-form textarea { resize:vertical; }
@@ -537,3 +534,20 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .form-status.sent { color:#d8f0e2; }
 @media(prefers-reduced-motion:reduce){ *,*::before,*::after { animation:none!important; transition:none!important; scroll-behavior:auto!important; } }
 
+
+/* Content must fit narrow screens without hiding clipped controls. */
+main { overflow-wrap:break-word; }
+.resource-links { margin:28px 0; padding:20px; background:var(--paper); border:1px solid var(--kant); border-radius:12px; }
+.resource-links h2 { font-size:24px; margin-top:0; }
+.resource-links ul { padding-left:20px; }
+.resource-links li { margin-bottom:18px; }
+.resource-links a { text-decoration:underline; text-underline-offset:3px; }
+.resource-links p { font-size:14px; margin:6px 0; }
+.contact-hours { margin-bottom:0; font-size:14px; }
+.contact-direct { display:grid; gap:18px; color:var(--ljus); }
+.contact-direct p { margin:0; line-height:1.65; }
+.contact-direct a { color:var(--ljus); text-decoration:underline; text-underline-offset:3px; overflow-wrap:anywhere; }
+.contact-direct a span { display:block; font-size:14px; margin-top:4px; }
+.contact-direct .btn { color:var(--deep); text-align:center; padding:15px 20px; text-decoration:none; }
+.contact-direct a:focus-visible,footer a:focus-visible { outline-color:var(--ljus); }
+html { scroll-padding-top:100px; }

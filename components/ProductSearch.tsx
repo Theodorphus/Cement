@@ -1,8 +1,8 @@
 "use client";
 import Link from "next/link";
 import {useId, useState} from "react";
-import {CATALOG, productPath} from "@/lib/catalog";
-import {getKategori} from "@/lib/data";
+import {CATALOG, MATERIALS, productPath} from "@/lib/catalog";
+import {getKategori, KATEGORIER} from "@/lib/data";
 /** Sökbara synonymer, så att kundens ord hittar rätt produkt. */
 const SYNONYMS: Record<string,string> = {
  "fardig-grasmatta":"gras grasmatta pa rulle rullgras torv matta",
@@ -26,11 +26,13 @@ export default function ProductSearch(){
  const [query,setQuery]=useState("");
  const id=useId();
  const words=normalize(query).trim().split(/\s+/).filter(Boolean);
+ const entries = [
+  ...CATALOG.map(p=>({name:p.name,href:productPath(p),category:getKategori(p.category)?.name,search:[p.name,p.intro,...p.details,SYNONYMS[p.slug]??""].join(" ")})),
+  ...KATEGORIER.map(k=>({name:k.name,href:`/produkter/${k.slug}`,category:"Produktkategori",search:[k.name,k.desc,...(k.slug === "sand-kross-jord" ? MATERIALS.flat() : [])].join(" ")})),
+  {name:"Ejder 400 kg",href:"/#ejder",category:"Trädgårdsdekoration",search:"ejder betong trafikavstängare trafikhinder"},
+ ];
  const matches=words.length
-  ? CATALOG.filter(p=>{
-     const haystack=normalize([p.name,p.intro,...p.details].join(" "))+" "+(SYNONYMS[p.slug]??"");
-     return words.every(word=>haystack.includes(word));
-    })
+  ? entries.filter(p=>words.every(word=>normalize(p.search).includes(word)))
   : [];
  return <section className="product-search" aria-labelledby={`${id}-title`}>
   <h2 id={`${id}-title`}>Vad letar du efter?</h2>
@@ -39,13 +41,12 @@ export default function ProductSearch(){
   {words.length>0&&<>
    {matches.length>0
     ? <ul className="product-search-hits">{matches.map(p=>{
-       const category=getKategori(p.category);
-       return <li key={productPath(p)}><Link href={productPath(p)}><strong>{p.name}</strong>{category&&<span> {category.name}</span>}</Link></li>;
+       return <li key={p.href}><Link href={p.href}><strong>{p.name}</strong>{p.category&&<span> {p.category}</span>}</Link></li>;
       })}</ul>
-    : <p className="product-search-empty">Vi hittade inget på ”{query.trim()}”. Prova ett annat ord eller <Link href="/kontakt">fråga oss om materialet</Link> – sortimentet är större än webbplatsen.</p>}
+    : <p className="product-search-empty">Vi hittade inget på ”{query.trim()}”. Prova ett annat ord eller <Link href={`/kontakt?produkt=${encodeURIComponent(query.trim().slice(0,150))}`}>fråga oss om materialet</Link> – sortimentet är större än webbplatsen.</p>}
   </>}
   {/* Uppdateringen läses upp separat från listan, så skärmläsaren inte
       avbryts vid varje tangenttryck. */}
-  <p className="visually-hidden" role="status">{words.length>0?`${matches.length} träffar`:""}</p>
+  <p className="visually-hidden" role="status">{words.length>0?`${matches.length} ${matches.length===1?"träff":"träffar"}`:""}</p>
  </section>;
 }

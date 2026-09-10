@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CategoryCard from "@/components/CategoryCard";
@@ -14,7 +15,7 @@ export default function Home() {
     <div className="page-mount">
       {/* Heron är sidans LCP-element och laddas som CSS-bakgrund, vilket gör att
           webbläsaren annars hittar den först när stilarna är tolkade. */}
-      <link rel="preload" as="image" href="/assets/Hero3.webp" fetchPriority="high" />
+      <link rel="preload" as="image" href="/assets/Hero5.webp" fetchPriority="high" />
       {/* ── Hero ── */}
       <section
         style={{
@@ -29,7 +30,7 @@ export default function Home() {
           style={{
             position: "absolute",
             inset: 0,
-            backgroundImage: "url('/assets/Hero3.webp')",
+            backgroundImage: "url('/assets/Hero5.webp')",
             backgroundSize: "cover",
             backgroundPosition: "center",
             animation: "heroZoom 16s ease-out both",
@@ -221,7 +222,7 @@ export default function Home() {
             <div
               style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(auto-fill,minmax(260px,1fr))",
+                gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,260px),1fr))",
                 gap: 20,
               }}
             >
@@ -248,7 +249,7 @@ export default function Home() {
             background:
               "linear-gradient(135deg, #24404C 0%, #1F4A56 55%, #2E6E7E 130%)",
             borderRadius: 16,
-            padding: "52px 56px",
+            padding: "clamp(24px, 5vw, 52px) clamp(22px, 5vw, 56px)",
             display: "flex",
             alignItems: "center",
             justifyContent: "space-between",
@@ -297,11 +298,118 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ── 03 — Tullhuset / Ejder ── */}
+      {/* ── 03 — Personalen (äkta foto från gården) ── */}
+      <Reveal
+        style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 20px" }}
+      >
+        <div style={sectionEyebrow}>03 — Vi som jobbar här</div>
+        <h2 style={{ fontSize: 46, margin: "0 0 34px" }}>Personlig service på Öckerö</h2>
+        <div
+          className="grid-2"
+          style={{
+            display: "grid",
+            gridTemplateColumns: "1fr 1fr",
+            gap: 28,
+            alignItems: "center",
+          }}
+        >
+          <div
+            style={{
+              position: "relative",
+              borderRadius: 14,
+              overflow: "hidden",
+              aspectRatio: "4 / 3",
+            }}
+          >
+            <Image
+              src="/assets/Personal.webp"
+              alt="Personalen på Öckerö Cementgjuteri utanför butiken på Öckerö"
+              fill
+              sizes="(max-width:900px) 100vw, 560px"
+              style={{ objectFit: "cover" }}
+            />
+          </div>
+          <div>
+            <p
+              style={{
+                fontFamily: "var(--font-serif), serif",
+                fontSize: 25,
+                lineHeight: 1.3,
+                margin: "0 0 14px",
+                color: "var(--ink)",
+              }}
+            >
+              Vi hjälper dig välja rätt material till ditt projekt.
+            </p>
+            <p
+              style={{
+                fontSize: 16,
+                lineHeight: 1.6,
+                color: "var(--muted)",
+                margin: "0 0 22px",
+              }}
+            >
+              Berätta vad du ska bygga så går vi igenom mängder, alternativ och
+              leverans tillsammans. Välkommen in på gården eller hör av dig så
+              tar vi det på telefon.
+            </p>
+            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
+              <Link href="/kontakt" className="btn btn-deep">
+                Kontakta oss
+              </Link>
+              <a href={FORETAG.telefonHref} className="btn btn-outline">
+                Ring {FORETAG.telefon}
+              </a>
+            </div>
+            <div
+              className="barnsupporter"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                gap: 18,
+                marginTop: 26,
+                paddingTop: 24,
+                borderTop: "1px solid var(--kant)",
+              }}
+            >
+              <Image
+                src="/assets/Barnsupporter.webp"
+                alt="Barncancerfondens märke: Vårt företag är Barnsupporter 2024"
+                width={320}
+                height={268}
+                sizes="96px"
+                style={{ width: 96, height: "auto", flex: "none" }}
+              />
+              <p
+                style={{
+                  fontSize: 15,
+                  lineHeight: 1.55,
+                  color: "var(--muted)",
+                  margin: 0,
+                }}
+              >
+                Vi är stolta Barnsupporter och stödjer{" "}
+                <a
+                  href="https://www.barncancerfonden.se/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Barncancerfondens
+                  <span aria-hidden="true"> ↗</span>
+                  <span className="visually-hidden"> (öppnas i ny flik)</span>
+                </a>{" "}
+                arbete för barn med cancer och deras familjer.
+              </p>
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* ── 04 — Tullhuset / Ejder ── */}
       <Reveal
         style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 90px" }}
       >
-        <div style={sectionEyebrow}>03 — Ute på öarna</div>
+        <div style={sectionEyebrow}>04 — Ute på öarna</div>
         <h2 style={{ fontSize: 46, margin: "0 0 34px" }}>Gjutet på Öckerö</h2>
         <div
           className="grid-2"
@@ -321,23 +429,6 @@ export default function Home() {
             }}
           >
             <HeroVideo src="/assets/Hero%20vid.mp4" />
-            <div
-              style={{
-                position: "absolute",
-                left: 14,
-                bottom: 14,
-                background: "rgba(18,32,38,0.55)",
-                backdropFilter: "blur(6px)",
-                WebkitBackdropFilter: "blur(6px)",
-                color: "var(--ljus)",
-                fontSize: 12.5,
-                letterSpacing: "0.08em",
-                padding: "7px 13px",
-                borderRadius: 7,
-              }}
-            >
-              Vår gård vid havet
-            </div>
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
             <div
@@ -408,10 +499,11 @@ export default function Home() {
                 }}
               />
               <div>
-                <div style={{ fontWeight: 600, fontSize: 16.5 }}>Ejder 400 kg</div>
+                <div id="ejder" style={{ fontWeight: 600, fontSize: 16.5 }}>Ejder 400 kg</div>
                 <div style={{ fontSize: 14, color: "var(--muted)" }}>
-                  Den fina trafikavstängaren — gjuten på Öckerö.
+                  Den fina trafikavstängaren.
                 </div>
+                <Link href="/kontakt?produkt=Ejder%20400%20kg" className="link-arrow">Fråga om Ejder →</Link>
               </div>
             </div>
           </div>

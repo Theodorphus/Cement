@@ -1,67 +1,54 @@
-# Öckerocement.se — Next.js
+﻿# Öckerö Cementgjuteri
 
-Redesign av **ockerocement.se** (Öckerö Cementgjuteri AB) byggd i **Next.js (App Router)** enligt designhandoffen i `Claude design setup/design_handoff_nextjs/`. Prototypen `Ockero Cement.dc.html` är facit för layout, färger, typografi och copy.
+Next.js 15 med App Router, React 19 och TypeScript. Webbplatsen innehåller produktkategorier och produkt-/guidesidor, maskinuthyrning, leverantörer, leverans, kontakt och företagsinformation.
 
-## Kom igång
+## Utveckling och kontroll
 
-```bash
-npm install
-npm run dev        # http://localhost:3000
-```
+Node.js 24 LTS rekommenderas.
 
-Bygg för produktion:
-
-```bash
+```sh
+npm ci
+npm run dev
+npm run lint
+npm run typecheck
+npm test
 npm run build
 npm start
 ```
 
-## Struktur
+Vid parallell utveckling och produktionskontroll: sätt `NEXT_DIST_DIR=.next-dev` för utvecklingsservern och använd en annan port för produktionsservern. Bygg inte i samma mapp som en aktiv server använder.
 
-```
-app/
-  layout.tsx                              header, footer, toppbanner, fonter, global metadata
-  page.tsx                                startsida (hero, sortiment, uthyrning, Tullhuset, leverantörer)
-  produkter/page.tsx                      produktöversikt
-  produkter/[kategori]/page.tsx           kategorisida (Markbeläggning har underkategorier)
-  produkter/[kategori]/[produkt]/page.tsx produktsida
-  uthyrning/page.tsx
-  vara-leverantorer/page.tsx
-  miljo/page.tsx  (+ miljopolicy, miljodiplom)
-  aktuellt/page.tsx
-  kontakt/page.tsx                        med formulär → /api/kontakt
-  api/kontakt/route.ts                    tar emot formuläret (Resend om konfigurerat)
-  sitemap.ts, robots.ts                   SEO
-components/                               Header, Footer, TopBanner, CategoryCard, Reveal, HeroVideo, Breadcrumb, ContactForm, SimplePage
-lib/                                      data.ts (all copy), fonts.ts (next/font)
-public/assets/                            bilder + video från handoffen
-```
+Google Fonts hämtas vid bygget och serveras sedan lokalt med next/font. Om datorns certifikatkedja kräver systemets CA-lager kan `NODE_OPTIONS=--use-system-ca` användas; certifikatkontrollen ska förbli aktiverad.
 
-## Designtokens
+## Innehåll
 
-Definierade som CSS-variabler i `app/globals.css` (`--bg`, `--deep`, `--accent`, `--sand`, …) enligt handoffens tabell. Fonter (`Instrument Serif`, `Instrument Sans`) laddas via `next/font/google`.
+- `lib/data.ts`: företagsuppgifter, öppettider, kontaktpersoner och kategorier.
+- `lib/catalog.ts`: produktgrupper, guider och material i lösvikt.
+- `lib/catalog-images.json`: produktbilder och alternativtexter.
+- `lib/rental.ts` och `lib/suppliers.ts`: maskiner och leverantörer.
+- `lib/resources.ts`: verifierade länkar till tillverkaranvisningar och dokument.
+- `public/assets/`: lokala bilder och film.
 
-## Interaktioner
+Kundens aktuella produktuppgifter inväntas. Ändra inte mått, lagerstatus, priser eller miljöpåståenden utifrån antaganden. Se `docs/audit/status-2026-09-10.md` för innehållsarbete och `docs/audit/forbattringar-2026-09-10.md` för senaste ändringar. Uppdatera `CONTENT_UPDATED` i `lib/site.ts` när publikt innehåll ändras.
 
-- **Scroll-reveal**: `components/Reveal.tsx` använder IntersectionObserver (bredare stöd än prototypens `animation-timeline: view()`). Respekterar `prefers-reduced-motion`.
-- **Hero-video**: `components/HeroVideo.tsx` sätter `muted`-attributet i DOM och kallar `play().catch()` så Chrome inte blockerar autoplay.
-- **Hero**: Ken Burns-zoom + staggad intro (`heroText`-delays).
+## Kontakt och Resend
 
-## Kontaktformulär
+Konfiguration finns i `.env.example`. Lägg hemligheter i `.env.local` vid lokal utveckling och i driftplattformens miljövariabler i produktion.
 
-`app/api/kontakt/route.ts` skickar mejl via [Resend](https://resend.com) om `RESEND_API_KEY` är satt (se `.env.example`). Utan konfiguration loggas meddelandet serverside och formuläret bekräftar ändå — så det fungerar direkt i utveckling.
+Utan komplett konfiguration visar kontaktsidan ring- och mejllänkar i stället för ett formulär. Produktens namn följer med till mejlets ämnesrad. API:t ger 503 om konfiguration saknas; inget meddelande loggas som ersättning för leverans.
 
-## Att göra innan lansering
+När `RESEND_API_KEY`, `CONTACT_TO` och `CONTACT_FROM` är satta visas formuläret automatiskt. Avsändardomänen måste vara verifierad och mottagaren bekräftad. Resends onboarding-avsändare accepteras inte. Ett godkänt API-svar betyder att mejltjänsten accepterat meddelandet, inte att det säkert nått inkorgen.
 
-- **SEO 1:1**: verifiera att alla slugs, `<title>` och meta descriptions matchar nuvarande sajt exakt; lägg annars 301-redirects (se `next.config.ts`).
-- **Riktig copy**: produktsidan har nu skriven produkttext per underkategori i `lib/data.ts` (`SUBKATEGORIER[].text`) — ersätt med ordagrann text från nuvarande sajt om sådan finns, för exakt SEO-matchning.
-- **Kategorier**: bara Markbeläggning har underkategorier/produktsidor i prototypen; övriga kategorier visar en presentation + callout tills innehåll finns.
-- Sätt rätt domän i `metadataBase`, `sitemap.ts`, `robots.ts` om den avviker.
+API:t har typ- och längdvalidering, ursprungskontroll, dold botfälla, tidsgränser och en anropsbegränsning per serverinstans. Lägg även ett delat skydd mot upprepade anrop på driftplattformen när formuläret aktiveras.
 
-### Redan åtgärdat
-- Alla bilder är hemtagna lokalt till `public/assets/` (Markbeläggning, Trädgårdsdekor, Ejder, butiksbild) — inga externa CDN-beroenden kvar.
-- Google Maps-länk till adressen finns på kontaktsidan (adresskort + butiksbild) och i footern (`FORETAG.mapsUrl` i `lib/data.ts`).
+## Inför lansering
 
-## Deploy
+1. Färdigställ kundens produktuppgifter och godkända miljödokument.
+2. Kontrollera kontaktuppgifter, öppettider och produktbilder med kunden.
+3. Konfigurera domän, HTTPS och vald huvudvärd. `SITE_URL` i `lib/site.ts` används av canonical och sidkarta; matcha den mot driftens domän och omdirigera den andra värden.
+4. Sätt `SITE_INDEXABLE=true` enbart för publik produktion och bygg om. Förhandsversioner är noindex som standard.
+5. Konfigurera Resend och verifiera mottagning samt svar till avsändaren med ett godkänt testmejl.
+6. Stäm av integritetstexten mot valda drift- och mejltjänster.
+7. Kör `npm run check:site` mot ett produktionsbygge. Standard är localhost:3000. Annan port anges med `BASE_URL`, exempelvis `$env:BASE_URL='http://localhost:3100'` i PowerShell.
 
-Deploya till Vercel. Sätt ev. `RESEND_API_KEY`, `CONTACT_TO`, `CONTACT_FROM` som environment variables.
+Gamla produktadresser och dokumentlänkar hanteras i `next.config.ts`. `docs/audit` innehåller källinventering och granskningsunderlag; äldre rapporter beskriver läget vid respektive datum.

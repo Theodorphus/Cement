@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { FORETAG } from "@/lib/data";
 
@@ -20,39 +21,19 @@ export default function Footer() {
         }}
       >
         <div>
-          <div
+          <Image
+            src="/assets/Logotyp-ljus.webp"
+            alt={FORETAG.namn}
+            width={713}
+            height={180}
+            sizes="230px"
             style={{
-              display: "flex",
-              alignItems: "center",
-              gap: 11,
-              marginBottom: 14,
+              width: 230,
+              maxWidth: "100%",
+              height: "auto",
+              marginBottom: 16,
             }}
-          >
-            <div
-              style={{
-                width: 32,
-                height: 32,
-                background: "var(--ljus)",
-                borderRadius: 7,
-                display: "grid",
-                placeItems: "center",
-                color: "var(--deep)",
-                fontFamily: "var(--font-serif), serif",
-                fontSize: 19,
-              }}
-            >
-              Ö
-            </div>
-            <div
-              style={{
-                fontFamily: "var(--font-serif), serif",
-                fontSize: 19,
-                color: "var(--ljus)",
-              }}
-            >
-              {FORETAG.namn}
-            </div>
-          </div>
+          />
           <div style={{ fontSize: 14.5, lineHeight: 1.65 }}>
             {FORETAG.adressRad1}
             <br />

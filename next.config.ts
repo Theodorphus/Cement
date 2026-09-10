@@ -1,4 +1,5 @@
 ﻿import type {NextConfig} from "next";
+import {RESOURCES} from "./lib/resources";
 import {CATALOG,productPath} from "./lib/catalog";
 const categoryMoves = [
  ["betongcement","betong-cement"],["sandkrossprodukterjord","sand-kross-jord"],["stenlecaror","sten-leca-ror"],["tradgardsdekorationrengoring","tradgardsdekoration-rengoring"]
@@ -9,6 +10,8 @@ const config:NextConfig={
  async redirects(){return [
   ...CATALOG.filter(p=>p.oldPath!==productPath(p)).map(p=>({source:p.oldPath,destination:productPath(p),permanent:true})),
   ...categoryMoves.map(([oldSlug,newSlug])=>({source:`/produkter/${oldSlug}`,destination:`/produkter/${newSlug}`,permanent:true})),
+  {source:"/BE-Armeringshandboken.pdf",destination:RESOURCES.reinforcement.url,permanent:true},
+  {source:"/WB\\+Produktkatalog.pdf",destination:RESOURCES.brick.url,permanent:true},
   {source:"/startsida",destination:"/",permanent:true},
   {source:"/kontakt/har-hittar-du-oss",destination:"/kontakt",permanent:true},
   {source:"/aktuellt/gdpr---for-din-trygghet",destination:"/integritet",permanent:true}
@@ -27,4 +30,3 @@ const config:NextConfig={
  ]}];}
 };
 export default config;
-

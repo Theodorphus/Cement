@@ -20,11 +20,15 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
       setStatus("error"); setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "Det tog för lång tid. Ring oss eller försök igen.");
     } finally { busy.current = false; }
   }
-  return <form onSubmit={submit} className="contact-form" aria-busy={status === "sending"}>
+  return <form method="post" action="/api/kontakt" onSubmit={submit} className="contact-form" aria-busy={status === "sending"}>
+    <noscript><p>Formuläret behöver JavaScript. Ring <a href="tel:031966066">031-96 60 66</a> eller mejla en kontaktperson.</p></noscript>
     <label htmlFor="contact-name">Namn *</label>
     <input id="contact-name" name="namn" autoComplete="name" required maxLength={CONTACT_LIMITS.namn} />
     <label htmlFor="contact-email">E-postadress *</label>
     <input id="contact-email" name="epost" type="email" autoComplete="email" required maxLength={CONTACT_LIMITS.epost} />
+    <label htmlFor="contact-tel">Telefon <span className="field-optional">(frivilligt)</span></label>
+    <input id="contact-tel" name="telefon" type="tel" inputMode="tel" autoComplete="tel" maxLength={CONTACT_LIMITS.telefon} aria-describedby="contact-tel-help" />
+    <p id="contact-tel-help">Fyll i om du hellre vill bli uppringd.</p>
     <label htmlFor="contact-message">Meddelande *</label>
     <textarea id="contact-message" name="meddelande" required rows={7} maxLength={CONTACT_LIMITS.meddelande} defaultValue={subject ? `Jag är intresserad av ${subject}.\n\nMängd:\nLeveransort eller hämtning:\nÖnskat datum:\n` : ""} aria-describedby="contact-help" />
     <p id="contact-help">Berätta gärna vad du behöver, mängd och önskat datum.</p>

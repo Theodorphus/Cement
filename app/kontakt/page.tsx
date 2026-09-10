@@ -3,6 +3,9 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ContactForm from "@/components/ContactForm";
 import { KONTAKTER, telHref, FORETAG } from "@/lib/data";
 
+import { contactConfigured } from "@/lib/contact-config";
+export const dynamic = "force-dynamic";
+
 const BUTIK_IMG = "/assets/Butik.jpg";
 
 export const metadata: Metadata = {
@@ -57,6 +60,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               {FORETAG.adressRad2}
               <br />
               Telefon <a href={FORETAG.telefonHref}>{FORETAG.telefon}</a>
+              <p className="contact-hours"><strong>Öppettider</strong><br />{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p>
             </div>
             <a
               href={FORETAG.mapsUrl}
@@ -181,7 +185,13 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
           >
             Berätta vad du behöver så hjälper vi dig vidare.
           </p>
-          <ContactForm subject={subject} />
+          {contactConfigured() ? <ContactForm key={subject} subject={subject} /> : <div className="contact-direct">
+            <p>Ring oss eller mejla direkt till en kontaktperson så hjälper vi dig med din förfrågan.</p>
+            <a className="btn btn-light" href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a>
+            {KONTAKTER.filter(person => person.email).map(person => <a key={person.email} href={"mailto:" + person.email + "?subject=" + encodeURIComponent(subject ? "Förfrågan: " + subject : "Förfrågan från hemsidan")}>Mejla {person.name}<span>{person.email}</span></a>)}
+            {subject && <p>Din förfrågan gäller: <strong>{subject}</strong></p>}
+            <p>Berätta gärna vad du behöver, mängd, leveransort eller hämtning och önskat datum.</p>
+          </div>}
         </div>
       </div>
     </div>

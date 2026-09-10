@@ -2,58 +2,63 @@
   "/produkter/betongcement/armering": [
     {
       "src": "/assets/catalog/armering-1.webp",
-      "alt": "Armeringsj�rn"
+      "alt": "Armeringsjärn"
     },
     {
       "src": "/assets/catalog/armering-2.webp",
-      "alt": "Armeringsn�t"
+      "alt": "Armeringsnät"
     },
     {
       "src": "/assets/catalog/armering-3.webp",
-      "alt": "Bist�l f�r murverk"
+      "alt": "Bistål för murverk"
     }
   ],
   "/produkter/betongcement/betongcement": [
     {
       "src": "/assets/catalog/betongcement-1.webp",
-      "alt": "Finbetong i s�ck"
+      "alt": "Finbetong i säck"
     },
     {
       "src": "/assets/catalog/betongcement-2.webp",
-      "alt": "Grovbetong i s�ck"
+      "alt": "Grovbetong i säck"
     }
   ],
-  "/produkter/betongcement/byggkemi": [],
+  "/produkter/betongcement/byggkemi": [
+    {
+      "src": "/assets/catalog/byggkemi-1.webp",
+      "alt": "Betongplatta, murborste och roller på en arbetsbänk"
+    }
+  ],
   "/produkter/betongcement/plattsattning": [
     {
       "src": "/assets/catalog/plattsattning-1.webp",
-      "alt": "F�stmassa i s�ck"
+      "alt": "Fästmassa i säck"
     },
     {
       "src": "/assets/catalog/plattsattning-2.webp",
-      "alt": "Mapei Keraflex f�stmassa"
+      "alt": "Mapei Keraflex fästmassa"
     }
   ],
   "/produkter/betongcement/murbruk": [
     {
       "src": "/assets/catalog/murbruk-1.webp",
-      "alt": "Murbruk i s�ck"
+      "alt": "Murbruk i säck"
     }
   ],
   "/produkter/betongcement/putsbruk": [
     {
       "src": "/assets/catalog/putsbruk-1.webp",
-      "alt": "Putsbruk i s�ck"
+      "alt": "Putsbruk i säck"
     }
   ],
   "/produkter/betongcement/golvavjamning": [
     {
       "src": "/assets/catalog/golvavjamning-1.webp",
-      "alt": "Golvavj�mning i s�ck"
+      "alt": "Golvavjämning i säck"
     },
     {
       "src": "/assets/catalog/golvavjamning-2.webp",
-      "alt": "Sj�lvutj�mnande golvbruk i s�ck"
+      "alt": "Självutjämnande golvbruk i säck"
     }
   ],
   "/produkter/markbelaggning/marksten-betongnatursten": [
@@ -63,39 +68,39 @@
     },
     {
       "src": "/assets/catalog/marksten-betongnatursten-2.webp",
-      "alt": "Exempel p� marksten fr�n S:T Eriks"
+      "alt": "Exempel på marksten från S:T Eriks"
     },
     {
       "src": "/assets/catalog/marksten-betongnatursten-3.webp",
-      "alt": "Exempel p� marksten fr�n Benders"
+      "alt": "Exempel på marksten från Benders"
     }
   ],
   "/produkter/markbelaggning/plattor": [
     {
       "src": "/assets/catalog/plattor-1.webp",
-      "alt": "Exempel p� plattor fr�n S:T Eriks"
+      "alt": "Exempel på plattor från S:T Eriks"
     },
     {
       "src": "/assets/catalog/plattor-2.webp",
-      "alt": "Exempel p� plattor fr�n Benders"
+      "alt": "Exempel på plattor från Benders"
     }
   ],
   "/produkter/markbelaggning/dekorsten": [
     {
       "src": "/assets/catalog/dekorsten-1.webp",
-      "alt": "Dekorsten i olika f�rger och storlekar"
+      "alt": "Dekorsten i olika färger och storlekar"
     }
   ],
   "/produkter/markbelaggning/skiffer": [
     {
       "src": "/assets/catalog/skiffer-1.webp",
-      "alt": "N�rbild av skifferns yta"
+      "alt": "Närbild av skifferns yta"
     }
   ],
   "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle": [
     {
       "src": "/assets/catalog/fardig-grasmatta-grasmatta-pa-rulle-1.webp",
-      "alt": "Gr�smatta p� rulle och odlad gr�smatta"
+      "alt": "Gräsmatta på rulle och odlad gräsmatta"
     }
   ],
   "/produkter/markbelaggning/gards-ganggrus": [
@@ -105,58 +110,65 @@
     },
     {
       "src": "/assets/catalog/gards-ganggrus-2.webp",
-      "alt": "R�tt g�nggrus 8/11"
+      "alt": "Rött gånggrus 8/11"
     },
     {
       "src": "/assets/catalog/gards-ganggrus-3.webp",
-      "alt": "Gr� singel 8/11"
+      "alt": "Grå singel 8/11"
     },
     {
       "src": "/assets/catalog/gards-ganggrus-4.webp",
       "alt": "Singel 4/8"
     }
   ],
-  "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor": [],
+  "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor": [
+    {
+      "src": "/assets/catalog/laggningsanvisningar-marksten-och-plattor-1.webp",
+      "alt": "Uteplats under läggning med marksten, rätsnöre och vattenpass",
+      "width": 1400,
+      "height": 722
+    }
+  ],
   "/produkter/sandkrossprodukterjord/jord-i-sackar": [
     {
       "src": "/assets/catalog/jord-i-sackar-1.webp",
-      "alt": "Gr�smattedress i s�ck"
+      "alt": "Gräsmattedress i säck"
     },
     {
       "src": "/assets/catalog/jord-i-sackar-2.webp",
-      "alt": "Planteringsjord i s�ck"
+      "alt": "Planteringsjord i säck"
     }
   ],
   "/produkter/sandkrossprodukterjord/grasfrogodsel": [
     {
       "src": "/assets/catalog/grasfrogodsel-1.webp",
-      "alt": "Gr�sfr� Villa Classic"
+      "alt": "Gräsfrö Villa Classic"
     },
     {
       "src": "/assets/catalog/grasfrogodsel-2.webp",
-      "alt": "Gr�sfr� Extra Green"
+      "alt": "Gräsfrö Extra Green"
     }
   ],
   "/produkter/stenlecaror/leca": [
     {
       "src": "/assets/catalog/leca-1.webp",
-      "alt": "Murblock i l�ttklinker"
+      "alt": "Murblock i lättklinker"
     },
     {
       "src": "/assets/catalog/leca-2.webp",
-      "alt": "L�ttklinker i s�ck"
+      "alt": "Lättklinker i säck"
     }
   ],
   "/produkter/stenlecaror/mursten": [
     {
       "src": "/assets/catalog/mursten-1.webp",
-      "alt": "Exempel p� mursten fr�n S:T Eriks"
+      "alt": "Exempel på mursten från S:T Eriks"
     }
   ],
   "/produkter/stenlecaror/cementsten": [
     {
       "src": "/assets/catalog/cementsten-1.webp",
-      "alt": "Cementsten staplad p� pall"
+      "alt": "Cementsten staplad på pall"
     }
   ],
   "/produkter/stenlecaror/stegsten": [
@@ -172,26 +184,33 @@
   "/produkter/stenlecaror/ror": [
     {
       "src": "/assets/catalog/ror-1.webp",
-      "alt": "Betongr�r p� g�rden"
+      "alt": "Betongrör på gården"
     }
   ],
-  "/produkter/stenlecaror/bygg-sjalv-med-murblock": [],
+  "/produkter/stenlecaror/bygg-sjalv-med-murblock": [
+    {
+      "src": "/assets/catalog/bygg-sjalv-med-murblock-1.webp",
+      "alt": "Lättklinkerblock med murslev och vattenpass",
+      "width": 1400,
+      "height": 716
+    }
+  ],
   "/produkter/ved/ved": [
     {
       "src": "/assets/catalog/ved-1.webp",
-      "alt": "Staplad bj�rkved"
+      "alt": "Staplad björkved"
     }
   ],
   "/produkter/ved/pellets": [
     {
       "src": "/assets/catalog/pellets-1.webp",
-      "alt": "Pellets i s�ck och p� pall"
+      "alt": "Pellets i säck och på pall"
     }
   ],
   "/produkter/ved/varmeloggs": [
     {
       "src": "/assets/catalog/varmeloggs-1.webp",
-      "alt": "F�rpackningar med v�rmeloggs"
+      "alt": "Förpackningar med värmeloggs"
     }
   ],
   "/produkter/tradgardsdekorationrengoring/gabioner": [
@@ -211,17 +230,17 @@
     },
     {
       "src": "/assets/catalog/betongkrukorcortenkrukor-2.webp",
-      "alt": "Rektangul�r betongkruka"
+      "alt": "Rektangulär betongkruka"
     },
     {
       "src": "/assets/catalog/betongkrukorcortenkrukor-3.webp",
-      "alt": "Planteringsk�rl i cortenst�l"
+      "alt": "Planteringskärl i cortenstål"
     }
   ],
   "/produkter/tradgardsdekorationrengoring/betongbankarbordsskivor": [
     {
       "src": "/assets/catalog/betongbankarbordsskivor-1.webp",
-      "alt": "Stor betongb�nk"
+      "alt": "Stor betongbänk"
     },
     {
       "src": "/assets/catalog/betongbankarbordsskivor-2.webp",
@@ -229,17 +248,17 @@
     },
     {
       "src": "/assets/catalog/betongbankarbordsskivor-3.webp",
-      "alt": "Betongb�nk med raka sidor"
+      "alt": "Betongbänk med raka sidor"
     }
   ],
   "/produkter/tradgardsdekorationrengoring/fyrarvattentunna": [
     {
       "src": "/assets/catalog/fyrarvattentunna-1.webp",
-      "alt": "Tr�tunna"
+      "alt": "Trätunna"
     },
     {
       "src": "/assets/catalog/fyrarvattentunna-2.webp",
-      "alt": "Begagnat tr�fat"
+      "alt": "Begagnat träfat"
     },
     {
       "src": "/assets/catalog/fyrarvattentunna-3.webp",
@@ -249,26 +268,31 @@
   "/produkter/tradgardsdekorationrengoring/rabattkant-cortenstaleldfat-mm": [
     {
       "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-1.webp",
-      "alt": "Rabattkant i cortenst�l"
+      "alt": "Rabattkant i cortenstål"
     },
     {
       "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-2.webp",
-      "alt": "Cortenringar f�r plantering"
+      "alt": "Cortenringar för plantering"
     },
     {
       "src": "/assets/catalog/rabattkant-cortenstaleldfat-mm-3.webp",
       "alt": "Eldfat i olika storlekar"
     }
   ],
-  "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning": [],
+  "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning": [
+    {
+      "src": "/assets/catalog/alternativ-till-ograsbekampning-1.webp",
+      "alt": "Gång av marksten med ogräs i fogarna och en fogrensare"
+    }
+  ],
   "/produkter/tradgardsdekorationrengoring/ocean": [
     {
       "src": "/assets/catalog/ocean-1.webp",
-      "alt": "Allreng�ring i flaska"
+      "alt": "Allrengöring i flaska"
     },
     {
       "src": "/assets/catalog/ocean-2.webp",
-      "alt": "Handtv�l i pumpflaska"
+      "alt": "Handtvål i pumpflaska"
     }
   ]
 }

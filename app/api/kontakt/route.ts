@@ -1,4 +1,5 @@
 ﻿import { NextResponse } from "next/server";
+import { contactConfigured } from "@/lib/contact-config";
 import { validateContact } from "@/lib/contact";
 export const runtime = "nodejs";
 const MAX_BODY_BYTES = 24_000;
@@ -28,7 +29,7 @@ export async function POST(request: Request) {
   const apiKey = process.env.RESEND_API_KEY;
   const to = process.env.CONTACT_TO;
   const from = process.env.CONTACT_FROM;
-  if (!apiKey || !to || !from || from.includes("onboarding@resend.dev")) {
+  if (!contactConfigured()) {
     return NextResponse.json({ error: "Formuläret är tillfälligt stängt. Ring 031-96 60 66 eller mejla en av våra kontaktpersoner." }, { status: 503 });
   }
   const now = Date.now();
@@ -40,7 +41,7 @@ export async function POST(request: Request) {
     const response = await fetch("https://api.resend.com/emails", {
       method: "POST", signal: AbortSignal.timeout(12_000),
       headers: { Authorization: `Bearer ${apiKey}`, "Content-Type": "application/json" },
-      body: JSON.stringify({ from, to: [to], reply_to: fields.epost, subject: "Förfrågan från ockerocement.se", text: `Namn: ${fields.namn}\nE-post: ${fields.epost}\n\n${fields.meddelande}` }),
+      body: JSON.stringify({ from, to: [to], reply_to: fields.epost, subject: "Förfrågan från ockerocement.se", text: `Namn: ${fields.namn}\nE-post: ${fields.epost}\nTelefon: ${fields.telefon || "—"}\n\n${fields.meddelande}` }),
     });
     if (!response.ok) throw new Error("delivery");
     const receipt = await response.json();
