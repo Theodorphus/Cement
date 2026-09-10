@@ -1,11 +1,22 @@
 ﻿"use client";
 import Link from "next/link";
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { CONTACT_LIMITS } from "@/lib/contact";
 export default function ContactForm({ subject = "" }: { subject?: string }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [message, setMessage] = useState("");
   const busy = useRef(false);
+  const statusRef = useRef<HTMLDivElement>(null);
+  /**
+   * Formuläret är långt, så svaret hamnar lätt utanför skärmen när man
+   * skickat. Rulla fram det när det kommer, så att både kvitto och felmeddelande
+   * faktiskt syns. Respekterar inställningen för minskad rörelse.
+   */
+  useEffect(() => {
+    if (status !== "sent" && status !== "error") return;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    statusRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+  }, [status, message]);
   async function submit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault(); if (busy.current) return;
     busy.current = true; setStatus("sending"); setMessage("");
@@ -35,7 +46,7 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     <div className="form-trap" aria-hidden="true"><label htmlFor="contact-website">Lämna detta fält tomt</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <p>Vi använder dina uppgifter för att hantera din förfrågan. <Link href="/integritet">Läs om personuppgifter</Link>.</p>
     <button className="btn btn-light" type="submit" disabled={status === "sending"}>{status === "sending" ? "Skickar…" : "Skicka förfrågan"}</button>
-    <div role="status" aria-live="polite" aria-atomic="true" className={`form-status ${status}`}>{message}</div>
+    <div ref={statusRef} role="status" aria-live="polite" aria-atomic="true" className={`form-status ${status}`}>{message}</div>
   </form>;
 }
 
