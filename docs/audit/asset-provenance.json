@@ -1,6 +1,6 @@
 {
   "checkedAt": "2026-09-10T00:00:00.000Z",
-  "method": "Original-site CDN images visually reviewed; logos, price lists and scanned instructions excluded. No generated or substitute imagery. Resize inside 1000 � 1000 without enlargement; WebP quality 82. Existing PNG variants inside 1920 � 1920; original files retained.",
+  "method": "Original-site CDN images visually reviewed; logos, price lists and scanned instructions excluded. Catalogue photos are the customer's own, except the nine AI-generated placeholders listed in generatedPlaceholders. Resize inside 1000 x 1000 without enlargement; WebP quality 82. Existing PNG variants inside 1920 x 1920; unused PNG originals removed 2026-09-10 (WebP versions are what the site serves).",
   "catalog": [
     {
       "src": "/assets/catalog/armering-1.webp",
@@ -566,16 +566,20 @@
       "bytes": 295198
     }
   ],
-  "missing": [
-    "/produkter/stenlecaror/dranering",
-    "/produkter/stenlecaror/brunnar-betackningar",
-    "/produkter/stenlecaror/rannor-galler",
-    "/produkter/byggmaterial/verktyg-handredskap",
-    "/produkter/byggmaterial/gjutning-formning",
-    "/produkter/byggmaterial/infastning-forbrukning",
-    "/produkter/byggmaterial/borr-kapning",
-    "/produkter/byggmaterial/golvbrunnar-ventiler",
-    "/produkter/byggmaterial/skydd-underhall"
-  ],
-  "missingNote": "Produktgrupper skapade 2026-09-10 ur kundens prislistor. Inga foton finns ännu – be kunden om bilder. Sidorna faller tillbaka på enspaltig layout utan galleri, vilket fungerar men skiljer sig från övriga produktsidor."
+  "missingNote": "Alla produktsidor har nu bild. De nio nyaste använder dock AI-genererade platshållare, se generatedPlaceholders.",
+  "generatedPlaceholders": {
+    "note": "AI-genererade platshållarbilder, skapade 2026-09-10 med ChatGPT/DALL-E på beskrivning av respektive produktgrupp. De visar representativa produkttyper, inte fotografier av faktiskt lagerförda artiklar. Ersätt med kundens egna foton när de finns.",
+    "addedAt": "2026-09-10",
+    "paths": [
+      "/produkter/stenlecaror/dranering",
+      "/produkter/stenlecaror/brunnar-betackningar",
+      "/produkter/stenlecaror/rannor-galler",
+      "/produkter/byggmaterial/verktyg-handredskap",
+      "/produkter/byggmaterial/gjutning-formning",
+      "/produkter/byggmaterial/infastning-forbrukning",
+      "/produkter/byggmaterial/borr-kapning",
+      "/produkter/byggmaterial/golvbrunnar-ventiler",
+      "/produkter/byggmaterial/skydd-underhall"
+    ]
+  }
 }

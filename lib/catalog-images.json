@@ -304,5 +304,59 @@
       "src": "/assets/Ejder-piren.webp",
       "alt": "Flera ejdrar uppradade på stenpiren"
     }
+  ],
+  "/produkter/stenlecaror/dranering": [
+    {
+      "src": "/assets/catalog/dranering-1.webp",
+      "alt": "Korrugerade dräneringsrör, dränslang på rulle och grenrör"
+    }
+  ],
+  "/produkter/stenlecaror/brunnar-betackningar": [
+    {
+      "src": "/assets/catalog/brunnar-betackningar-1.webp",
+      "alt": "Plastbrunn med teleskopsrör och lock, bredvid en rund gjutjärnsbetäckning"
+    }
+  ],
+  "/produkter/stenlecaror/rannor-galler": [
+    {
+      "src": "/assets/catalog/rannor-galler-1.webp",
+      "alt": "Avvattningsränna i betong med galvat spaltgaller"
+    }
+  ],
+  "/produkter/byggmaterial/verktyg-handredskap": [
+    {
+      "src": "/assets/catalog/verktyg-handredskap-1.webp",
+      "alt": "Murslevar, putsbräda och stålslip på en träbänk"
+    }
+  ],
+  "/produkter/byggmaterial/gjutning-formning": [
+    {
+      "src": "/assets/catalog/gjutning-formning-1.webp",
+      "alt": "Formrör i två diametrar med distanskloss och najtråd"
+    }
+  ],
+  "/produkter/byggmaterial/infastning-forbrukning": [
+    {
+      "src": "/assets/catalog/infastning-forbrukning-1.webp",
+      "alt": "Askar med spik och skruv samt galvade stolpskor"
+    }
+  ],
+  "/produkter/byggmaterial/borr-kapning": [
+    {
+      "src": "/assets/catalog/borr-kapning-1.webp",
+      "alt": "Diamantkärnborrar i tre storlekar och två diamantklingor"
+    }
+  ],
+  "/produkter/byggmaterial/golvbrunnar-ventiler": [
+    {
+      "src": "/assets/catalog/golvbrunnar-ventiler-1.webp",
+      "alt": "Golvbrunn i plast med rostfri sil och en galvad fasadventil"
+    }
+  ],
+  "/produkter/byggmaterial/skydd-underhall": [
+    {
+      "src": "/assets/catalog/skydd-underhall-1.webp",
+      "alt": "Rullar med markduk och putsnät samt två murarborstar"
+    }
   ]
 }
