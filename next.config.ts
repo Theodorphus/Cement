@@ -13,6 +13,9 @@ const config:NextConfig={
   {source:"/BE-Armeringshandboken.pdf",destination:RESOURCES.reinforcement.url,permanent:true},
   {source:"/WB\\+Produktkatalog.pdf",destination:RESOURCES.brick.url,permanent:true},
   {source:"/startsida",destination:"/",permanent:true},
+  // Miljödiplomet togs bort 2026-09-10 (företaget är inte längre diplomerat).
+  // Gamla länkar leds till miljösidan, där miljöpolicyn ligger kvar.
+  {source:"/miljo/miljodiplom",destination:"/miljo",permanent:true},
   {source:"/kontakt/har-hittar-du-oss",destination:"/kontakt",permanent:true},
   {source:"/aktuellt/gdpr---for-din-trygghet",destination:"/integritet",permanent:true}
  ];},

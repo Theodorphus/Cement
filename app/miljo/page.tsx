@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   openGraph: { url: "/miljo" },
   title: "Miljö",
   description:
-    "Vårt miljöarbete på Öckerö Cementgjuteri — miljöpolicy och dokumentation. Vi tar ansvar för närmiljön i skärgården.",
+    "Vårt miljöarbete på Öckerö Cementgjuteri — läs vår miljöpolicy. Vi tar ansvar för närmiljön i skärgården.",
 };
 
 export default function MiljoPage() {
@@ -38,7 +38,7 @@ export default function MiljoPage() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,280px),1fr))",
+          gridTemplateColumns: "repeat(auto-fit,minmax(min(100%,280px),420px))",
           gap: 18,
         }}
       >
@@ -49,17 +49,6 @@ export default function MiljoPage() {
             </div>
             <div style={{ fontSize: 13.5, color: "var(--muted)" }}>
               Så tar vi ansvar för miljön i vår verksamhet.
-            </div>
-          </div>
-          <div style={{ color: "var(--accent)", fontSize: 18, flex: "none" }}>→</div>
-        </Link>
-        <Link href="/miljo/miljodiplom" className="sub-card" style={subCardStyle}>
-          <div>
-            <div style={{ fontWeight: 600, fontSize: 16.5, marginBottom: 3 }}>
-              Miljödiplom
-            </div>
-            <div style={{ fontSize: 13.5, color: "var(--muted)" }}>
-              Kontakta oss för aktuella handlingar.
             </div>
           </div>
           <div style={{ color: "var(--accent)", fontSize: 18, flex: "none" }}>→</div>

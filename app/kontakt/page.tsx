@@ -61,6 +61,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               <br />
               Telefon <a href={FORETAG.telefonHref}>{FORETAG.telefon}</a>
               <p className="contact-hours"><strong>Öppettider</strong><br />{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p>
+              <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55, margin: "8px 0 0" }}>{FORETAG.oppettiderAvvikelse}</p>
             </div>
             <a
               href={FORETAG.mapsUrl}

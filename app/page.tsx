@@ -503,7 +503,7 @@ export default function Home() {
                 <div style={{ fontSize: 14, color: "var(--muted)" }}>
                   Den fina trafikavstängaren.
                 </div>
-                <Link href="/kontakt?produkt=Ejder%20400%20kg" className="link-arrow">Fråga om Ejder →</Link>
+                <Link href="/produkter/markbelaggning/ejder" className="link-arrow">Läs om Ejder →</Link>
               </div>
             </div>
           </div>

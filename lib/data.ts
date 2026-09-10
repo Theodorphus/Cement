@@ -18,6 +18,11 @@ export const FORETAG = {
   oppettiderRad1: "Måndag–fredag 7–16",
   oppettiderRad2: "Lördagar 9–13",
   /**
+   * Kunden bekräftade 2026-09-10: stängt de flesta röda dagar, men inget
+   * semesterstängt. Exakta tider vid högtider meddelas separat.
+   */
+  oppettiderAvvikelse: "De flesta röda dagar har vi stängt. Vi har inget semesterstängt – ring gärna om du är osäker inför en helg.",
+  /**
    * Samma öppettider på maskinläsbar form, för strukturerad data.
    * Ändras tillsammans med raderna ovan så att sajten och sökmotorerna
    * aldrig visar olika tider.
@@ -85,13 +90,13 @@ export const KATEGORIER: Kategori[] = [
   {
     slug: "byggmaterial",
     name: "Byggmaterial",
-    desc: "Material för husgrund och bygge.",
+    desc: "Verktyg, formrör, infästning, golvbrunnar och förbrukningsmaterial.",
     img: "/assets/Byggmaterial.webp",
   },
   {
     slug: "sten-leca-ror",
     name: "Sten/Leca/Rör",
-    desc: "Leca, mursten, cementsten, stegsten och rör.",
+    desc: "Leca, mursten, cementsten, stegsten, rör, dränering och brunnar.",
     img: "/assets/StenLecaR%C3%B6r.webp",
   },
   {

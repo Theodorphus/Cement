@@ -291,8 +291,14 @@
       "alt": "Allrengöring i flaska"
     },
     {
-      "src": "/assets/catalog/ocean-2.webp",
-      "alt": "Handtvål i pumpflaska"
+      "src": "/assets/catalog/bastvatt-refill.jpg",
+      "alt": "Bastvätt refill"
+    }
+  ],
+  "/produkter/markbelaggning/ejder": [
+    {
+      "src": "/assets/catalog/ejder-1.jpg",
+      "alt": "Ejder 400 kg i betong"
     }
   ]
 }

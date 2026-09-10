@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-09-10T10:16:51.860Z",
-  "base": "http://localhost:3150",
-  "sitemapPages": 69,
+  "checkedAt": "2026-09-10T13:13:15.037Z",
+  "base": "http://localhost:3118",
+  "sitemapPages": 78,
   "oldPages": 63,
-  "assetsChecked": 76,
-  "localLinksChecked": 136,
+  "assetsChecked": 77,
+  "localLinksChecked": 153,
   "rows": [
     {
       "path": "/",
@@ -47,13 +47,6 @@
       "location": null,
       "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/miljo/miljopolicy\"/>"
-    },
-    {
-      "path": "/miljo/miljodiplom",
-      "status": 200,
-      "location": null,
-      "targetStatus": null,
-      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/miljo/miljodiplom\"/>"
     },
     {
       "path": "/aktuellt",
@@ -231,6 +224,13 @@
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/gards-ganggrus\"/>"
     },
     {
+      "path": "/produkter/markbelaggning/ejder",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/ejder\"/>"
+    },
+    {
       "path": "/produkter/markbelaggning/laggningsanvisningar",
       "status": 200,
       "location": null,
@@ -287,11 +287,74 @@
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/ror\"/>"
     },
     {
+      "path": "/produkter/sten-leca-ror/dranering",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/dranering\"/>"
+    },
+    {
+      "path": "/produkter/sten-leca-ror/brunnar-betackningar",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/brunnar-betackningar\"/>"
+    },
+    {
+      "path": "/produkter/sten-leca-ror/rannor-galler",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/rannor-galler\"/>"
+    },
+    {
       "path": "/produkter/sten-leca-ror/bygg-sjalv-med-murblock",
       "status": 200,
       "location": null,
       "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/sten-leca-ror/bygg-sjalv-med-murblock\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/verktyg-handredskap",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/verktyg-handredskap\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/gjutning-formning",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/gjutning-formning\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/infastning-forbrukning",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/infastning-forbrukning\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/borr-kapning",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/borr-kapning\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/golvbrunnar-ventiler",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/golvbrunnar-ventiler\"/>"
+    },
+    {
+      "path": "/produkter/byggmaterial/skydd-underhall",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/byggmaterial/skydd-underhall\"/>"
     },
     {
       "path": "/produkter/ved/ved",
@@ -696,6 +759,13 @@
       "path": "/produkter/tradgardsdekorationrengoring/ocean",
       "status": 308,
       "location": "/produkter/tradgardsdekoration-rengoring/ocean",
+      "targetStatus": 200,
+      "canonical": null
+    },
+    {
+      "path": "/miljo/miljodiplom",
+      "status": 308,
+      "location": "/miljo",
       "targetStatus": 200,
       "canonical": null
     },
