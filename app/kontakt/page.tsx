@@ -126,21 +126,25 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
             </div>
           </div>
 
-          <a
-            href={FORETAG.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Öppna vår adress i Google Maps"
-            style={{
-              display: "block",
-              borderRadius: 14,
-              overflow: "hidden",
-              height: 220,
-              backgroundImage: `url('${BUTIK_IMG}')`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-            }}
-          />
+          <div className="visit-pair">
+            <a
+              href={FORETAG.mapsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Öppna vår adress i Google Maps"
+              className="visit-photo"
+              style={{ backgroundImage: `url('${BUTIK_IMG}')` }}
+            />
+            <div className="visit-map">
+              <iframe
+                src={FORETAG.mapsEmbedUrl}
+                title={`Karta över ${FORETAG.namn}, ${FORETAG.adressRad1}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+          </div>
           <div style={{ fontSize: 13, color: "var(--muted)", marginTop: 10 }}>
             Vår gård på {FORETAG.gata}, {FORETAG.ort}.{" "}
             <a

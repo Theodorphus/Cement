@@ -12,3 +12,6 @@ next-env.d.ts
 
 # Stor designleverans-artefakt (mappen behålls som referens)
 Claude design setup.zip
+
+# Mejlutkast till kund (ligger i Gmail, inte i repot)
+/docs/utkast/
