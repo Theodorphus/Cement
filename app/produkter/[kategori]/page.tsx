@@ -1,5 +1,7 @@
 ﻿import Link from "next/link";
 import { notFound } from "next/navigation";
+import Image from "next/image";
+import imageMap from "@/lib/catalog-images.json";
 import Breadcrumb from "@/components/Breadcrumb";
 import { CATALOG, MATERIALS, productPath } from "@/lib/catalog";
 import { KATEGORIER, getKategori, FORETAG } from "@/lib/data";
@@ -16,7 +18,13 @@ export default async function CategoryPage({params}:Props){
    <div className="container"><Breadcrumb light crumbs={[{label:"Startsida",href:"/"},{label:"Produkter",href:"/produkter"},{label:kat.name}]} /><h1>{kat.name}</h1><p>{kat.desc}</p></div>
   </section>
   <div className="content-page">
-   {products.length>0&&<div className="subcategories">{products.map(p=><Link href={productPath(p)} className="sub-card" key={p.slug}><h2>{p.name}</h2><p>{p.intro}</p><span>{p.guide?"Läs guiden":"Visa sortiment"} →</span></Link>)}</div>}
+   {products.length>0&&<div className="category-products">{products.map(p=>{
+    const photo=(imageMap as Record<string,{src:string;alt:string}[]>)[p.oldPath]?.[0];
+    return <Link href={productPath(p)} className="category-product" key={p.slug}>
+     {photo&&<div className="category-product-image"><Image src={photo.src} alt="" fill sizes="(max-width:600px) 100vw, (max-width:960px) 50vw, 380px" /></div>}
+     <div className="category-product-copy"><span className="category-product-type">{p.guide?"Materialguide":"Produktgrupp"}</span><h2>{p.name}</h2><p>{p.intro}</p><span className="category-product-link">{p.guide?"Läs guiden":"Visa sortiment"}<span className="arrow-icon" aria-hidden="true">↗</span></span></div>
+    </Link>;
+   })}</div>}
    {kategori==="sand-kross-jord"&&<section className="related"><h2>Material i lösvikt</h2><div className="subcategories">{MATERIALS.map(([name,...items])=><div className="material-group" key={name}><h3>{name}</h3><ul>{items.map(i=><li key={i}>{i}</li>)}</ul></div>)}</div><p>Kontakta oss för mängd, försäljningsenhet och leverans.</p></section>}
    {kategori==="byggmaterial"&&<div className="reading-width"><h2>Material till ditt bygge</h2><p>Grupperna ovan visar ett urval av det vi har i butiken. Sortimentet är bredare än så – beskriv ditt projekt så hjälper vi dig kontrollera vad vi har hemma och vad vi kan beställa.</p><p>Du hittar även <Link href="/produkter/betong-cement">betong, bruk och armering</Link> samt <Link href="/produkter/sten-leca-ror">block och sten</Link> i våra produktgrupper.</p></div>}
    <aside className="help-panel"><div><h2>Hjälp att välja och beställa</h2><p>Berätta vad du ska göra, mängd och om du vill hämta eller få leverans.</p></div><div className="actions"><Link className="btn btn-deep" href={`/kontakt?produkt=${encodeURIComponent(kat.name)}`}>Kontakta oss</Link><a href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a></div></aside>

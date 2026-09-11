@@ -19,6 +19,16 @@ for(const path of new Set([...paths,...oldPaths])) {
   if(response.status!==200 && !([301,308].includes(response.status)&&targetStatus===200)) failures.push(path+': invalid status or redirect');
   if(paths.includes(path) && !canonical) failures.push(path+': missing canonical');
   if(response.status===200) {
+    const headings = [...html.matchAll(/<h1(?:\s|>)/g)];
+    if(headings.length!==1) failures.push(path+': expected exactly one main heading');
+    const ids = [...html.matchAll(/\sid="([^"]+)"/g)].map(m=>m[1]);
+    if(new Set(ids).size!==ids.length) failures.push(path+': duplicate element IDs');
+    for(const image of html.matchAll(/<img\b[^>]*>/g)) {
+      if(!/\salt="[^"]*"/.test(image[0])) failures.push(path+': image missing alt attribute');
+    }
+    for(const control of html.matchAll(/\saria-controls="([^"]+)"/g)) {
+      if(control[1].split(/\s+/).some(id=>!ids.includes(id))) failures.push(path+': control points to a missing element');
+    }
     for(const m of html.matchAll(/href="([^"]+)"/g)) { const link=decode(m[1]); if(link.startsWith('/')&&!link.startsWith('//')) localLinks.add(link.split('#')[0]); }
     for(const m of decode(html).matchAll(/\/assets\/[^\s"'<>\\)]+/g)) assets.add(m[0]);
   }

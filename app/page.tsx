@@ -1,581 +1,113 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CategoryCard from "@/components/CategoryCard";
 import HeroVideo from "@/components/HeroVideo";
-import Wave from "@/components/Wave";
 import { KATEGORIER, FORETAG } from "@/lib/data";
 
 export const metadata = { alternates: { canonical: "/" } };
 
-const EJDER_IMG = "/assets/Ejder.jpg";
+function Arrow({ diagonal = false }: { diagonal?: boolean }) {
+  return <span className="arrow-icon" aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
+}
 
 export default function Home() {
   return (
-    <div className="page-mount">
-      {/* Heron är sidans LCP-element och laddas som CSS-bakgrund, vilket gör att
-          webbläsaren annars hittar den först när stilarna är tolkade. */}
-      <link rel="preload" as="image" href="/assets/Hero5.webp" fetchPriority="high" />
-      {/* ── Hero ── */}
-      <section
-        style={{
-          position: "relative",
-          minHeight: 600,
-          display: "flex",
-          alignItems: "flex-end",
-          overflow: "hidden",
-        }}
-      >
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: "url('/assets/Hero5.webp')",
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            animation: "heroZoom 16s ease-out both",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(to top,rgba(18,32,38,0.92) 0%,rgba(18,32,38,0.55) 45%,rgba(18,32,38,0.22) 75%,rgba(18,32,38,0.12) 100%)",
-          }}
-        />
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            background:
-              "linear-gradient(100deg,rgba(18,32,38,0.55) 0%,rgba(18,32,38,0.2) 45%,rgba(18,32,38,0) 70%)",
-          }}
-        />
-        <div
-          className="container hero-inner"
-          style={{
-            position: "relative",
-            width: "100%",
-            boxSizing: "border-box",
-          }}
-        >
-          <div
-            className="hero-eyebrow"
-            style={{
-              fontSize: 12,
-              letterSpacing: "0.22em",
-              textTransform: "uppercase",
-              color: "rgba(253,251,246,0.75)",
-              marginBottom: 16,
-              animation: "heroText 0.7s ease 0.05s both",
-            }}
-          >
-            Öckerö Cementgjuteri · Göteborgs skärgård
+    <div className="home-page">
+      <section className="home-hero" aria-labelledby="home-title">
+        <Image src="/assets/Hero5.webp" alt="" fill priority sizes="100vw" className="home-hero-image" />
+        <div className="home-hero-shade" />
+        <div className="container home-hero-content">
+          <div className="hero-eyebrow"><span /> Öckerö Cementgjuteri · Göteborgs skärgård</div>
+          <h1 id="home-title">En stadig grund.<br /><em>För livet i skärgården.</em></h1>
+          <p className="home-hero-description">Byggmaterial och betong till husgrunder och trädgårdar. Vi hjälper dig från materialval till leverans i Göteborgs skärgård och Torslanda.</p>
+          <div className="hero-cta">
+            <Link href="/produkter" className="btn btn-light">Se våra produkter <Arrow /></Link>
+            <Link href="/kontakt" className="btn btn-glass">Kontakta oss <Arrow diagonal /></Link>
           </div>
-          <h1
-            style={{
-              fontFamily: "var(--font-serif), serif",
-              fontWeight: 400,
-              fontSize: 58,
-              lineHeight: 1.02,
-              color: "var(--ljus)",
-              margin: "0 0 18px",
-              maxWidth: "22ch",
-              textShadow: "0 2px 24px rgba(18,32,38,0.5)",
-              animation: "heroText 0.7s ease 0.15s both",
-            }}
-          >
-            Byggmaterial och betong i Göteborgs skärgård
-          </h1>
-          <p
-            style={{
-              fontSize: 19,
-              lineHeight: 1.55,
-              color: "rgba(253,251,246,0.95)",
-              maxWidth: "56ch",
-              margin: "0 0 32px",
-              textWrap: "pretty",
-              textShadow: "0 1px 12px rgba(18,32,38,0.55)",
-              animation: "heroText 0.7s ease 0.3s both",
-            }}
-          >
-            Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar
-            främst i Göteborgs Skärgård och Torslanda. Med ett brett sortiment
-            erbjuder vi byggmaterial, maskinuthyrning, ved och färdig betong.
-          </p>
-          <div
-            className="hero-cta"
-            style={{
-              display: "flex",
-              gap: 14,
-              flexWrap: "wrap",
-              animation: "heroText 0.7s ease 0.45s both",
-            }}
-          >
-            <Link
-              href="/produkter"
-              className="btn btn-light"
-              style={{ fontSize: 15.5, padding: "14px 26px" }}
-            >
-              Se våra produkter
-            </Link>
-            <Link
-              href="/kontakt"
-              className="btn"
-              style={{
-                border: "1px solid rgba(253,251,246,0.5)",
-                color: "var(--ljus)",
-                fontSize: 15.5,
-                padding: "14px 26px",
-              }}
-            >
-              Kontakta oss
-            </Link>
+          <div className="hero-baseline">
+            <span>Byggmaterial <i /> Betong <i /> Maskinuthyrning</span>
+            <a href="#sortiment">Upptäck sortimentet <span className="scroll-cue" aria-hidden="true">↓</span></a>
           </div>
         </div>
       </section>
 
-      {/* ── Öppettider + snabbfakta (överlappar hero) ── */}
-      <section
-        className="container"
-        style={{
-          margin: "-34px auto 0",
-          padding: "0 28px",
-          position: "relative",
-          zIndex: 2,
-          animation: "heroText 0.7s ease 0.55s both",
-        }}
-      >
-        <div
-          className="grid-3"
-          style={{
-            background: "var(--paper)",
-            border: "1px solid var(--kant)",
-            borderRadius: 14,
-            boxShadow: "0 14px 40px rgba(24,40,46,0.1)",
-            display: "grid",
-            gridTemplateColumns: "repeat(3,1fr)",
-            overflow: "hidden",
-          }}
-        >
-          <div
-            style={{
-              padding: "26px 30px",
-              borderRight: "1px solid var(--kant)",
-            }}
-          >
-            <div style={eyebrowStyle}>Våra öppettider</div>
-            <div style={{ fontSize: 16.5, fontWeight: 600 }}>
-              {FORETAG.oppettiderRad1}
-            </div>
-            <div style={{ fontSize: 16.5, fontWeight: 600 }}>{FORETAG.oppettiderRad2}</div>
+      <section className="home-service-strip" aria-label="Öppettider, leverans och besök">
+        <div className="container home-service-grid">
+          <div className="service-item">
+            <span className="service-index" aria-hidden="true">01</span>
+            <div><h2>Välkommen till oss</h2><p>{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p></div>
           </div>
-          <div
-            style={{
-              padding: "26px 30px",
-              borderRight: "1px solid var(--kant)",
-            }}
-          >
-            <div style={eyebrowStyle}>Leverans</div>
-            <div style={{ fontSize: 15.5, lineHeight: 1.5, color: "#3A484C" }}>
-              Vi levererar i Göteborgs skärgård och Torslanda — även färdig
-              betong.
-            </div>
-          </div>
-          <div style={{ padding: "26px 30px" }}>
-            <div style={eyebrowStyle}>Hitta hit</div>
-            <div style={{ fontSize: 15.5, lineHeight: 1.5, color: "#3A484C" }}>
-              {FORETAG.adressRad1}
-              <br />
-              {FORETAG.adressRad2}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 01 — Sortiment (sandband för rytm) ── */}
-      <div style={{ marginTop: 70 }}>
-        <Wave fill="rgba(232,225,210,0.5)" />
-        <div className="band-sand" style={{ paddingBottom: 8 }}>
-          <Reveal
-            style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 30px" }}
-          >
-            <div
-              style={{
-                display: "flex",
-                alignItems: "baseline",
-                justifyContent: "space-between",
-                gap: 20,
-                marginBottom: 34,
-                flexWrap: "wrap",
-              }}
-            >
-              <div>
-                <div style={sectionEyebrow}>01 — Produkter</div>
-                <h2 style={{ fontSize: 46, margin: 0 }}>Vårt sortiment</h2>
-              </div>
-              <Link href="/produkter" className="link-arrow" style={{ fontSize: 15 }}>
-                Alla produkter →
-              </Link>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(auto-fill,minmax(min(100%,260px),1fr))",
-                gap: 20,
-              }}
-            >
-              {KATEGORIER.map((kat) => (
-                <CategoryCard
-                  key={kat.slug}
-                  href={`/produkter/${kat.slug}`}
-                  name={kat.name}
-                  desc={kat.desc}
-                  img={kat.img}
-                />
-              ))}
-            </div>
-          </Reveal>
-        </div>
-        <Wave fill="rgba(232,225,210,0.5)" flip />
-      </div>
-
-      {/* ── 02 — Uthyrning-band ── */}
-      <Reveal style={{ maxWidth: 1200, margin: "0 auto", padding: "50px 28px" }}>
-        <div
-          className="grid-2"
-          style={{
-            background:
-              "linear-gradient(135deg, #24404C 0%, #1F4A56 55%, #2E6E7E 130%)",
-            borderRadius: 16,
-            padding: "clamp(24px, 5vw, 52px) clamp(22px, 5vw, 56px)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: 36,
-            flexWrap: "wrap",
-            boxShadow: "0 20px 46px rgba(24,40,46,0.18)",
-          }}
-        >
-          <div style={{ maxWidth: "58ch" }}>
-            <div
-              style={{
-                ...sectionEyebrow,
-                color: "rgba(253,251,246,0.5)",
-              }}
-            >
-              02 — Uthyrning
-            </div>
-            <h2
-              style={{
-                fontSize: 36,
-                color: "var(--ljus)",
-                margin: "0 0 10px",
-              }}
-            >
-              Maskinuthyrning
-            </h2>
-            <p
-              style={{
-                color: "rgba(253,251,246,0.8)",
-                fontSize: 16,
-                lineHeight: 1.55,
-                margin: 0,
-              }}
-            >
-              Hyr kombihammare, kapmaskin, betongslip, jordfräs med mera — hämta
-              på plats på Öckerö.
-            </p>
-          </div>
-          <Link
-            href="/uthyrning"
-            className="btn btn-light"
-            style={{ fontSize: 15.5, padding: "14px 26px", whiteSpace: "nowrap" }}
-          >
-            Se maskiner
+          <Link href="/leverans" className="service-item">
+            <span className="service-index" aria-hidden="true">02</span>
+            <div><h2>Hela vägen till ditt projekt</h2><p>Leverans i skärgården och Torslanda.<br />Även färdig betong.</p></div><Arrow diagonal />
+          </Link>
+          <Link href="/kontakt" className="service-item">
+            <span className="service-index" aria-hidden="true">03</span>
+            <div><h2>Besök oss på Öckerö</h2><p>{FORETAG.adressRad1}<br />{FORETAG.adressRad2}</p></div><Arrow diagonal />
           </Link>
         </div>
-      </Reveal>
+      </section>
 
-      {/* ── 03 — Personalen (äkta foto från gården) ── */}
-      <Reveal
-        style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 20px" }}
-      >
-        <div style={sectionEyebrow}>03 — Vi som jobbar här</div>
-        <h2 style={{ fontSize: 46, margin: "0 0 34px" }}>Personlig service på Öckerö</h2>
-        <div
-          className="grid-2"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1fr 1fr",
-            gap: 28,
-            alignItems: "center",
-          }}
-        >
-          <div
-            style={{
-              position: "relative",
-              borderRadius: 14,
-              overflow: "hidden",
-              aspectRatio: "4 / 3",
-            }}
-          >
-            <Image
-              src="/assets/Personal.webp"
-              alt="Personalen på Öckerö Cementgjuteri utanför butiken på Öckerö"
-              fill
-              sizes="(max-width:900px) 100vw, 560px"
-              style={{ objectFit: "cover" }}
-            />
+      <div id="sortiment" className="home-assortment">
+        <Reveal className="container home-section">
+          <div className="section-heading">
+            <div><p className="section-kicker">01 / Vårt sortiment</p><h2>Det börjar med<br /><em>rätt material.</em></h2></div>
+            <div className="section-heading-aside"><p>Från grunden till sista trädgårdsplattan. Upptäck material för ditt nästa projekt.</p><Link href="/produkter" className="editorial-link">Utforska alla produkter <Arrow /></Link></div>
           </div>
-          <div>
-            <p
-              style={{
-                fontFamily: "var(--font-serif), serif",
-                fontSize: 25,
-                lineHeight: 1.3,
-                margin: "0 0 14px",
-                color: "var(--ink)",
-              }}
-            >
-              Vi hjälper dig välja rätt material till ditt projekt.
-            </p>
-            <p
-              style={{
-                fontSize: 16,
-                lineHeight: 1.6,
-                color: "var(--muted)",
-                margin: "0 0 22px",
-              }}
-            >
-              Berätta vad du ska bygga så går vi igenom mängder, alternativ och
-              leverans tillsammans. Välkommen in på gården eller hör av dig så
-              tar vi det på telefon.
-            </p>
-            <div style={{ display: "flex", gap: 14, flexWrap: "wrap" }}>
-              <Link href="/kontakt" className="btn btn-deep">
-                Kontakta oss
-              </Link>
-              <a href={FORETAG.telefonHref} className="btn btn-outline">
-                Ring {FORETAG.telefon}
-              </a>
-            </div>
-            <div
-              className="barnsupporter"
-              style={{
-                display: "flex",
-                alignItems: "center",
-                gap: 18,
-                marginTop: 26,
-                paddingTop: 24,
-                borderTop: "1px solid var(--kant)",
-              }}
-            >
-              <Image
-                src="/assets/Barnsupporter.webp"
-                alt="Barncancerfondens märke: Vårt företag är Barnsupporter 2024"
-                width={320}
-                height={268}
-                sizes="96px"
-                style={{ width: 96, height: "auto", flex: "none" }}
-              />
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.55,
-                  color: "var(--muted)",
-                  margin: 0,
-                }}
-              >
-                Vi är stolta Barnsupporter och stödjer{" "}
-                <a
-                  href="https://www.barncancerfonden.se/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Barncancerfondens
-                  <span aria-hidden="true"> ↗</span>
-                  <span className="visually-hidden"> (öppnas i ny flik)</span>
-                </a>{" "}
-                arbete för barn med cancer och deras familjer.
-              </p>
-            </div>
+          <div className="home-featured-categories">
+            {KATEGORIER.slice(0, 2).map((kat, index) => <Link key={kat.slug} href={`/produkter/${kat.slug}`} className="home-category-feature">
+              {kat.img && <Image src={kat.img} alt="" fill sizes="(max-width:700px) 100vw, 580px" />}
+              <span className="feature-category-number" aria-hidden="true">0{index + 1}</span>
+              <div className="feature-category-copy"><h3>{kat.name}</h3><p>{kat.desc}</p><span className="feature-category-action">Utforska sortimentet <Arrow diagonal /></span></div>
+            </Link>)}
           </div>
-        </div>
-      </Reveal>
-
-      {/* ── 04 — Tullhuset / Ejder ── */}
-      <Reveal
-        style={{ maxWidth: 1200, margin: "0 auto", padding: "40px 28px 90px" }}
-      >
-        <div style={sectionEyebrow}>04 — Ute på öarna</div>
-        <h2 style={{ fontSize: 46, margin: "0 0 34px" }}>Gjutet på Öckerö</h2>
-        <div
-          className="grid-2"
-          style={{
-            display: "grid",
-            gridTemplateColumns: "1.1fr 0.9fr",
-            gap: 20,
-            alignItems: "stretch",
-          }}
-        >
-          <div
-            style={{
-              borderRadius: 14,
-              overflow: "hidden",
-              minHeight: 380,
-              position: "relative",
-            }}
-          >
-            <HeroVideo src="/assets/Hero%20vid.mp4" />
+          <div className="home-category-divider"><span>Fler produktområden</span><span aria-hidden="true">03 — 07</span></div>
+          <div className="home-category-grid home-secondary-categories">
+            {KATEGORIER.slice(2).map((kat) => <CategoryCard key={kat.slug} href={`/produkter/${kat.slug}`} name={kat.name} desc={kat.desc} img={kat.img} />)}
           </div>
-          <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
-            <div
-              style={{
-                background: "var(--sand)",
-                borderRadius: 14,
-                padding: "34px 36px",
-                flex: 1,
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-              }}
-            >
-              <div
-                style={{
-                  fontSize: 11,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "#7A7361",
-                  marginBottom: 10,
-                }}
-              >
-                Se oss ute på öarna
-              </div>
-              <p
-                style={{
-                  fontFamily: "var(--font-serif), serif",
-                  fontSize: 25,
-                  lineHeight: 1.3,
-                  margin: "0 0 12px",
-                  color: "var(--ink)",
-                }}
-              >
-                Våra fina bord, bänkar, krukor och fyr finner ni hos Tullhuset!
-              </p>
-              <p
-                style={{
-                  fontSize: 15,
-                  lineHeight: 1.55,
-                  color: "var(--muted)",
-                  margin: 0,
-                }}
-              >
-                Utanför betel står gigantfyren och bänk med kullersten! På
-                stenpiren ligger våra ejdrar uppradade!
-              </p>
-            </div>
-            <div
-              style={{
-                background: "var(--paper)",
-                border: "1px solid var(--kant)",
-                borderRadius: 14,
-                padding: "26px 30px",
-                display: "flex",
-                alignItems: "center",
-                gap: 20,
-              }}
-            >
-              <div
-                style={{
-                  width: 74,
-                  height: 74,
-                  flex: "none",
-                  borderRadius: 10,
-                  backgroundImage: `url('${EJDER_IMG}')`,
-                  backgroundSize: "cover",
-                  backgroundPosition: "center",
-                }}
-              />
-              <div>
-                <div id="ejder" style={{ fontWeight: 600, fontSize: 16.5 }}>Ejder 400 kg</div>
-                <div style={{ fontSize: 14, color: "var(--muted)" }}>
-                  Den fina trafikavstängaren.
-                </div>
-                <Link href="/produkter/markbelaggning/ejder" className="link-arrow">Läs om Ejder →</Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </Reveal>
-
-      {/* ── Leverantörsstrip (djupblått band, förankrar sidfoten) ── */}
-      <div
-        style={{
-          marginTop: 40,
-          marginBottom: -1,
-          background: "#1B3039",
-        }}
-      >
-        <Wave fill="#22404B" />
-        <div
-          style={{
-            background:
-              "linear-gradient(180deg, #22404B 0%, #1B3039 100%)",
-          }}
-        >
-          <div
-            className="container"
-            style={{
-              padding: "48px 28px 60px",
-              display: "flex",
-              alignItems: "center",
-              gap: 16,
-              flexWrap: "wrap",
-              justifyContent: "space-between",
-            }}
-          >
-            <div
-              style={{
-                fontSize: 11,
-                letterSpacing: "0.14em",
-                textTransform: "uppercase",
-                color: "rgba(253,251,246,0.55)",
-                flex: "none",
-              }}
-            >
-              Våra leverantörer
-            </div>
-            <div
-              style={{
-                display: "flex",
-                gap: 30,
-                flexWrap: "wrap",
-                alignItems: "center",
-              }}
-            >
-              <Link href="/vara-leverantorer" className="lev-strip lev-strip-dark">Se våra leverantörer och produktområden →</Link>
-            </div>
-          </div>
-        </div>
+        </Reveal>
       </div>
+
+      <Reveal className="container home-rental-wrap">
+        <div className="home-rental">
+          <div className="rental-heading"><p className="section-kicker">02 / Maskinuthyrning</p><h2>Rätt kraft.<br /><em>När du behöver den.</em></h2></div>
+          <div className="rental-details"><p>Hyr kombihammare, kapmaskin, betongslip, jordfräs med mera. Vi hjälper dig med maskinen för jobbet — du hämtar på plats på Öckerö.</p><Link href="/uthyrning" className="btn btn-light">Se våra maskiner <Arrow /></Link><span className="rental-note">Mark · Trädgård · Betongarbete</span></div>
+        </div>
+      </Reveal>
+
+      <Reveal className="container home-section home-people">
+        <div className="home-people-image">
+          <Image src="/assets/Personal.webp" alt="Personalen på Öckerö Cementgjuteri utanför butiken på Öckerö" fill sizes="(max-width: 860px) 100vw, 600px" />
+          <div className="image-caption"><span>Personlig service. Lokal kunskap.</span><span>Öckerö <Arrow diagonal /></span></div>
+        </div>
+        <div className="home-people-copy">
+          <p className="section-kicker">03 / Vi som jobbar här</p>
+          <h2>Material är vår vardag.<br /><em>Ditt projekt är unikt.</em></h2>
+          <p className="people-lead">Vi hjälper dig välja rätt material till ditt projekt.</p>
+          <p>Berätta vad du ska bygga så går vi igenom mängder, alternativ och leverans tillsammans. Välkommen in på gården eller hör av dig så tar vi det på telefon.</p>
+          <div className="actions"><Link href="/kontakt" className="btn btn-deep">Kontakta oss <Arrow /></Link><a href={FORETAG.telefonHref} className="editorial-link">{FORETAG.telefon} <Arrow diagonal /></a></div>
+          <div className="home-supporter">
+            <Image src="/assets/Barnsupporter.webp" alt="Barncancerfondens märke: Vårt företag är Barnsupporter 2024" width={320} height={268} sizes="76px" />
+            <p>Vi är stolta Barnsupporter och stödjer <a href="https://www.barncancerfonden.se/" target="_blank" rel="noopener noreferrer">Barncancerfondens<span aria-hidden="true"> ↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a> arbete för barn med cancer och deras familjer.</p>
+          </div>
+        </div>
+      </Reveal>
+
+      <div className="home-islands">
+        <Reveal className="container home-section">
+          <div className="section-heading"><div><p className="section-kicker">04 / Ute på öarna</p><h2>Gjutet på Öckerö.<br /><em>En del av skärgården.</em></h2></div><p className="islands-intro">Våra bord, bänkar, krukor och fyr finns hos Tullhuset. Utanför Betel står gigantfyren och bänken med kullersten. På stenpiren ligger våra ejdrar uppradade.</p></div>
+          <div className="home-islands-grid">
+            <div className="islands-video"><HeroVideo src="/assets/Hero%20vid.mp4" /></div>
+            <Link href="/produkter/markbelaggning/ejder" className="ejder-feature" id="ejder">
+              <div className="ejder-image"><Image src="/assets/Ejder.jpg" alt="Ejder i betong" fill sizes="(max-width: 860px) 100vw, 420px" /></div>
+              <div className="ejder-copy"><div><span className="section-kicker">Form & funktion</span><h3>Ejder 400 kg</h3><p>Den fina trafikavstängaren.</p></div><span className="circle-arrow" aria-hidden="true">↗</span></div>
+            </Link>
+          </div>
+        </Reveal>
+      </div>
+
+      <div className="home-suppliers"><div className="container"><p className="section-kicker">Våra leverantörer</p><Link href="/vara-leverantorer">Se våra leverantörer och produktområden <Arrow /></Link></div></div>
     </div>
   );
 }
-
-const eyebrowStyle: React.CSSProperties = {
-  fontSize: 11,
-  letterSpacing: "0.14em",
-  textTransform: "uppercase",
-  color: "var(--muted)",
-  marginBottom: 8,
-};
-
-const sectionEyebrow: React.CSSProperties = {
-  fontSize: 11.5,
-  letterSpacing: "0.2em",
-  textTransform: "uppercase",
-  color: "#8A968F",
-  marginBottom: 10,
-};

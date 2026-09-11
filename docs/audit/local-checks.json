@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-09-10T16:58:20.908Z",
-  "base": "http://localhost:3150",
+  "checkedAt": "2026-09-11T09:46:49.286Z",
+  "base": "http://localhost:3001",
   "sitemapPages": 78,
   "oldPages": 63,
   "assetsChecked": 87,
-  "localLinksChecked": 152,
+  "localLinksChecked": 151,
   "rows": [
     {
       "path": "/",

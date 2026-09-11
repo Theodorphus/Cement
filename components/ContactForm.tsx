@@ -22,13 +22,17 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     busy.current = true; setStatus("sending"); setMessage("");
     const form = event.currentTarget;
     const data = new FormData(form);
+    let failureMessage = "Meddelandet kunde inte skickas. Kontrollera anslutningen och försök igen, eller ring oss.";
     try {
       const res = await fetch("/api/kontakt", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(Object.fromEntries(data)), signal: AbortSignal.timeout(20_000) });
-      const result = await res.json();
-      if (!res.ok || result.ok !== true) throw new Error(result.error || "Kunde inte skicka meddelandet.");
+      const result = await res.json().catch(() => null);
+      if (!res.ok || result?.ok !== true) {
+        if (typeof result?.error === "string" && result.error.trim()) failureMessage = result.error;
+        throw new Error("delivery");
+      }
       setStatus("sent"); setMessage("Tack! Ditt meddelande har lämnats till vår mejltjänst."); form.reset();
     } catch (error) {
-      setStatus("error"); setMessage(error instanceof Error && error.name !== "TimeoutError" ? error.message : "Det tog för lång tid. Ring oss eller försök igen.");
+      setStatus("error"); setMessage(error instanceof Error && error.name === "TimeoutError" ? "Det tog för lång tid. Ring oss eller försök igen." : failureMessage);
     } finally { busy.current = false; }
   }
   return <form method="post" action="/api/kontakt" onSubmit={submit} className="contact-form" aria-busy={status === "sending"}>
@@ -49,4 +53,3 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     <div ref={statusRef} role="status" aria-live="polite" aria-atomic="true" className={`form-status ${status}`}>{message}</div>
   </form>;
 }
-

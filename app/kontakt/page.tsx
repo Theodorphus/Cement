@@ -21,17 +21,19 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
   const subject = typeof query.produkt === "string" ? query.produkt.slice(0, 150) : "";
   return (
     <div
-      className="page-mount"
-      style={{ maxWidth: 1200, margin: "0 auto", padding: "56px 28px 90px" }}
+      className="content-page contact-page"
     >
       <Breadcrumb
         crumbs={[{ label: "Startsida", href: "/" }, { label: "Kontakt" }]}
         style={{ marginBottom: 14 }}
       />
-      <h1 style={{ fontSize: 54, margin: "0 0 40px" }}>Kontakta oss</h1>
+      <header className="catalog-intro contact-intro">
+        <div><p className="section-kicker">Personlig service på Öckerö</p><h1>Kontakta oss</h1></div>
+        <p>Vi hjälper dig med material, leverans och uthyrning. Ring, mejla eller besök oss på gården.</p>
+      </header>
 
       <div
-        className="grid-2"
+        className="grid-2 contact-layout"
         style={{
           display: "grid",
           gridTemplateColumns: "1fr 1fr",
@@ -50,7 +52,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               marginBottom: 20,
             }}
           >
-            <div style={eyebrow}>Besök &amp; post</div>
+            <h2 className="contact-info-title" style={eyebrow}>Besök &amp; post</h2>
             <div style={{ fontWeight: 600, fontSize: 17, marginBottom: 4 }}>
               {FORETAG.namn}
             </div>
@@ -83,7 +85,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               marginBottom: 20,
             }}
           >
-            <div style={{ ...eyebrow, marginBottom: 16 }}>Kontaktpersoner</div>
+            <h2 className="contact-info-title" style={{ ...eyebrow, marginBottom: 16 }}>Kontaktpersoner</h2>
             <div style={{ display: "grid", gap: 14 }}>
               {KONTAKTER.map((pers) => (
                 <div

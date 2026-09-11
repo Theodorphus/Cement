@@ -1,154 +1,25 @@
-import Image from "next/image";
+﻿import Image from "next/image";
 import Link from "next/link";
 import { FORETAG } from "@/lib/data";
 
 export default function Footer() {
   return (
-    <footer
-      style={{
-        background: "var(--footer)",
-        color: "rgba(253,251,246,0.75)",
-        marginTop: "auto",
-      }}
-    >
-      <div
-        className="container footer-grid"
-        style={{
-          padding: "56px 28px 30px",
-          display: "grid",
-          gridTemplateColumns: "1.4fr 1fr 1fr 1fr",
-          gap: 36,
-        }}
-      >
-        <div>
-          <Image
-            src="/assets/Logotyp-ljus.webp"
-            alt={FORETAG.namn}
-            width={713}
-            height={180}
-            sizes="230px"
-            style={{
-              width: 230,
-              maxWidth: "100%",
-              height: "auto",
-              marginBottom: 16,
-            }}
-          />
-          <div style={{ fontSize: 14.5, lineHeight: 1.65 }}>
-            {FORETAG.adressRad1}
-            <br />
-            {FORETAG.adressRad2}
-            <br />
-            Tel:{" "}
-            <a href={FORETAG.telefonHref} style={{ color: "var(--ljus)" }}>
-              {FORETAG.telefon}
-            </a>
-          </div>
-          <a
-            href={FORETAG.mapsUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="footer-link"
-            style={{ display: "inline-block", marginTop: 12, fontSize: 14 }}
-          >
-            Visa på karta →
-          </a>
+    <footer className="site-footer">
+      <div className="container">
+        <div className="footer-contact">
+          <div><p className="section-kicker">Personlig service på Öckerö</p><h2>Vi hjälper dig <em>vidare.</em></h2></div>
+          <a href={FORETAG.telefonHref} className="footer-phone"><span className="footer-phone-label">Ring oss och berätta om ditt projekt</span><span>{FORETAG.telefon}<span className="footer-phone-arrow" aria-hidden="true">↗</span></span></a>
         </div>
-
-        <div>
-          <div
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "rgba(253,251,246,0.45)",
-              marginBottom: 12,
-            }}
-          >
-            Sortiment
+        <div className="footer-columns">
+          <div className="footer-brand">
+            <Link href="/" aria-label="Öckerö Cementgjuteri – startsida"><Image src="/assets/Logotyp-ljus.webp" alt={FORETAG.namn} width={713} height={180} sizes="230px" /></Link>
+            <p>Byggmaterial och betong.<br />Med skärgården som hemmaplan.</p>
           </div>
-          <div style={{ display: "grid", gap: 8, fontSize: 14.5 }}>
-            <Link href="/produkter" className="footer-link">
-              Produkter
-            </Link>
-            <Link href="/produkter/markbelaggning" className="footer-link">
-              Markbeläggning
-            </Link>
-            <Link href="/leverans" className="footer-link">Leverans och hämtning</Link>
-            <Link href="/uthyrning" className="footer-link">
-              Uthyrning
-            </Link>
-          </div>
+          <nav aria-label="Sortiment i sidfoten"><h3>Sortiment</h3><Link href="/produkter">Produkter</Link><Link href="/produkter/markbelaggning">Markbeläggning</Link><Link href="/leverans">Leverans och hämtning</Link><Link href="/uthyrning">Uthyrning</Link></nav>
+          <nav aria-label="Företaget i sidfoten"><h3>Företaget</h3><Link href="/vara-leverantorer">Våra leverantörer</Link><Link href="/miljo">Miljö</Link><Link href="/aktuellt">Aktuellt</Link><Link href="/kontakt">Kontakt</Link></nav>
+          <div className="footer-visit"><h3>Välkommen hit</h3><address>{FORETAG.adressRad1}<br />{FORETAG.adressRad2}</address><a href={FORETAG.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-map">Visa på karta <span aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a><h3 className="footer-hours-heading">Öppettider</h3><p>{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p></div>
         </div>
-
-        <div>
-          <div
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "rgba(253,251,246,0.45)",
-              marginBottom: 12,
-            }}
-          >
-            Företaget
-          </div>
-          <div style={{ display: "grid", gap: 8, fontSize: 14.5 }}>
-            <Link href="/vara-leverantorer" className="footer-link">
-              Våra leverantörer
-            </Link>
-            <Link href="/miljo" className="footer-link">
-              Miljö
-            </Link>
-            <Link href="/aktuellt" className="footer-link">
-              Aktuellt
-            </Link>
-            <Link href="/kontakt" className="footer-link">
-              Kontakt
-            </Link>
-          </div>
-        </div>
-
-        <div>
-          <div
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.14em",
-              textTransform: "uppercase",
-              color: "rgba(253,251,246,0.45)",
-              marginBottom: 12,
-            }}
-          >
-            Öppettider
-          </div>
-          <div style={{ fontSize: 14.5, lineHeight: 1.65 }}>
-            {FORETAG.oppettiderRad1}
-            <br />
-            {FORETAG.oppettiderRad2}
-          </div>
-        </div>
-      </div>
-
-      <div style={{ borderTop: "1px solid rgba(253,251,246,0.12)" }}>
-        <div
-          className="container"
-          style={{
-            padding: "18px 28px",
-            display: "flex",
-            justifyContent: "space-between",
-            gap: 16,
-            flexWrap: "wrap",
-            fontSize: 13,
-            color: "rgba(253,251,246,0.5)",
-          }}
-        >
-          <span>© {new Date().getFullYear()} Öckerö Cementgjuteri AB</span>
-          <span>
-            <Link href="/cookies" className="footer-link">Cookies</Link>{" "}
-            ·{" "}
-            <Link href="/integritet" className="footer-link">Personuppgifter</Link>
-          </span>
-        </div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Öckerö Cementgjuteri AB</span><div><Link href="/cookies">Cookies</Link><Link href="/integritet">Personuppgifter</Link></div></div>
       </div>
     </footer>
   );

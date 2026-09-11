@@ -44,9 +44,8 @@ export default function ProductSearch(){
   ? entries.filter(p=>words.every(word=>normalize(p.search).includes(word)))
   : [];
  return <section className="product-search" aria-labelledby={`${id}-title`}>
-  <h2 id={`${id}-title`}>Vad letar du efter?</h2>
-  <label htmlFor={`${id}-input`}>Sök i sortimentet</label>
-  <input id={`${id}-input`} type="search" autoComplete="off" placeholder="Till exempel armering, gräs eller pellets" value={query} onChange={e=>setQuery(e.target.value)} />
+  <div className="search-heading"><span className="section-kicker">Hitta rätt material</span><h2 id={`${id}-title`}>Vad letar du efter?</h2></div>
+  <div className="search-field"><label htmlFor={`${id}-input`}>Sök i sortimentet</label><div className="search-input-wrap"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" strokeWidth="1.5" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m16 16 5 5"/></svg><input id={`${id}-input`} type="search" autoComplete="off" placeholder="Till exempel armering, gräs eller pellets" value={query} onChange={e=>setQuery(e.target.value)} /></div></div>
   {words.length>0&&<>
    {matches.length>0
     ? <ul className="product-search-hits">{matches.map(p=>{
