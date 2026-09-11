@@ -1135,3 +1135,62 @@ html { scroll-padding-top: calc(var(--site-header-height, 96px) + 24px); }
   .home-category-feature { padding: 24px; }
 }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none!important; transition: none!important; } }
+
+/* Detail pages: material-led layouts and a consistent reference library. */
+.supplier-detail-page { padding-top: 32px; }
+.supplier-profile { display: grid; grid-template-columns: 1.2fr 1fr; align-items: center; gap: 80px; padding-block: 64px; }
+.supplier-profile-copy > .section-kicker { font-size: 12px; margin: 0 0 24px; }
+.supplier-profile-copy h1 { font-size: clamp(44px, 5.4vw, 72px); letter-spacing: -.035em; margin: 0 0 22px; }
+.supplier-profile-copy > .intro { margin: 0 0 22px; }
+.supplier-profile-copy > p:not(.section-kicker):not(.intro) { max-width: 48ch; color: var(--muted); line-height: 1.8; margin-bottom: 26px; }
+.supplier-enquiry { padding: 42px; background: var(--deep); border-radius: 4px; color: var(--ljus); border-top: 3px solid #9fb8ac; }
+.supplier-enquiry .section-kicker { color: #bfd2ca; font-size: 12px; margin: 0 0 22px; }
+.supplier-enquiry h2 { font-size: 40px; line-height: 1.1; letter-spacing: -.025em; margin: 0 0 22px; }
+.supplier-enquiry > p:not(.section-kicker) { color: #dbe5df; line-height: 1.75; margin-bottom: 26px; }
+.supplier-enquiry .btn { font-size: 14px; gap: 18px; }
+.supplier-enquiry a:focus-visible { outline-color: white; }
+.supplier-return { margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--kant); }
+.resource-library { padding: 0; border: 0; background: transparent; border-radius: 0; margin-block: 36px; }
+.resource-library-heading { border-bottom: 1px solid var(--kant); padding-bottom: 20px; }
+.resource-library-heading .section-kicker { display: block; font-size: 12px; margin-bottom: 12px; }
+.resource-library-heading h2 { font-size: 30px; line-height: 1.2; margin: 0; }
+.resource-library ul { list-style: none; padding: 0; margin: 0; }
+.resource-library li { margin: 0; border-bottom: 1px solid var(--kant); }
+.resource-library li a { display: flex; align-items: flex-start; gap: 20px; padding: 24px 12px; text-decoration: none; color: var(--ink); transition: background .25s ease; }
+.resource-library li a:hover { background: #eaf0ed; }
+.resource-document-icon { display: grid; place-items: center; flex: none; width: 42px; height: 48px; border: 1px solid #c8d3cc; background: #edf1ee; border-radius: 3px; color: var(--deep); }
+.resource-copy { flex: 1; min-width: 0; }
+.resource-copy strong { display: block; font-size: 16px; line-height: 1.55; font-weight: 600; margin-bottom: 7px; }
+.resource-copy > span { display: block; font-size: 14px; line-height: 1.7; color: var(--muted); }
+.resource-library li .arrow-icon { flex: none; margin-top: 4px; color: var(--accent); }
+.resource-library .resource-note { max-width: 72ch; margin: 18px 0 0; font-size: 13px; line-height: 1.7; color: var(--muted); }
+.machine-visual { min-width: 0; border: 1px solid var(--kant); border-radius: 4px; background: white; overflow: hidden; }
+.machine-image { position: relative; aspect-ratio: 1.08; }
+.machine-image img { object-fit: contain; padding: 36px; }
+.machine-image-caption { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 20px 24px; border-top: 1px solid var(--kant); font-size: 12px; color: var(--muted); }
+.machine-booking { padding-top: 24px; }
+.machine-booking .section-kicker { font-size: 12px; }
+.machine-booking h2 { font-size: 30px; margin: 0 0 14px; }
+.machine-booking > p:not(.section-kicker) { font-size: 16px; color: var(--muted); line-height: 1.75; }
+.machine-booking .actions { align-items: flex-start; flex-direction: column; }
+.machine-booking .btn { font-size: 14px; gap: 18px; }
+@media (max-width: 960px) {
+  .supplier-profile { gap: 36px; }
+  .supplier-enquiry { padding: 30px; }
+}
+@media (max-width: 760px) {
+  .supplier-profile { grid-template-columns: 1fr; padding-block: 36px; }
+  .supplier-profile-copy > p:not(.section-kicker):not(.intro) { max-width: none; }
+}
+@media (max-width: 640px) {
+  .supplier-profile-copy h1 { font-size: 44px!important; }
+  .supplier-enquiry h2 { font-size: 36px!important; }
+  .supplier-enquiry { padding: 28px; }
+  .resource-library-heading h2 { font-size: 26px!important; }
+  .resource-library li a { gap: 14px; padding: 22px 0; }
+  .resource-document-icon { width: 32px; height: 40px; }
+  .resource-copy strong { font-size: 15px; }
+  .machine-image img { padding: 24px; }
+  .machine-image-caption { padding: 18px; }
+}
+@media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation: none!important; transition: none!important; } }
