@@ -37,6 +37,8 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
   }
   return <form method="post" action="/api/kontakt" onSubmit={submit} className="contact-form" aria-busy={status === "sending"}>
     <noscript><p>Formuläret behöver JavaScript. Ring <a href="tel:031966066">031-96 60 66</a> eller mejla en kontaktperson.</p></noscript>
+    <fieldset className="contact-form-fields" disabled={status === "sending"}>
+    <legend className="visually-hidden">Din förfrågan</legend>
     <label htmlFor="contact-name">Namn *</label>
     <input id="contact-name" name="namn" autoComplete="name" required maxLength={CONTACT_LIMITS.namn} />
     <label htmlFor="contact-email">E-postadress *</label>
@@ -50,6 +52,7 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     <div className="form-trap" aria-hidden="true"><label htmlFor="contact-website">Lämna detta fält tomt</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <p>Vi använder dina uppgifter för att hantera din förfrågan. <Link href="/integritet">Läs om personuppgifter</Link>.</p>
     <button className="btn btn-light" type="submit" disabled={status === "sending"}>{status === "sending" ? "Skickar…" : "Skicka förfrågan"}</button>
+    </fieldset>
     <div ref={statusRef} role="status" aria-live="polite" aria-atomic="true" className={`form-status ${status}`}>{message}</div>
   </form>;
 }

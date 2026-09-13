@@ -11,6 +11,7 @@ export default function Header() {
   const [scrolled, setScrolled] = useState(false);
   const toggle = useRef<HTMLButtonElement>(null);
   const inner = useRef<HTMLDivElement>(null);
+  const header = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const update = () => setScrolled(window.scrollY > 24);
@@ -34,6 +35,14 @@ export default function Header() {
 
   useEffect(() => setOpen(false), [pathname]);
   useEffect(() => {
+    if (!open) return;
+    const outside = (event: PointerEvent) => {
+      if (event.target instanceof Node && !header.current?.contains(event.target)) setOpen(false);
+    };
+    document.addEventListener("pointerdown", outside);
+    return () => document.removeEventListener("pointerdown", outside);
+  }, [open]);
+  useEffect(() => {
     function key(event: KeyboardEvent) {
       if (event.key === "Escape" && open) { setOpen(false); toggle.current?.focus(); }
     }
@@ -45,7 +54,7 @@ export default function Header() {
   }, [open]);
 
   const nav = NAV_ITEMS.map(item => <Link key={item.href} href={item.href} onClick={() => setOpen(false)} className="nav-link" aria-current={(item.href === "/" ? pathname === "/" : pathname === item.href || pathname.startsWith(item.href + "/")) ? "page" : undefined}>{item.label}</Link>);
-  return <header className="site-header" data-scrolled={scrolled} onBlur={event => {
+  return <header ref={header} className="site-header" data-scrolled={scrolled} onBlur={event => {
     if (event.relatedTarget && !event.currentTarget.contains(event.relatedTarget)) setOpen(false);
   }}>
     <div ref={inner} className="container header-inner">

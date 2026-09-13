@@ -22,7 +22,7 @@ export default async function Supplier({ params }: Props) {
     <Breadcrumb crumbs={[{ label: "Startsida", href: "/" }, { label: "Våra leverantörer", href: "/vara-leverantorer" }, { label: s.name }]} />
     <div className="supplier-profile">
       <div className="supplier-profile-copy"><p className="section-kicker">Leverantör & produktområde</p><h1>{s.name}</h1><p className="intro">{s.desc}</p><p>Hos tillverkaren hittar du produktinformation och anvisningar. Fråga oss om aktuellt sortiment och beställningsmöjligheter.</p><a className="editorial-link" href={s.url} target="_blank" rel="noopener noreferrer">Besök {s.name}<span className="arrow-icon" aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a></div>
-      <aside className="supplier-enquiry"><p className="section-kicker">Personlig hjälp på Öckerö</p><h2>Rätt material<br />för ditt projekt.</h2><p>Fråga oss om aktuellt sortiment och vad vi kan beställa hem.</p><Link className="btn btn-light" href={`/kontakt?produkt=${encodeURIComponent(s.name)}`}>Fråga oss om sortimentet <span className="arrow-icon" aria-hidden="true">↗</span></Link></aside>
+      <aside className="supplier-enquiry"><p className="section-kicker">Personlig hjälp på Öckerö</p><h2>Rätt material<br />för ditt projekt.</h2><p>Fråga oss om aktuellt sortiment och vad vi kan beställa hem.</p><Link className="btn btn-light" href={`/kontakt?produkt=${encodeURIComponent(s.name)}#forfragan`}>Fråga oss om sortimentet <span className="arrow-icon" aria-hidden="true">↗</span></Link></aside>
     </div>
     <ResourceLinks resources={supplierResources(s.slug)} />
     <div className="supplier-return"><Link href="/vara-leverantorer" className="editorial-link">← Alla leverantörer</Link></div>

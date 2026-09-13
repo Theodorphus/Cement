@@ -29,7 +29,7 @@ export default async function ProductPage({params}:Props) {
    {item.guide&&images[0]&&<figure className="content-figure"><Image src={images[0].src} alt={images[0].alt} width={images[0].width??1400} height={images[0].height??788} sizes="(max-width:820px) 100vw, 780px" style={{width:"100%",height:"auto",borderRadius:14}} priority /></figure>}
    {item.guide ? <ol className="guide-steps">{item.details.map(detail=><li key={detail}>{detail}</li>)}</ol> : <ul className="product-details">{item.details.map(detail=><li key={detail}>{detail}</li>)}</ul>}
    {!item.guide && <dl className="product-facts"><div><dt>Tillgänglighet</dt><dd>{item.slug==="fardig-grasmatta" ? "På beställning" : "Kontakta oss för lagerstatus"}</dd></div><div><dt>Pris och leverans</dt><dd>Bekräftas vid förfrågan</dd></div></dl>}
-   <div className="actions"><Link className="btn btn-deep" href={`/kontakt?produkt=${encodeURIComponent(item.name)}`}>{item.guide ? "Få hjälp med material" : "Fråga om produkten"}</Link><a className="btn btn-outline" href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a></div>
+   <div className="actions"><Link className="btn btn-deep" href={`/kontakt?produkt=${encodeURIComponent(item.name)}#forfragan`}>{item.guide ? "Få hjälp med material" : "Fråga om produkten"}</Link><a className="btn btn-outline" href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a></div>
    <ResourceLinks resources={productResources(item.slug)} />
    <p><Link href="/leverans">Läs om hämtning och leverans →</Link></p>
    </div>

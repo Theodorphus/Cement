@@ -1,10 +1,10 @@
 {
-  "checkedAt": "2026-09-11T10:09:04.363Z",
+  "checkedAt": "2026-09-13T23:13:04.721Z",
   "base": "http://localhost:3001",
-  "sitemapPages": 78,
+  "sitemapPages": 79,
   "oldPages": 63,
-  "assetsChecked": 87,
-  "localLinksChecked": 151,
+  "assetsChecked": 92,
+  "localLinksChecked": 158,
   "rows": [
     {
       "path": "/",
@@ -215,6 +215,13 @@
       "location": null,
       "targetStatus": null,
       "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/fardig-grasmatta\"/>"
+    },
+    {
+      "path": "/produkter/markbelaggning/lagga-grasmatta-pa-rulle",
+      "status": 200,
+      "location": null,
+      "targetStatus": null,
+      "canonical": "<link rel=\"canonical\" href=\"https://ockerocement.se/produkter/markbelaggning/lagga-grasmatta-pa-rulle\"/>"
     },
     {
       "path": "/produkter/markbelaggning/gards-ganggrus",

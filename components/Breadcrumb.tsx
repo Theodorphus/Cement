@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Fragment, type CSSProperties } from "react";
+import { type CSSProperties } from "react";
 import { breadcrumbJsonLd } from "@/lib/structured-data";
 
 export type Crumb = { label: string; href?: string };
@@ -16,7 +16,7 @@ export default function Breadcrumb({
 }) {
   const linkColor = light ? "#fff" : "var(--accent)";
   return (
-    <nav aria-label="Brödsmulor"
+    <nav aria-label="Brödsmulor" className="breadcrumb"
       style={{
         fontSize: 13,
         color: light ? "rgba(253,251,246,0.75)" : "var(--muted)",
@@ -27,9 +27,9 @@ export default function Breadcrumb({
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd(crumbs)) }}
       />
-      {crumbs.map((c, i) => (
-        <Fragment key={i}>
-          {i > 0 && " / "}
+      <ol>{crumbs.map((c, i) => (
+        <li key={i}>
+          {i > 0 && <span className="breadcrumb-separator" aria-hidden="true">/</span>}
           {c.href ? (
             <Link href={c.href} style={{ color: linkColor }}>
               {c.label}
@@ -37,8 +37,8 @@ export default function Breadcrumb({
           ) : (
             <span aria-current="page">{c.label}</span>
           )}
-        </Fragment>
-      ))}
+        </li>
+      ))}</ol>
     </nav>
   );
 }

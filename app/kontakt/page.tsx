@@ -4,6 +4,7 @@ import ContactForm from "@/components/ContactForm";
 import { KONTAKTER, telHref, FORETAG } from "@/lib/data";
 
 import { contactConfigured } from "@/lib/contact-config";
+import { truncateText } from "@/lib/text";
 export const dynamic = "force-dynamic";
 
 const BUTIK_IMG = "/assets/Butik.jpg";
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
 
 export default async function KontaktPage({ searchParams }: { searchParams: Promise<{ produkt?: string | string[] }> }) {
   const query = await searchParams;
-  const subject = typeof query.produkt === "string" ? query.produkt.slice(0, 150) : "";
+  const subject = typeof query.produkt === "string" ? truncateText(query.produkt, 150) : "";
   return (
     <div
       className="content-page contact-page"
@@ -165,7 +166,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
 
         {/* Höger: formulär (sticky) */}
         <div
-          className="contact-form-panel"
+          className="contact-form-panel" id="forfragan"
           style={{
             background: "var(--deep)",
             borderRadius: 14,

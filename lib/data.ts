@@ -1,6 +1,7 @@
 /** Shared company information and category navigation. */
 
 export const FORETAG = {
+  intro: "Vi säljer och levererar kvalitetsvaror till husgrunder och trädgårdar främst i Göteborgs Skärgård och Torslanda. Med ett brett sortiment erbjuder vi byggmaterial, maskinuthyrning, ved och färdig betong.",
   namn: "Öckerö Cementgjuteri AB",
   /**
    * Adressen i delar, så att sidor, karta och strukturerad data alltid visar

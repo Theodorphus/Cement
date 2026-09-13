@@ -45,6 +45,13 @@ for(const [path,destination] of [
 }
 const missing = await get('/page-that-does-not-exist-audit');
 if(missing.status!==404) failures.push('Unknown page does not return 404');
+// A split surrogate used to crash the mail links on the contact page.
+const unicodeSubject = 'a'.repeat(149) + '\u{1F600}' + 'extra';
+const unicodeContact = await get('/kontakt?produkt=' + encodeURIComponent(unicodeSubject));
+const unicodeHtml = await unicodeContact.text();
+if(!unicodeContact.ok || !unicodeHtml.includes('Kontakta oss</h1>') || unicodeHtml.includes('\uFFFD')) {
+ failures.push('Contact page cannot render a long Unicode enquiry');
+}
 // Deliberately invalid requests: these cannot send a customer message.
 for(const [body,status,headers] of [
   ['{}',400,{'Content-Type':'application/json'}],

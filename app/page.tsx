@@ -20,7 +20,7 @@ export default function Home() {
         <div className="container home-hero-content">
           <div className="hero-eyebrow"><span /> Öckerö Cementgjuteri · Göteborgs skärgård</div>
           <h1 id="home-title">En stadig grund.<br /><em>För livet i skärgården.</em></h1>
-          <p className="home-hero-description">Byggmaterial och betong till husgrunder och trädgårdar. Vi hjälper dig från materialval till leverans i Göteborgs skärgård och Torslanda.</p>
+          <p className="home-hero-description">{FORETAG.intro}</p>
           <div className="hero-cta">
             <Link href="/produkter" className="btn btn-light">Se våra produkter <Arrow /></Link>
             <Link href="/kontakt" className="btn btn-glass">Kontakta oss <Arrow diagonal /></Link>

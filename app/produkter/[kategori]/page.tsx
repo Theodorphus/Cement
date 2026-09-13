@@ -27,7 +27,7 @@ export default async function CategoryPage({params}:Props){
    })}</div>}
    {kategori==="sand-kross-jord"&&<section className="related"><h2>Material i lösvikt</h2><div className="subcategories">{MATERIALS.map(([name,...items])=><div className="material-group" key={name}><h3>{name}</h3><ul>{items.map(i=><li key={i}>{i}</li>)}</ul></div>)}</div><p>Kontakta oss för mängd, försäljningsenhet och leverans.</p></section>}
    {kategori==="byggmaterial"&&<div className="reading-width"><h2>Material till ditt bygge</h2><p>Grupperna ovan visar ett urval av det vi har i butiken. Sortimentet är bredare än så – beskriv ditt projekt så hjälper vi dig kontrollera vad vi har hemma och vad vi kan beställa.</p><p>Du hittar även <Link href="/produkter/betong-cement">betong, bruk och armering</Link> samt <Link href="/produkter/sten-leca-ror">block och sten</Link> i våra produktgrupper.</p></div>}
-   <aside className="help-panel"><div><h2>Hjälp att välja och beställa</h2><p>Berätta vad du ska göra, mängd och om du vill hämta eller få leverans.</p></div><div className="actions"><Link className="btn btn-deep" href={`/kontakt?produkt=${encodeURIComponent(kat.name)}`}>Kontakta oss</Link><a href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a></div></aside>
+   <aside className="help-panel"><div><h2>Hjälp att välja och beställa</h2><p>Berätta vad du ska göra, mängd och om du vill hämta eller få leverans.</p></div><div className="actions"><Link className="btn btn-deep" href={`/kontakt?produkt=${encodeURIComponent(kat.name)}#forfragan`}>Kontakta oss</Link><a href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a></div></aside>
   </div>
  </div>;
 }

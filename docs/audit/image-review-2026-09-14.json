@@ -1,0 +1,300 @@
+{
+  "checkedAt": "2026-09-14",
+  "method": "126 previously unimported CDN image references downloaded and visually reviewed on contact sheets. Text-bearing lists, guides, dimensions and equipment panels additionally inspected at full resolution. Repeated logos and packshots do not each require gallery duplication.",
+  "importedDocuments": [
+    {
+      "id": 45,
+      "file": "/assets/guides/gras-vedums.png",
+      "url": "https://cdn.yourvismawebsite.com/img/04/cd1c6138-5d6c-4bd7-8c13-3322a6799b2e/1920",
+      "pages": [
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle"
+      ],
+      "width": 734,
+      "height": 855
+    },
+    {
+      "id": 46,
+      "file": "/assets/guides/marksten-st-eriks.png",
+      "url": "https://cdn.yourvismawebsite.com/img/04/26ddcf0a-4c8b-4998-9ba1-bb0d8d2a6b0a/1920",
+      "pages": [
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor"
+      ],
+      "width": 798,
+      "height": 1127
+    },
+    {
+      "id": 64,
+      "file": "/assets/guides/byggmaterial-sortiment.png",
+      "url": "https://cdn.yourvismawebsite.com/img/04/336c6744-4807-4a97-9745-bd0a46e6e4e0/1920",
+      "pages": [
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial"
+      ],
+      "width": 919,
+      "height": 952
+    },
+    {
+      "id": 76,
+      "file": "/assets/guides/ror-sortiment.png",
+      "url": "https://cdn.yourvismawebsite.com/img/04/988e643f-4474-42ea-b280-d64966e8cd09/1920",
+      "pages": [
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror"
+      ],
+      "width": 563,
+      "height": 405
+    },
+    {
+      "id": 78,
+      "file": "/assets/guides/murblock-st-eriks.png",
+      "url": "https://cdn.yourvismawebsite.com/img/04/7acbd85e-25cf-460b-afa2-f23ad1f5afa5/1920",
+      "pages": [
+        "/produkter/stenlecaror/bygg-sjalv-med-murblock"
+      ],
+      "width": 791,
+      "height": 1119
+    }
+  ],
+  "contentSources": [
+    {
+      "id": 8,
+      "url": "https://cdn.yourvismawebsite.com/img/04/5e92bc73-3b28-4358-9e91-2a0f8b3cf7db/460",
+      "pages": [
+        "/produkter/betongcement/betongcement"
+      ],
+      "width": 219,
+      "height": 66
+    },
+    {
+      "id": 33,
+      "url": "https://cdn.yourvismawebsite.com/img/04/051cf9e3-7778-4de1-980b-dbcbd2d4888e/460",
+      "pages": [
+        "/produkter/betongcement/golvavjamning"
+      ],
+      "width": 196,
+      "height": 204
+    },
+    {
+      "id": 39,
+      "url": "https://cdn.yourvismawebsite.com/img/04/215ccc31-1a41-4511-a0af-c920cc06c600/1920",
+      "pages": [
+        "/produkter/markbelaggning/marksten-betongnatursten"
+      ],
+      "width": 1280,
+      "height": 539
+    },
+    {
+      "id": 45,
+      "url": "https://cdn.yourvismawebsite.com/img/04/cd1c6138-5d6c-4bd7-8c13-3322a6799b2e/1920",
+      "pages": [
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle",
+        "/produkter/markbelaggning/fardig-grasmatta-grasmatta-pa-rulle"
+      ],
+      "width": 734,
+      "height": 855
+    },
+    {
+      "id": 46,
+      "url": "https://cdn.yourvismawebsite.com/img/04/26ddcf0a-4c8b-4998-9ba1-bb0d8d2a6b0a/1920",
+      "pages": [
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor",
+        "/produkter/markbelaggning/laggningsanvisningar-marksten-och-plattor"
+      ],
+      "width": 798,
+      "height": 1127
+    },
+    {
+      "id": 49,
+      "url": "https://cdn.yourvismawebsite.com/img/04/312e3cbf-5c63-44fd-b21f-74137aacaf85/460",
+      "pages": [
+        "/produkter/sandkrossprodukterjord/jord-i-sackar"
+      ],
+      "width": 284,
+      "height": 532
+    },
+    {
+      "id": 64,
+      "url": "https://cdn.yourvismawebsite.com/img/04/336c6744-4807-4a97-9745-bd0a46e6e4e0/1920",
+      "pages": [
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial",
+        "/produkter/byggmaterial"
+      ],
+      "width": 919,
+      "height": 952
+    },
+    {
+      "id": 76,
+      "url": "https://cdn.yourvismawebsite.com/img/04/988e643f-4474-42ea-b280-d64966e8cd09/1920",
+      "pages": [
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror",
+        "/produkter/stenlecaror/ror"
+      ],
+      "width": 563,
+      "height": 405
+    },
+    {
+      "id": 78,
+      "url": "https://cdn.yourvismawebsite.com/img/04/7acbd85e-25cf-460b-afa2-f23ad1f5afa5/1920",
+      "pages": [
+        "/produkter/stenlecaror/bygg-sjalv-med-murblock"
+      ],
+      "width": 791,
+      "height": 1119
+    },
+    {
+      "id": 102,
+      "url": "https://cdn.yourvismawebsite.com/img/04/90a52744-88fe-470c-a831-c6a0b4b7d86d/1920",
+      "pages": [
+        "/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+        "/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+        "/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+        "/produkter/tradgardsdekorationrengoring/fyrarvattentunna",
+        "/produkter/tradgardsdekorationrengoring/fyrarvattentunna"
+      ],
+      "width": 1316,
+      "height": 172
+    },
+    {
+      "id": 108,
+      "url": "https://cdn.yourvismawebsite.com/img/04/413e26ba-20a3-4c3f-9a66-2bd5ab1b410b/1920",
+      "pages": [
+        "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning"
+      ],
+      "width": 731,
+      "height": 830
+    },
+    {
+      "id": 109,
+      "url": "https://cdn.yourvismawebsite.com/img/04/97ac8eb6-ee22-4ab1-b87c-4f4a3f714195/1920",
+      "pages": [
+        "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning"
+      ],
+      "width": 765,
+      "height": 702
+    },
+    {
+      "id": 110,
+      "url": "https://cdn.yourvismawebsite.com/img/04/619e3472-87a3-4f7b-bf1d-35beb4a377bc/1920",
+      "pages": [
+        "/produkter/tradgardsdekorationrengoring/alternativ-till-ograsbekampning"
+      ],
+      "width": 774,
+      "height": 839
+    },
+    {
+      "id": 114,
+      "url": "https://cdn.yourvismawebsite.com/img/04/84edb553-1305-417a-a6be-19476ee1e251/1920",
+      "pages": [
+        "/uthyrning/kombihammarekapmaskin",
+        "/uthyrning/kombihammarekapmaskin",
+        "/uthyrning/kombihammarekapmaskin",
+        "/uthyrning/kombihammarekapmaskin",
+        "/uthyrning/kombihammarekapmaskin"
+      ],
+      "width": 444,
+      "height": 271
+    },
+    {
+      "id": 115,
+      "url": "https://cdn.yourvismawebsite.com/img/04/6f9c6973-a03a-473f-98db-2b11a77f06f4/1920",
+      "pages": [
+        "/uthyrning/kombihammarekapmaskin"
+      ],
+      "width": 347,
+      "height": 118
+    },
+    {
+      "id": 117,
+      "url": "https://cdn.yourvismawebsite.com/img/04/dc34ab49-a7b0-4717-ba5e-fbb697a92975/1920",
+      "pages": [
+        "/uthyrning/kombihammarekapmaskin"
+      ],
+      "width": 472,
+      "height": 250
+    },
+    {
+      "id": 118,
+      "url": "https://cdn.yourvismawebsite.com/img/04/6e132231-72fa-44c3-9f2c-705f2e84fa4b/1920",
+      "pages": [
+        "/uthyrning/kombihammarekapmaskin"
+      ],
+      "width": 575,
+      "height": 166
+    },
+    {
+      "id": 120,
+      "url": "https://cdn.yourvismawebsite.com/img/04/4ea465e6-4e3e-41fc-b826-c7db5ac18ed4/1920",
+      "pages": [
+        "/uthyrning/betongslipdammsugare"
+      ],
+      "width": 387,
+      "height": 187
+    },
+    {
+      "id": 121,
+      "url": "https://cdn.yourvismawebsite.com/img/04/1a3f39a7-939b-4a3d-bee4-f342ccd81586/1920",
+      "pages": [
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare"
+      ],
+      "width": 235,
+      "height": 149
+    },
+    {
+      "id": 123,
+      "url": "https://cdn.yourvismawebsite.com/img/04/9cff7be7-4c1d-4b66-897a-ed0828649fa8/1920",
+      "pages": [
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare"
+      ],
+      "width": 265,
+      "height": 150
+    },
+    {
+      "id": 124,
+      "url": "https://cdn.yourvismawebsite.com/img/04/629ee81c-47ab-411b-a7b6-e1ebea57783d/1920",
+      "pages": [
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare",
+        "/uthyrning/betongslipdammsugare"
+      ],
+      "width": 484,
+      "height": 335
+    }
+  ],
+  "excluded": "Historic prices, stock guarantees, expired certifications and unreadable label details were not reintroduced. Source-image product overviews remain available alongside the readable summaries."
+}
