@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
 import ContactForm from "@/components/ContactForm";
+import { sharedOpenGraph } from "@/lib/site";
 import { KONTAKTER, telHref, FORETAG } from "@/lib/data";
 
 import { contactConfigured } from "@/lib/contact-config";
@@ -12,7 +13,7 @@ const BUTIK_IMG = "/assets/Butik.jpg";
 export const metadata: Metadata = {
   title: "Kontakta oss",
   alternates: { canonical: "/kontakt" },
-  openGraph: { url: "/kontakt" },
+  openGraph: { ...sharedOpenGraph, url: "/kontakt" },
   description:
     `Kontakta ${FORETAG.namn} — ${FORETAG.gata}, ${FORETAG.adressRad2}. Telefon ${FORETAG.telefon}. Kontakta oss om material, leverans och uthyrning.`,
 };

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumb from "@/components/Breadcrumb";
+import { sharedOpenGraph } from "@/lib/site";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/miljo" },
-  openGraph: { url: "/miljo" },
+  openGraph: { ...sharedOpenGraph, url: "/miljo" },
   title: "Miljö",
   description:
     "Vårt miljöarbete på Öckerö Cementgjuteri — läs vår miljöpolicy. Vi tar ansvar för närmiljön i skärgården.",

@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from "next";
 import Breadcrumb from "@/components/Breadcrumb";
+import { sharedOpenGraph } from "@/lib/site";
 import CategoryCard from "@/components/CategoryCard";
 import ProductSearch from "@/components/ProductSearch";
 import Reveal from "@/components/Reveal";
@@ -7,7 +8,7 @@ import { KATEGORIER } from "@/lib/data";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/produkter" },
-  openGraph: { url: "/produkter" },
+  openGraph: { ...sharedOpenGraph, url: "/produkter" },
   title: "Produkter",
   description: "Byggmaterial, markbeläggning, betong, ved och trädgårdsdekoration — allt för husgrund och trädgård i skärgården.",
 };
