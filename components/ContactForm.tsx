@@ -2,7 +2,7 @@
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { CONTACT_LIMITS } from "@/lib/contact";
-export default function ContactForm({ subject = "" }: { subject?: string }) {
+export default function ContactForm({ subject = "", enabled = true }: { subject?: string; enabled?: boolean }) {
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [message, setMessage] = useState("");
   const busy = useRef(false);
@@ -18,7 +18,7 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     statusRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
   }, [status, message]);
   async function submit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault(); if (busy.current) return;
+    event.preventDefault(); if (!enabled || busy.current) return;
     busy.current = true; setStatus("sending"); setMessage("");
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -36,8 +36,9 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     } finally { busy.current = false; }
   }
   return <form method="post" action="/api/kontakt" onSubmit={submit} className="contact-form" aria-busy={status === "sending"}>
+    {!enabled && <p className="contact-unavailable">Formuläret är inte öppet ännu. Mejla <a href="mailto:info@ockerocement.se">info@ockerocement.se</a> eller ring <a href="tel:031966066">031-96 60 66</a> så hjälper vi dig.</p>}
     <noscript><p>Formuläret behöver JavaScript. Ring <a href="tel:031966066">031-96 60 66</a> eller mejla en kontaktperson.</p></noscript>
-    <fieldset className="contact-form-fields" disabled={status === "sending"}>
+    <fieldset className="contact-form-fields" disabled={!enabled || status === "sending"}>
     <legend className="visually-hidden">Din förfrågan</legend>
     <label htmlFor="contact-name">Namn *</label>
     <input id="contact-name" name="namn" autoComplete="name" required maxLength={CONTACT_LIMITS.namn} />
@@ -51,7 +52,7 @@ export default function ContactForm({ subject = "" }: { subject?: string }) {
     <p id="contact-help">Berätta gärna vad du behöver, mängd och önskat datum.</p>
     <div className="form-trap" aria-hidden="true"><label htmlFor="contact-website">Lämna detta fält tomt</label><input id="contact-website" name="website" tabIndex={-1} autoComplete="off" /></div>
     <p>Vi använder dina uppgifter för att hantera din förfrågan. <Link href="/integritet">Läs om personuppgifter</Link>.</p>
-    <button className="btn btn-light" type="submit" disabled={status === "sending"}>{status === "sending" ? "Skickar…" : "Skicka förfrågan"}</button>
+    <button className="btn btn-light" type="submit" disabled={!enabled || status === "sending"}>{!enabled ? "Formuläret öppnar snart" : status === "sending" ? "Skickar…" : "Skicka förfrågan"}</button>
     </fieldset>
     <div ref={statusRef} role="status" aria-live="polite" aria-atomic="true" className={`form-status ${status}`}>{message}</div>
   </form>;

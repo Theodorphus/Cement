@@ -182,7 +182,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               margin: "0 0 6px",
             }}
           >
-            Mejla oss
+            Skicka en förfrågan
           </h2>
           <p
             style={{
@@ -193,13 +193,7 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
           >
             Berätta vad du behöver så hjälper vi dig vidare.
           </p>
-          {contactConfigured() ? <ContactForm key={subject} subject={subject} /> : <div className="contact-direct">
-            <p>Ring oss eller mejla direkt till en kontaktperson så hjälper vi dig med din förfrågan.</p>
-            <a className="btn btn-light" href={FORETAG.telefonHref}>Ring {FORETAG.telefon}</a>
-            {KONTAKTER.filter(person => person.email).map(person => <a key={person.email} href={"mailto:" + person.email + "?subject=" + encodeURIComponent(subject ? "Förfrågan: " + subject : "Förfrågan från hemsidan")}>Mejla {person.name}<span>{person.email}</span></a>)}
-            {subject && <p>Din förfrågan gäller: <strong>{subject}</strong></p>}
-            <p>Berätta gärna vad du behöver, mängd, leveransort eller hämtning och önskat datum.</p>
-          </div>}
+          <ContactForm key={subject} subject={subject} enabled={contactConfigured()} />
         </div>
       </div>
     </div>

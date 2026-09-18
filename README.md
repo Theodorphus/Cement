@@ -35,9 +35,9 @@ Kundens aktuella produktuppgifter inväntas. Ändra inte mått, lagerstatus, pri
 
 Konfiguration finns i `.env.example`. Lägg hemligheter i `.env.local` vid lokal utveckling och i driftplattformens miljövariabler i produktion.
 
-Utan komplett konfiguration visar kontaktsidan ring- och mejllänkar i stället för ett formulär. Produktens namn följer med till mejlets ämnesrad. API:t ger 503 om konfiguration saknas; inget meddelande loggas som ersättning för leverans.
+Kontaktsidan visar formuläret med namn, e-post, frivilligt telefonnummer och meddelande. Startsidan länkar direkt till det via `/kontakt#forfragan`. Utan komplett konfiguration är fälten och skicka-knappen inaktiverade och besökaren hänvisas till telefon eller info@ockerocement.se. Produktens namn fylls i meddelandet när besökaren kommer från en produkt. API:t ger 503 om konfiguration saknas; inget meddelande loggas som ersättning för leverans.
 
-När `RESEND_API_KEY`, `CONTACT_TO` och `CONTACT_FROM` är satta visas formuläret automatiskt. Avsändardomänen måste vara verifierad och mottagaren bekräftad. Resends onboarding-avsändare accepteras inte. Ett godkänt API-svar betyder att mejltjänsten accepterat meddelandet, inte att det säkert nått inkorgen.
+När `RESEND_API_KEY`, `CONTACT_TO` och `CONTACT_FROM` är satta aktiveras formuläret automatiskt. Använd `CONTACT_TO=info@ockerocement.se` och `CONTACT_FROM=Öckerö Cementgjuteri <hemsidan@formular.ockerocement.se>`. Avsändardomänen formular.ockerocement.se måste vara verifierad i Resend. Lägg variablerna i Vercels produktionsmiljö och gör en ny deployment. Resends onboarding-avsändare accepteras inte. Ett godkänt API-svar betyder att mejltjänsten accepterat meddelandet, inte att det säkert nått inkorgen. Verifiera leverans och att Svara går till besökarens adress innan lansering.
 
 API:t har typ- och längdvalidering, ursprungskontroll, dold botfälla, tidsgränser och en anropsbegränsning per serverinstans. Lägg även ett delat skydd mot upprepade anrop på driftplattformen när formuläret aktiveras.
 

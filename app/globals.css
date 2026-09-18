@@ -549,7 +549,11 @@ a:focus-visible,button:focus-visible,input:focus-visible,textarea:focus-visible,
 .contact-form p { font-size:14px; color:var(--ljus); line-height:1.5; margin:6px 0; }
 .contact-form a { color:var(--ljus); text-decoration:underline; }
 .contact-form button { border:0; font:600 16px var(--font-sans),sans-serif; padding:16px; margin-top:10px; }
-.contact-form button:disabled { opacity:.7; cursor:wait; }
+.contact-form button:disabled { opacity:.7; cursor:not-allowed; }
+.contact-form[aria-busy="true"] button:disabled { cursor:wait; }
+.contact-form .contact-unavailable { padding:16px; margin:0 0 16px; border:1px solid rgba(255,255,255,.4); border-radius:8px; }
+.contact-unavailable a { overflow-wrap:anywhere; }
+#forfragan { scroll-margin-top:calc(var(--site-header-height, 96px) + 24px); }
 .form-trap { display:none; }
 .form-status:not(:empty) { padding:14px; border:1px solid currentColor; border-radius:8px; line-height:1.5; }
 .form-status.error { color:#ffe3dd; }
@@ -704,7 +708,12 @@ a.service-item:hover { text-decoration: none; background: #f7f8f6; }
 .home-people-copy > .people-lead { font-size: 19px!important; color: var(--ink)!important; line-height: 1.55!important; }
 .home-people .actions { gap: 22px; margin-top: 28px; }
 .home-supporter { display: flex; gap: 20px; align-items: center; border-top: 1px solid var(--kant); padding-top: 24px; margin-top: 30px; }
-.home-supporter img { width: 76px; height: auto; flex: none; }
+.barncancerfonden-widget { width: 150px; max-width: 40%; min-height: 125px; flex: none; }
+.barncancerfonden-widget a { display: block; }
+@media (max-width: 640px) {
+  .barncancerfonden-widget { width: 110px; min-height: 92px; }
+}
+.home-supporter img { display: block; width: 100%; height: auto; }
 .home-supporter p { font-size: 13px; line-height: 1.7; color: var(--muted); margin: 0; }
 .home-supporter a { text-decoration: underline; text-underline-offset: 3px; }
 .home-islands { background: #e9edeb; border-top: 1px solid var(--kant); }

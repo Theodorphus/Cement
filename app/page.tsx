@@ -3,6 +3,7 @@ import Link from "next/link";
 import Reveal from "@/components/Reveal";
 import CategoryCard from "@/components/CategoryCard";
 import HeroVideo from "@/components/HeroVideo";
+import BarncancerfondenWidget from "@/components/BarncancerfondenWidget";
 import { KATEGORIER, FORETAG } from "@/lib/data";
 
 export const metadata = { alternates: { canonical: "/" } };
@@ -23,7 +24,7 @@ export default function Home() {
           <p className="home-hero-description">{FORETAG.intro}</p>
           <div className="hero-cta">
             <Link href="/produkter" className="btn btn-light">Se våra produkter <Arrow /></Link>
-            <Link href="/kontakt" className="btn btn-glass">Kontakta oss <Arrow diagonal /></Link>
+            <Link href="/kontakt#forfragan" className="btn btn-glass">Skicka en förfrågan <Arrow diagonal /></Link>
           </div>
           <div className="hero-baseline">
             <span>Byggmaterial <i /> Betong <i /> Maskinuthyrning</span>
@@ -86,9 +87,9 @@ export default function Home() {
           <h2>Material är vår vardag.<br /><em>Ditt projekt är unikt.</em></h2>
           <p className="people-lead">Vi hjälper dig välja rätt material till ditt projekt.</p>
           <p>Berätta vad du ska bygga så går vi igenom mängder, alternativ och leverans tillsammans. Välkommen in på gården eller hör av dig så tar vi det på telefon.</p>
-          <div className="actions"><Link href="/kontakt" className="btn btn-deep">Kontakta oss <Arrow /></Link><a href={FORETAG.telefonHref} className="editorial-link">{FORETAG.telefon} <Arrow diagonal /></a></div>
+          <div className="actions"><Link href="/kontakt#forfragan" className="btn btn-deep">Skicka en förfrågan <Arrow /></Link><a href={FORETAG.telefonHref} className="editorial-link">{FORETAG.telefon} <Arrow diagonal /></a></div>
           <div className="home-supporter">
-            <Image src="/assets/Barnsupporter.webp" alt="Barncancerfondens märke: Vårt företag är Barnsupporter 2024" width={320} height={268} sizes="76px" />
+            <BarncancerfondenWidget />
             <p>Vi är stolta Barnsupporter och stödjer <a href="https://www.barncancerfonden.se/" target="_blank" rel="noopener noreferrer">Barncancerfondens<span aria-hidden="true"> ↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a> arbete för barn med cancer och deras familjer.</p>
           </div>
         </div>
