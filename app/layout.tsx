@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 import { instrumentSerif, instrumentSans } from "@/lib/fonts";
 import TopBanner from "@/components/TopBanner";
@@ -70,6 +71,7 @@ export default function RootLayout({
           <main id="main-content" tabIndex={-1}>{children}</main>
           <Footer />
         </div>
+        <Analytics />
       </body>
     </html>
   );
