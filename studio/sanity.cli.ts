@@ -5,5 +5,5 @@ export default defineCliConfig({
   api: {projectId: PROJECT_ID, dataset: DATASET},
   // Studion publiceras på https://ockerocement.sanity.studio
   studioHost: "ockerocement",
-  deployment: {autoUpdates: true},
+  deployment: {appId: "xtasgbxjxxj7hgz9adoqtn6y", autoUpdates: true},
 })
