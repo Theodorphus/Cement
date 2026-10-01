@@ -3,40 +3,8 @@ import Link from "next/link";
 import {useId, useRef, useState} from "react";
 import {normalizeSearchText, searchEntries} from "@/lib/search";
 import {truncateText} from "@/lib/text";
-import {CATALOG, MATERIALS, productPath} from "@/lib/catalog";
-import {getKategori, KATEGORIER} from "@/lib/data";
-/** Sökbara synonymer, så att kundens ord hittar rätt produkt. */
-const SYNONYMS: Record<string,string> = {
- "fardig-grasmatta":"gras grasmatta pa rulle rullgras torv matta",
- "jord-i-sackar":"matjord planteringsjord sack odling plantera",
- "grasfrogodsel":"fro godning naring gazon",
- "marksten-betong-natursten":"sten uppfart garduppfart plattor granit",
- "gards-ganggrus":"grus singel makadam gang",
- "armering":"jarn nat betongjarn armeringsjarn",
- "betongcement":"cement betong gjuta gjutning",
- "leca":"lattklinker block murblock",
- "ved":"brasa braved bjork eldning",
- "pellets":"pellet uppvarmning",
- "varmeloggs":"briketter loggs eldning",
- "ror":"pvc ht muffror avlopp bojar grenror skarvmuff",
- "dranering":"dranering dransslang dagvatten fiberduk markduk trumma",
- "brunnar-betackningar":"brunn wavin stigarror jarnbetackning spygatt golvbrunn lock",
- "rannor-galler":"aco ranna spaltgaller avvattning galler linjeavvattning",
- "verktyg-handredskap":"slev murslev spackel borste skyffel skottkarra glattare verktyg",
- "gjutning-formning":"formror distanskloss najtrad visp murarbalja gjutform",
- "infastning-forbrukning":"spik plugg skruv krampa gangstang stolpsko byggplast sopsack storsack",
- "borr-kapning":"diamantborr diamantklinga kapskiva borra kapa",
- "golvbrunnar-ventiler":"golvbrunn ventil sotlucka spjall tallriksventil",
- "skydd-underhall":"platon putsnat ograsduk markduk handske borste",
- "ejder":"ejder vaghinder trafikavstangare trafikhinder betongsugga avstangare",
- "dekorsten":"prydnadssten rabattsten",
- "ocean":"rengoring stad tvatt",
-};
- const entries = [
-  ...CATALOG.map(p=>({name:p.name,href:productPath(p),category:getKategori(p.category)?.name,search:[p.name,p.intro,...p.details,SYNONYMS[p.slug]??""].join(" ")})),
-  ...KATEGORIER.map(k=>({name:k.name,href:`/produkter/${k.slug}`,category:"Produktkategori",search:[k.name,k.desc,...(k.slug === "sand-kross-jord" ? MATERIALS.flat() : [])].join(" ")})),
- ];
-export default function ProductSearch(){
+import type {SearchEntry} from "@/lib/catalog";
+export default function ProductSearch({entries}:{entries:SearchEntry[]}){
  const [query,setQuery]=useState("");
  const id=useId();
  const input=useRef<HTMLInputElement>(null);

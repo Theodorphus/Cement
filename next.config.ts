@@ -1,15 +1,13 @@
 ﻿import type {NextConfig} from "next";
 import {RESOURCES} from "./lib/resources";
-import {CATALOG,productPath} from "./lib/catalog";
-const categoryMoves = [
- ["betongcement","betong-cement"],["sandkrossprodukterjord","sand-kross-jord"],["stenlecaror","sten-leca-ror"],["tradgardsdekorationrengoring","tradgardsdekoration-rengoring"]
-];
+import {SANITY_DATASET,SANITY_PROJECT_ID} from "./lib/sanity/env";
+import {CATALOG_REDIRECTS} from "./lib/legacy-redirects";
 const config:NextConfig={
  distDir: process.env.NEXT_DIST_DIR || ".next",
  poweredByHeader:false,
+ images:{remotePatterns:[{protocol:"https",hostname:"cdn.sanity.io",pathname:`/images/${SANITY_PROJECT_ID}/${SANITY_DATASET}/**`}]},
  async redirects(){return [
-  ...CATALOG.filter(p=>p.oldPath!==productPath(p)).map(p=>({source:p.oldPath,destination:productPath(p),permanent:true})),
-  ...categoryMoves.map(([oldSlug,newSlug])=>({source:`/produkter/${oldSlug}`,destination:`/produkter/${newSlug}`,permanent:true})),
+  ...CATALOG_REDIRECTS,
   {source:"/BE-Armeringshandboken.pdf",destination:RESOURCES.reinforcement.url,permanent:true},
   {source:"/WB\\+Produktkatalog.pdf",destination:RESOURCES.brick.url,permanent:true},
   {source:"/startsida",destination:"/",permanent:true},

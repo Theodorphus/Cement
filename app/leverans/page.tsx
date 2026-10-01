@@ -4,10 +4,13 @@ import Breadcrumb from "@/components/Breadcrumb";
 import Reveal from "@/components/Reveal";
 import { pageMetadata } from "@/lib/site";
 import { FORETAG } from "@/lib/data";
+import { getOpeningHours } from "@/lib/content";
+import OpeningRows from "@/components/OpeningRows";
 
 export const metadata = pageMetadata("Leverans och hämtning", "Beställ byggmaterial och betong för leverans i Göteborgs skärgård och Torslanda, eller hämta på Öckerö.", "/leverans");
 
-export default function Delivery() {
+export default async function Delivery() {
+  const { rows } = await getOpeningHours();
   return (
     <article className="content-page delivery-page">
       <Breadcrumb crumbs={[{ label: "Startsida", href: "/" }, { label: "Leverans och hämtning" }]} />
@@ -25,7 +28,7 @@ export default function Delivery() {
       </div>
       <Reveal className="delivery-options">
         <section className="delivery-option"><p className="section-kicker">Inför gjutningen</p><h2>Färdig betong</h2><p>Kontakta oss i god tid inför gjutningen. Beskriv vad du ska gjuta, beräknad volym, plats och önskat datum så går vi igenom möjligheterna tillsammans.</p></section>
-        <section className="delivery-option"><p className="section-kicker">Välkommen till Öckerö</p><h2>Hämta på gården</h2><p>{FORETAG.adressRad1}, {FORETAG.adressRad2}. Kontakta oss i förväg för att kontrollera tillgänglighet och förbereda din hämtning.</p><div className="delivery-visit"><p>{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p><a href={FORETAG.mapsUrl} target="_blank" rel="noopener noreferrer" className="editorial-link">Hitta hit <span className="arrow-icon" aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a></div></section>
+        <section className="delivery-option"><p className="section-kicker">Välkommen till Öckerö</p><h2>Hämta på gården</h2><p>{FORETAG.adressRad1}, {FORETAG.adressRad2}. Kontakta oss i förväg för att kontrollera tillgänglighet och förbereda din hämtning.</p><div className="delivery-visit"><p><OpeningRows rows={rows} /></p><a href={FORETAG.mapsUrl} target="_blank" rel="noopener noreferrer" className="editorial-link">Hitta hit <span className="arrow-icon" aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a></div></section>
       </Reveal>
     </article>
   );

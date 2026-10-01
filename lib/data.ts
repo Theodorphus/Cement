@@ -16,22 +16,7 @@ export const FORETAG = {
   adressRad2: "475 31 Öckerö",
   telefon: "031-96 60 66",
   telefonHref: "tel:031966066",
-  oppettiderRad1: "Måndag–fredag 7–16",
-  oppettiderRad2: "Lördagar 9–13",
-  /**
-   * Kunden bekräftade 2026-09-10: stängt de flesta röda dagar, men inget
-   * semesterstängt. Exakta tider vid högtider meddelas separat.
-   */
-  oppettiderAvvikelse: "De flesta röda dagar har vi stängt. Vi har inget semesterstängt – ring gärna om du är osäker inför en helg.",
-  /**
-   * Samma öppettider på maskinläsbar form, för strukturerad data.
-   * Ändras tillsammans med raderna ovan så att sajten och sökmotorerna
-   * aldrig visar olika tider.
-   */
-  oppettider: [
-    { dagar: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], oppnar: "07:00", stanger: "16:00" },
-    { dagar: ["Saturday"], oppnar: "09:00", stanger: "13:00" },
-  ],
+  // Öppettiderna redigeras av kunden i Sanity, se getOpeningHours i lib/content.ts.
   /** Google Maps-sökning på adressen (öppnar rätt plats i alla enheter). */
   mapsUrl:
     "https://www.google.com/maps/search/?api=1&query=" +

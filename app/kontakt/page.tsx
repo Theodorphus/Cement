@@ -3,6 +3,8 @@ import Breadcrumb from "@/components/Breadcrumb";
 import ContactForm from "@/components/ContactForm";
 import { sharedOpenGraph } from "@/lib/site";
 import { KONTAKTER, telHref, FORETAG } from "@/lib/data";
+import { getOpeningHours } from "@/lib/content";
+import OpeningRows from "@/components/OpeningRows";
 
 import { contactConfigured } from "@/lib/contact-config";
 import { truncateText } from "@/lib/text";
@@ -20,6 +22,7 @@ export const metadata: Metadata = {
 
 export default async function KontaktPage({ searchParams }: { searchParams: Promise<{ produkt?: string | string[] }> }) {
   const query = await searchParams;
+  const hours = await getOpeningHours();
   const subject = typeof query.produkt === "string" ? truncateText(query.produkt, 150) : "";
   return (
     <div
@@ -64,8 +67,8 @@ export default async function KontaktPage({ searchParams }: { searchParams: Prom
               {FORETAG.adressRad2}
               <br />
               Telefon <a href={FORETAG.telefonHref}>{FORETAG.telefon}</a>
-              <p className="contact-hours"><strong>Öppettider</strong><br />{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p>
-              <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55, margin: "8px 0 0" }}>{FORETAG.oppettiderAvvikelse}</p>
+              {hours.rows.length > 0 && <p className="contact-hours"><strong>Öppettider</strong><br /><OpeningRows rows={hours.rows} /></p>}
+              {hours.exceptions && <p style={{ fontSize: 14, color: "var(--muted)", lineHeight: 1.55, margin: "8px 0 0" }}>{hours.exceptions}</p>}
             </div>
             <a
               href={FORETAG.mapsUrl}

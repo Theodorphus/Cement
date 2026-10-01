@@ -1255,6 +1255,10 @@ html { scroll-padding-top: calc(var(--site-header-height, 96px) + 24px); }
 .news-fuel-copy a { display: flex; align-items: center; justify-content: space-between; padding-block: 16px; gap: 20px; border-top: 1px solid var(--kant); color: var(--ink); font-size: 16px; font-weight: 500; }
 .news-fuel-copy a:hover { color: var(--accent); text-decoration: none; }
 .news-fuel-copy > p:last-child { color: var(--muted); font-size: 14px; line-height: 1.7; margin: 20px 0 0; }
+/* Inlägg från Sanity: brödtext före eventuella länkar, och inlägg utan bild. */
+.news-fuel-text-only { grid-template-columns: 1fr; }
+.news-fuel-copy > p.news-text { color: var(--ink); font-size: 16px; line-height: 1.7; margin: 0 0 16px; white-space: pre-line; }
+.news-fuel-copy > p.news-text + ul { margin-top: 24px; }
 @media (max-width: 760px) {
   .news-fuel { grid-template-columns: 1fr; }
   .news-fuel-image { min-height: 0; aspect-ratio: 1.8; }

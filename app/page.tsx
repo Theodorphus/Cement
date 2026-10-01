@@ -5,6 +5,8 @@ import CategoryCard from "@/components/CategoryCard";
 import HeroVideo from "@/components/HeroVideo";
 import BarncancerfondenWidget from "@/components/BarncancerfondenWidget";
 import { KATEGORIER, FORETAG } from "@/lib/data";
+import { getOpeningHours } from "@/lib/content";
+import OpeningRows from "@/components/OpeningRows";
 
 export const metadata = { alternates: { canonical: "/" } };
 
@@ -12,7 +14,8 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return <span className="arrow-icon" aria-hidden="true">{diagonal ? "↗" : "→"}</span>;
 }
 
-export default function Home() {
+export default async function Home() {
+  const { rows } = await getOpeningHours();
   return (
     <div className="home-page">
       <section className="home-hero" aria-labelledby="home-title">
@@ -37,7 +40,7 @@ export default function Home() {
         <div className="container home-service-grid">
           <div className="service-item">
             <span className="service-index" aria-hidden="true">01</span>
-            <div><h2>Välkommen till oss</h2><p>{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p></div>
+            <div><h2>Välkommen till oss</h2><p><OpeningRows rows={rows} /></p></div>
           </div>
           <Link href="/leverans" className="service-item">
             <span className="service-index" aria-hidden="true">02</span>

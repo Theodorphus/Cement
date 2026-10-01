@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 
 import { SITE_URL } from "@/lib/site";
 import { localBusinessJsonLd } from "@/lib/structured-data";
+import { getOpeningHours } from "@/lib/content";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -43,9 +44,10 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{ children: React.ReactNode }>) {
+  const hours = await getOpeningHours();
   return (
     <html
       lang="sv"
@@ -54,7 +56,7 @@ export default function RootLayout({
       <body>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd()) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd(hours)) }}
         />
         <div
           style={{

@@ -1,8 +1,11 @@
 ﻿import Image from "next/image";
 import Link from "next/link";
 import { FORETAG } from "@/lib/data";
+import { getOpeningHours } from "@/lib/content";
+import OpeningRows from "@/components/OpeningRows";
 
-export default function Footer() {
+export default async function Footer() {
+  const { rows } = await getOpeningHours();
   return (
     <footer className="site-footer">
       <div className="container">
@@ -17,7 +20,7 @@ export default function Footer() {
           </div>
           <nav aria-label="Sortiment i sidfoten"><h3>Sortiment</h3><Link href="/produkter">Produkter</Link><Link href="/produkter/markbelaggning">Markbeläggning</Link><Link href="/leverans">Leverans och hämtning</Link><Link href="/uthyrning">Uthyrning</Link></nav>
           <nav aria-label="Företaget i sidfoten"><h3>Företaget</h3><Link href="/vara-leverantorer">Våra leverantörer</Link><Link href="/miljo">Miljö</Link><Link href="/aktuellt">Aktuellt</Link><Link href="/kontakt">Kontakt</Link></nav>
-          <div className="footer-visit"><h3>Välkommen hit</h3><address>{FORETAG.adressRad1}<br />{FORETAG.adressRad2}</address><a href={FORETAG.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-map">Visa på karta <span aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a><h3 className="footer-hours-heading">Öppettider</h3><p>{FORETAG.oppettiderRad1}<br />{FORETAG.oppettiderRad2}</p></div>
+          <div className="footer-visit"><h3>Välkommen hit</h3><address>{FORETAG.adressRad1}<br />{FORETAG.adressRad2}</address><a href={FORETAG.mapsUrl} target="_blank" rel="noopener noreferrer" className="footer-map">Visa på karta <span aria-hidden="true">↗</span><span className="visually-hidden"> (öppnas i ny flik)</span></a>{rows.length > 0 && <><h3 className="footer-hours-heading">Öppettider</h3><p><OpeningRows rows={rows} /></p></>}</div>
         </div>
         <div className="footer-bottom"><span>© {new Date().getFullYear()} Öckerö Cementgjuteri AB</span><div><Link href="/cookies">Cookies</Link><Link href="/integritet">Personuppgifter</Link></div></div>
       </div>

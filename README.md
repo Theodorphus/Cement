@@ -22,14 +22,35 @@ Google Fonts hämtas vid bygget och serveras sedan lokalt med next/font. Om dato
 
 ## Innehåll
 
-- `lib/data.ts`: företagsuppgifter, öppettider, kontaktpersoner och kategorier.
-- `lib/catalog.ts`: produktgrupper, guider och material i lösvikt.
-- `lib/catalog-images.json`: produktbilder och alternativtexter.
-- `lib/rental.ts` och `lib/suppliers.ts`: maskiner och leverantörer.
+Kunden redigerar produkter, hyrmaskiner, öppettider och inlägg under Aktuellt i Sanity (se nedan). Övrigt ligger i koden:
+
+- `lib/content.ts`: hämtar innehållet från Sanity.
+- `lib/data.ts`: företagsuppgifter, kontaktpersoner och de sju produktkategorierna.
+- `lib/catalog.ts`: produktadresser, sökindex och material i lösvikt.
+- `lib/suppliers.ts`: leverantörer.
 - `lib/resources.ts`: verifierade länkar till tillverkaranvisningar och dokument.
 - `public/assets/`: lokala bilder och film.
 
 Kundens aktuella produktuppgifter inväntas. Ändra inte mått, lagerstatus, priser eller miljöpåståenden utifrån antaganden. Se `docs/audit/status-2026-09-10.md` för innehållsarbete och `docs/audit/forbattringar-2026-09-10.md` för senaste ändringar. Uppdatera `CONTENT_UPDATED` i `lib/site.ts` när publikt innehåll ändras.
+
+## Sanity
+
+Studion ligger i `studio/` och publiceras på https://ockerocement.sanity.studio. Kunden loggar in där. Projekt-id står i `studio/projekt.ts` och `lib/sanity/env.ts` och ska vara samma på båda ställena. Kategorierna i `studio/schemaTypes/kategorier.ts` måste matcha `KATEGORIER` i `lib/data.ts`, och testerna kontrollerar det.
+
+Sajten hämtar publicerat innehåll vid bygget och cachar det. När något publiceras skickar Sanity en webhook till `/api/revalidate`, som förnyar just den innehållstypen inom några sekunder. Om en webhook skulle gå förlorad förnyas innehållet ändå inom en timme. Nya produkter och maskiner renderas vid första besöket.
+
+Första gången:
+
+1. Skapa projektet på sanity.io/manage med datasetet `production`. Skriv in projekt-id i de två filerna ovan.
+2. Skapa en token med Editor-behörighet under API → Tokens och lägg den som `SANITY_WRITE_TOKEN` i `.env.local`.
+3. Flytta innehållet: först `node scripts/sanity/migrera.mjs` (torrkörning) och sedan `node --env-file=.env.local scripts/sanity/migrera.mjs --skarpt`. Skriptet avbryter om datasetet redan har innehåll.
+4. Publicera Studion: `cd studio && npm ci && npm run deploy`.
+5. Skapa en webhook under API → Webhooks med URL `https://www.ockerocement.se/api/revalidate`, dataset `production`, triggers Create, Update och Delete, filter `_type in ["produkt", "hyrmaskin", "nyhet", "oppettider"]`, projection `{_type}` och en hemlighet. Lägg samma hemlighet som `SANITY_REVALIDATE_SECRET` i Vercel.
+6. Bjud in kunden som Editor under Members.
+
+Studion kan köras lokalt med `cd studio && npm run dev` (localhost:3333) efter `npx sanity cors add http://localhost:3333 --credentials`.
+
+Redaktörer kan inte ändra kategorier, adresser till befintliga sidor eller sajtens design. Prisfält saknas medvetet, eftersom kunderna ska höra av sig för pris.
 
 ## Kontakt och Resend
 
@@ -51,4 +72,4 @@ API:t har typ- och längdvalidering, ursprungskontroll, dold botfälla, tidsgrä
 6. Stäm av integritetstexten mot valda drift- och mejltjänster.
 7. Kör `npm run check:site` mot ett produktionsbygge. Standard är localhost:3000. Annan port anges med `BASE_URL`, exempelvis `$env:BASE_URL='http://localhost:3100'` i PowerShell.
 
-Gamla produktadresser och dokumentlänkar hanteras i `next.config.ts`. `docs/audit` innehåller källinventering och granskningsunderlag; äldre rapporter beskriver läget vid respektive datum.
+Gamla produktadresser hanteras i `lib/legacy-redirects.ts` och dokumentlänkar i `next.config.ts`. `docs/audit` innehåller källinventering och granskningsunderlag; äldre rapporter beskriver läget vid respektive datum.

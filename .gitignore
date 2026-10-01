@@ -16,5 +16,5 @@ Claude design setup.zip
 # Mejlutkast till kund (ligger i Gmail, inte i repot)
 /docs/utkast/
 
-# Tillfällig mapp för bilder som ska importeras (se scripts/importera-bilder.mjs)
+# Tillfällig mapp för bilder från kunden
 /inkorg/

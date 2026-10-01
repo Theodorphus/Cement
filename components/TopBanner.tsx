@@ -1,6 +1,9 @@
 import { FORETAG } from "@/lib/data";
+import { getOpeningHours } from "@/lib/content";
+import { formatOpeningRow } from "@/lib/oppettider";
 
-export default function TopBanner() {
+export default async function TopBanner() {
+  const { rows } = await getOpeningHours();
   return (
     <div
       className="topbanner"
@@ -17,12 +20,14 @@ export default function TopBanner() {
         flexWrap: "wrap",
       }}
     >
-      <span style={{ whiteSpace: "nowrap" }}>
-        Öppettider: {FORETAG.oppettiderRad1} · {FORETAG.oppettiderRad2}
-      </span>
-      <span className="topbanner-sep" style={{ opacity: 0.55 }}>
-        |
-      </span>
+      {rows.length > 0 && <>
+        <span style={{ whiteSpace: "nowrap" }}>
+          Öppettider: {rows.map(formatOpeningRow).join(" · ")}
+        </span>
+        <span className="topbanner-sep" style={{ opacity: 0.55 }}>
+          |
+        </span>
+      </>}
       <a
         href={FORETAG.telefonHref}
         style={{ color: "#fff", fontWeight: 600, whiteSpace: "nowrap" }}

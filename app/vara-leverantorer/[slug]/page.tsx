@@ -6,7 +6,9 @@ import { notFound } from "next/navigation";
 import { SUPPLIERS } from "@/lib/suppliers";
 import { pageMetadata } from "@/lib/site";
 
-export const dynamicParams = false;
+// Inte dynamicParams = false: sådana sidor blir 404 i Next 15.5 när en
+// Sanity-webhook förnyar dem (layouten hämtar öppettiderna). Okända adresser
+// ger 404 via notFound() nedan.
 export function generateStaticParams() { return SUPPLIERS.map(s => ({ slug: s.slug })); }
 type Props = { params: Promise<{ slug: string }> };
 export async function generateMetadata({ params }: Props) {

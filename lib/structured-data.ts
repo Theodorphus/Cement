@@ -1,4 +1,5 @@
 import { FORETAG } from "@/lib/data";
+import type { OpeningHours } from "@/lib/oppettider";
 import { SITE_URL } from "@/lib/site";
 
 /**
@@ -7,9 +8,9 @@ import { SITE_URL } from "@/lib/site";
  * Endast uppgifter som redan är bekräftade i FORETAG används här. Fält som
  * kräver företagets bekräftelse – organisationsnummer, geokoordinater,
  * betalsätt, avvikande helgdagstider – är medvetet utelämnade hellre än
- * gissade. Öppettiderna speglar FORETAG och måste ändras på ett ställe.
+ * gissade. Öppettiderna kommer från Sanity, samma källa som sidorna visar.
  */
-export function localBusinessJsonLd() {
+export function localBusinessJsonLd(hours: OpeningHours) {
   return {
     "@context": "https://schema.org",
     "@type": "HardwareStore",
@@ -25,11 +26,11 @@ export function localBusinessJsonLd() {
       addressCountry: "SE",
     },
     hasMap: FORETAG.mapsUrl,
-    openingHoursSpecification: FORETAG.oppettider.map(tid => ({
+    openingHoursSpecification: hours.rows.map(row => ({
       "@type": "OpeningHoursSpecification",
-      dayOfWeek: tid.dagar,
-      opens: tid.oppnar,
-      closes: tid.stanger,
+      dayOfWeek: row.days,
+      opens: row.opens,
+      closes: row.closes,
     })),
   };
 }

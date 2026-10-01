@@ -5,6 +5,8 @@ import CategoryCard from "@/components/CategoryCard";
 import ProductSearch from "@/components/ProductSearch";
 import Reveal from "@/components/Reveal";
 import { KATEGORIER } from "@/lib/data";
+import { searchIndex } from "@/lib/catalog";
+import { getProducts } from "@/lib/content";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/produkter" },
@@ -13,7 +15,8 @@ export const metadata: Metadata = {
   description: "Byggmaterial, markbeläggning, betong, ved och trädgårdsdekoration — allt för husgrund och trädgård i skärgården.",
 };
 
-export default function ProdukterPage() {
+export default async function ProdukterPage() {
+  const products = await getProducts();
   return (
     <div className="content-page catalog-page">
       <Breadcrumb crumbs={[{ label: "Startsida", href: "/" }, { label: "Produkter" }]} />
@@ -21,7 +24,7 @@ export default function ProdukterPage() {
         <div><p className="section-kicker">Material för husgrund & trädgård</p><h1>Vårt sortiment.<br /><em>Dina möjligheter.</em></h1></div>
         <p>Byggmaterial, markbeläggning, betong, ved och trädgårdsdekoration — allt för husgrund och trädgård i skärgården.</p>
       </header>
-      <ProductSearch />
+      <ProductSearch entries={searchIndex(products)} />
       <div className="catalog-section-label"><h2>Utforska våra produktkategorier</h2><span>{String(KATEGORIER.length).padStart(2, "0")} kategorier</span></div>
       <div className="catalog-grid">
         {KATEGORIER.map((kat, index) => (

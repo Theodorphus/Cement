@@ -2,12 +2,13 @@
 import CategoryCard from "@/components/CategoryCard";
 import Breadcrumb from "@/components/Breadcrumb";
 import Reveal from "@/components/Reveal";
-import { RENTALS } from "@/lib/rental";
+import { getRentals } from "@/lib/content";
 import { pageMetadata } from "@/lib/site";
 
 export const metadata = pageMetadata("Maskinuthyrning", "Hyr maskiner och redskap för mark, trädgård och betongarbete på Öckerö.", "/uthyrning");
 
-export default function RentalPage() {
+export default async function RentalPage() {
+  const rentals = await getRentals();
   return (
     <div className="content-page catalog-page rental-page">
       <Breadcrumb crumbs={[{ label: "Startsida", href: "/" }, { label: "Uthyrning" }]} />
@@ -16,7 +17,7 @@ export default function RentalPage() {
         <p>Hitta utrustningen för ditt projekt. Kontakta oss för tillgänglighet, pris och bokning.</p>
       </header>
       <div className="catalog-grid rental-catalog-grid">
-        {RENTALS.map((r, index) => <Reveal key={r.slug} as="div" className="catalog-card-wrap"><CategoryCard href={`/uthyrning/${r.slug}`} name={r.name} desc={r.intro} img={r.img} headingLevel={2} index={index + 1} /></Reveal>)}
+        {rentals.map((r, index) => <Reveal key={r.slug} as="div" className="catalog-card-wrap"><CategoryCard href={`/uthyrning/${r.slug}`} name={r.name} desc={r.intro} img={r.image.src} imgPosition={r.image.objectPosition} headingLevel={2} index={index + 1} /></Reveal>)}
       </div>
       <aside className="rental-booking">
         <div className="booking-title"><p className="section-kicker">Inför din bokning</p><h2>Berätta om jobbet.<br /><em>Vi hjälper dig välja.</em></h2></div>

@@ -1,27 +1,29 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Image from "next/image";
-import imageMap from "@/lib/catalog-images.json";
 import Breadcrumb from "@/components/Breadcrumb";
-import { CATALOG, MATERIALS, productPath } from "@/lib/catalog";
+import { MATERIALS, productPath } from "@/lib/catalog";
+import { getProducts } from "@/lib/content";
 import { KATEGORIER, getKategori, FORETAG } from "@/lib/data";
 import { pageMetadata } from "@/lib/site";
-export const dynamicParams = false;
+// Inte dynamicParams = false: sådana sidor blir 404 i Next 15.5 när en
+// Sanity-webhook förnyar dem (layouten hämtar öppettiderna). Okända adresser
+// ger 404 via notFound() i sidan.
 export function generateStaticParams(){return KATEGORIER.map(k=>({kategori:k.slug}));}
 type Props={params:Promise<{kategori:string}>};
 export async function generateMetadata({params}:Props){const {kategori}=await params;const k=getKategori(kategori);return k?pageMetadata(k.name,k.desc,`/produkter/${k.slug}`):{};}
 export default async function CategoryPage({params}:Props){
  const {kategori}=await params; const kat=getKategori(kategori);if(!kat)notFound();
- const products=CATALOG.filter(p=>p.category===kategori);
+ const products=(await getProducts()).filter(p=>p.category===kategori);
  return <div className="page-mount">
   <section className="category-hero" style={{backgroundImage:kat.img ? `linear-gradient(to top,rgba(18,32,38,.82),rgba(18,32,38,.25)),url('${kat.img}')`:undefined}}>
    <div className="container"><Breadcrumb light crumbs={[{label:"Startsida",href:"/"},{label:"Produkter",href:"/produkter"},{label:kat.name}]} /><h1>{kat.name}</h1><p>{kat.desc}</p></div>
   </section>
   <div className="content-page">
    {products.length>0&&<div className="category-products">{products.map(p=>{
-    const photo=(imageMap as Record<string,{src:string;alt:string}[]>)[p.oldPath]?.[0];
+    const photo=p.images[0];
     return <Link href={productPath(p)} className="category-product" key={p.slug}>
-     {photo&&<div className="category-product-image"><Image src={photo.src} alt="" fill sizes="(max-width:600px) 100vw, (max-width:960px) 50vw, 380px" /></div>}
+     {photo&&<div className="category-product-image"><Image src={photo.src} alt="" fill sizes="(max-width:600px) 100vw, (max-width:960px) 50vw, 380px" style={{objectPosition:photo.objectPosition}} /></div>}
      <div className="category-product-copy"><span className="category-product-type">{p.guide?"Materialguide":"Produktgrupp"}</span><h2>{p.name}</h2><p>{p.intro}</p><span className="category-product-link">{p.guide?"Läs guiden":"Visa sortiment"}<span className="arrow-icon" aria-hidden="true">↗</span></span></div>
     </Link>;
    })}</div>}
